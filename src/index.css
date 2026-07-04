@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+/* WONGANI SIWANDE — brand type. Jost primary, Cormorant secondary (sparingly). */
+@font-face {
+  font-family: 'Jost';
+  src: url('/fonts/Jost-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Jost';
+  src: url('/fonts/Jost-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Jost';
+  src: url('/fonts/Jost-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Jost';
+  src: url('/fonts/Jost-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Cormorant';
+  src: url('/fonts/Cormorant-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Cormorant';
+  src: url('/fonts/Cormorant-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Cormorant';
+  src: url('/fonts/Cormorant-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* Palette: about 90% Ink + Bone. Champagne only in whispers (a hairline, a small mark). */
+:root {
+  --bg: #F6F3EE;      /* Bone */
+  --ink: #0A0A0A;     /* Ink */
+  --muted: #8A8276;   /* Stone */
+  --accent: #B08D57;  /* Champagne */
+}
+
+.dark {
+  --bg: #0A0A0A;      /* Ink */
+  --ink: #F6F3EE;     /* Bone */
+  --muted: #8A8276;   /* Stone reads on both grounds */
+  --accent: #B08D57;
+}
+
+@theme {
+  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant", ui-serif, Georgia, serif;
+
+  --color-brand-bg: var(--bg);
+  --color-brand-ink: var(--ink);
+  --color-brand-muted: var(--muted);
+  --color-brand-accent: var(--accent);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-brand-bg text-brand-ink font-sans antialiased selection:bg-brand-ink selection:text-brand-bg transition-colors duration-700;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+/* Custom Utilities for "Air, Space, Freedom" */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Hide scrollbar but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

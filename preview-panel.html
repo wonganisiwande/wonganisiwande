@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>WS — Preview Panel</title>
+<style>
+  @font-face { font-family: 'Jost'; src: url('/fonts/Jost-Regular.ttf') format('truetype'); font-weight: 400; }
+  @font-face { font-family: 'Jost'; src: url('/fonts/Jost-Medium.ttf') format('truetype'); font-weight: 500; }
+  @font-face { font-family: 'Cormorant'; src: url('/fonts/Cormorant-Regular.ttf') format('truetype'); font-weight: 400; }
+
+  :root {
+    --bone: #F6F3EE;
+    --ink: #0A0A0A;
+    --stone: #8A8276;
+    --champagne: #B08D57;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bone);
+    color: var(--ink);
+    font-family: 'Jost', system-ui, sans-serif;
+    min-height: 100vh;
+    padding: 40px 48px 64px;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid rgba(176, 141, 87, 0.4);
+    padding-bottom: 20px;
+    margin-bottom: 36px;
+  }
+  header h1 {
+    font-family: 'Cormorant', serif;
+    font-weight: 400;
+    font-size: 28px;
+    letter-spacing: 0.02em;
+  }
+  header .label {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+  nav {
+    display: flex;
+    gap: 28px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+  nav button {
+    background: none;
+    border: none;
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink);
+    opacity: 0.35;
+    cursor: pointer;
+    padding: 6px 0;
+    transition: opacity 0.4s;
+  }
+  nav button:hover { opacity: 1; }
+  nav button.active {
+    opacity: 1;
+    font-style: italic;
+    border-bottom: 1px solid var(--ink);
+  }
+  .stage {
+    display: flex;
+    gap: 56px;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .device {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .device .tag {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--stone);
+    text-align: center;
+  }
+  /* Desktop frame: 1280x800 scaled */
+  .desktop-frame {
+    width: 1280px;
+    height: 800px;
+    transform: scale(0.62);
+    transform-origin: top left;
+    border: 1px solid rgba(10, 10, 10, 0.15);
+    box-shadow: 0 30px 80px rgba(10, 10, 10, 0.12);
+    background: #fff;
+  }
+  .desktop-holder { width: calc(1280px * 0.62); height: calc(800px * 0.62); overflow: hidden; }
+  /* Mobile frame: iPhone-ish 390x844 scaled */
+  .mobile-frame {
+    width: 390px;
+    height: 844px;
+    transform: scale(0.62);
+    transform-origin: top left;
+    border: 1px solid rgba(10, 10, 10, 0.2);
+    border-radius: 42px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(10, 10, 10, 0.14);
+    background: #fff;
+  }
+  .mobile-holder { width: calc(390px * 0.62); height: calc(844px * 0.62); overflow: hidden; }
+  iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .note {
+    margin-top: 44px;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--stone);
+  }
+  .note code {
+    font-family: ui-monospace, monospace;
+    font-size: 10px;
+    color: var(--ink);
+    opacity: 0.7;
+  }
+  footer {
+    margin-top: 40px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(10, 10, 10, 0.06);
+    display: flex;
+    justify-content: space-between;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+  footer .champagne { color: var(--champagne); }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Wongani Siwande — Preview Panel</h1>
+    <span class="label">Desktop · Mobile</span>
+  </header>
+
+  <nav id="pages">
+    <button data-path="/" class="active">Home</button>
+    <button data-path="/presence">Presence</button>
+    <button data-path="/experiments">Experiments</button>
+    <button data-path="/thoughts">Thoughts</button>
+    <button data-path="/essence">Essence</button>
+    <button data-path="/contact">Contact</button>
+  </nav>
+
+  <div class="stage">
+    <div class="device">
+      <span class="tag">Desktop · 1280</span>
+      <div class="desktop-holder">
+        <div class="desktop-frame"><iframe id="desk" src="http://localhost:5173/" title="Desktop preview"></iframe></div>
+      </div>
+    </div>
+    <div class="device">
+      <span class="tag">Mobile · 390</span>
+      <div class="mobile-holder">
+        <div class="mobile-frame"><iframe id="mob" src="http://localhost:5173/" title="Mobile preview"></iframe></div>
+      </div>
+    </div>
+  </div>
+
+  <p class="note">Both frames are live. Run <code>npm run dev</code> in the site folder first, then open this file in a browser.</p>
+
+  <footer>
+    <span>Taste Direction</span>
+    <span class="champagne">Malawi / World</span>
+  </footer>
+
+<script>
+  const desk = document.getElementById('desk');
+  const mob = document.getElementById('mob');
+  document.getElementById('pages').addEventListener('click', (e) => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    document.querySelectorAll('#pages button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const url = 'http://localhost:5173' + btn.dataset.path;
+    desk.src = url;
+    mob.src = url;
+  });
+</script>
+</body>
+</html>
