@@ -81,7 +81,7 @@ export default function Contact() {
                 <Music2 size={20} strokeWidth={1.5} />
                 <span className="text-[9px] uppercase tracking-[0.2em]">TikTok</span>
               </a>
-              <a href="#" className="group flex flex-col items-center space-y-4 opacity-40 hover:opacity-100 transition-all">
+              <a href="https://www.linkedin.com/in/wongani-siwande-/" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center space-y-4 opacity-40 hover:opacity-100 transition-all">
                 <Linkedin size={20} strokeWidth={1.5} />
                 <span className="text-[9px] uppercase tracking-[0.2em]">LinkedIn</span>
               </a>

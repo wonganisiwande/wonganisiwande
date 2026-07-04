@@ -28,7 +28,7 @@ export default function Layout({ children }: LayoutProps) {
       <div className="fixed left-8 bottom-10 z-40 hidden lg:flex flex-col space-y-8 opacity-30 hover:opacity-100 transition-opacity duration-500 text-brand-ink">
         <a href="https://www.instagram.com/wongani.ai" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform"><Instagram size={18} strokeWidth={1.5} /></a>
         <a href="https://www.tiktok.com/@wongani.siwande" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform"><Music2 size={18} strokeWidth={1.5} /></a>
-        <a href="#" className="hover:scale-110 transition-transform"><Linkedin size={18} strokeWidth={1.5} /></a>
+        <a href="https://www.linkedin.com/in/wongani-siwande-/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform"><Linkedin size={18} strokeWidth={1.5} /></a>
         <div className="w-[1px] h-20 bg-brand-accent/60 mx-auto" />
       </div>
 
@@ -68,7 +68,7 @@ export default function Layout({ children }: LayoutProps) {
           <a href="https://www.tiktok.com/@wongani.siwande" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 transition-opacity flex items-center gap-2">
             {isNearBottom ? <Music2 size={16} strokeWidth={1.2} /> : 'TikTok'}
           </a>
-          <a href="#" className="hover:opacity-100 transition-opacity flex items-center gap-2">
+          <a href="https://www.linkedin.com/in/wongani-siwande-/" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 transition-opacity flex items-center gap-2">
             {isNearBottom ? <Linkedin size={16} strokeWidth={1.2} /> : 'LinkedIn'}
           </a>
         </motion.div>
