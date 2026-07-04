@@ -23,12 +23,15 @@ const categories = [
   }
 ];
 
+type Credit = { role: string; name: string };
+
 type Thought = {
   id: number;
   title: string;
   category: string;
   description: string;
   credit?: string;
+  credits?: Credit[];
   body: string[];
 };
 
@@ -53,6 +56,18 @@ const thoughtItems: Thought[] = [
     category: "Essays",
     description: "What happens when the toughest fabric in the wardrobe goes soft for a day.",
     credit: "Photography by Keong Kadango",
+    credits: [
+      { role: 'A Production By', name: 'Tikonze Apapa × Wongani Siwande × Ruva' },
+      { role: 'Concept & Direction', name: 'Tikonze Apapa, Wongani Siwande' },
+      { role: 'Creative Direction', name: 'Wongani Siwande' },
+      { role: 'Photography & Co Direction', name: 'Keong Kadango' },
+      { role: 'Florals', name: 'Ruva Flowerhouse' },
+      { role: 'Reel Edit & Direction', name: 'Wongani Siwande' },
+      { role: 'Wardrobe', name: 'Grace & Hustle, Tikonze Apapa' },
+      { role: 'Models', name: 'Karen Lombe, Flossy Kapoloma, Wongani Siwande' },
+      { role: 'Behind the Scenes', name: 'Sam from Ruva' },
+      { role: 'Special Thanks', name: "Joe's Cafe" },
+    ],
     body: [
       "The idea arrived as a question: what happens when the toughest fabric in the wardrobe goes soft for a day?",
       "So we argued with denim. Shorts cut at the knee. A white shirt worn open and easy. White socks doing honest work above black loafers. Then flowers where a tie should be, baby's breath and something pink from the hedge.",
@@ -170,7 +185,22 @@ function ArticleReader({ article, onClose }: { article: Thought; onClose: () => 
               </p>
             ))}
           </div>
-          <div className="mt-16 pt-8 border-t border-brand-ink/5 text-[10px] uppercase tracking-[0.3em] opacity-30">
+
+          {article.credits && (
+            <div className="mt-16 pt-8 border-t border-brand-accent/40">
+              <p className="text-[10px] uppercase tracking-[0.3em] font-semibold opacity-40 mb-8">Credits</p>
+              <dl className="space-y-4">
+                {article.credits.map((c) => (
+                  <div key={c.role} className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-8">
+                    <dt className="text-[10px] uppercase tracking-[0.25em] text-brand-muted sm:w-1/2 pt-1">{c.role}</dt>
+                    <dd className="text-sm font-light sm:w-1/2 sm:text-right">{c.name}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          )}
+
+          <div className="mt-14 pt-8 border-t border-brand-ink/5 text-[10px] uppercase tracking-[0.3em] opacity-30">
             Wongani Siwande
           </div>
         </motion.article>
