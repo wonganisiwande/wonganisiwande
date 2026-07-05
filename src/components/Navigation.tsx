@@ -171,7 +171,7 @@ export default function Navigation() {
               <p className="text-[10px] uppercase tracking-[0.4em] opacity-20 font-semibold mb-6">Connect</p>
               <div className="flex space-x-10">
                 <a href="https://www.instagram.com/wonganisiwande/" target="_blank" rel="noopener noreferrer" className="text-[11px] uppercase tracking-[0.2em] opacity-40 hover:opacity-100 transition-opacity">Instagram</a>
-                <a href="https://www.tiktok.com/@wongani.siwande" target="_blank" rel="noopener noreferrer" className="text-[11px] uppercase tracking-[0.2em] opacity-40 hover:opacity-100 transition-opacity">TikTok</a>
+                <a href="https://www.tiktok.com/@wonganisiwande" target="_blank" rel="noopener noreferrer" className="text-[11px] uppercase tracking-[0.2em] opacity-40 hover:opacity-100 transition-opacity">TikTok</a>
               </div>
             </motion.div>
           </motion.div>

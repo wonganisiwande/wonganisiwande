@@ -168,8 +168,6 @@ function WorkModal({ work, onClose }: { work: Work; onClose: () => void }) {
                 src={work.video}
                 poster={work.poster}
                 controls
-                autoPlay
-                muted
                 loop
                 playsInline
                 className="w-full h-full object-cover"

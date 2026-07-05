@@ -91,10 +91,10 @@ export default function Home() {
             className="max-w-3xl"
           >
             <p className="text-[10px] md:text-[11px] uppercase tracking-[0.4em] font-medium opacity-40 mb-8 md:mb-10">
-              A Taste Director’s Life
+              A Note From the Taste Director
             </p>
             <h1 className="text-4xl md:text-7xl font-serif mb-8 md:mb-12 leading-tight tracking-tight">
-              I am the intersection of ideas, storytelling and strategy.
+              You have good taste. Welcome.
             </h1>
             <p className="text-brand-muted text-base md:text-xl font-light leading-relaxed max-w-2xl mx-auto">
               Explore my presence, experiments, and thoughts behind the work and sometimes within it.

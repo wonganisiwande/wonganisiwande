@@ -97,7 +97,7 @@ export default function Contact() {
                 <Instagram size={20} strokeWidth={1.5} />
                 <span className="text-[9px] uppercase tracking-[0.2em]">Instagram</span>
               </a>
-              <a href="https://www.tiktok.com/@wongani.siwande" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center space-y-4 opacity-40 hover:opacity-100 transition-all">
+              <a href="https://www.tiktok.com/@wonganisiwande" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center space-y-4 opacity-40 hover:opacity-100 transition-all">
                 <Music2 size={20} strokeWidth={1.5} />
                 <span className="text-[9px] uppercase tracking-[0.2em]">TikTok</span>
               </a>
