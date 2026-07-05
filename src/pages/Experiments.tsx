@@ -78,7 +78,7 @@ export default function Experiments() {
     <div className="max-w-7xl mx-auto px-4 md:px-12 relative">
       <SEO title="Experiments" />
 
-      <header className="mb-20 md:mb-60 max-w-2xl relative">
+      <header className="mb-20 lg:mb-60 max-w-2xl relative">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 0.05, scale: 1 }}
@@ -131,7 +131,7 @@ export default function Experiments() {
       </header>
 
       {/* Mobile: clean stack. Desktop: editorial scatter. */}
-      <div className="relative w-full space-y-8 md:space-y-0 pb-20 md:pb-0 md:min-h-[1100px]">
+      <div className="relative w-full space-y-8 lg:space-y-0 pb-20 lg:pb-0 lg:min-h-[1100px]">
         <AnimatePresence mode="popLayout">
           {filteredItems.map((item, idx) => (
             <motion.div
@@ -141,7 +141,7 @@ export default function Experiments() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="md:absolute group max-w-full md:max-w-sm"
+              className="lg:absolute group max-w-full lg:max-w-sm"
               style={{
                 left: desktopPositions[idx % desktopPositions.length].left,
                 top: desktopPositions[idx % desktopPositions.length].top

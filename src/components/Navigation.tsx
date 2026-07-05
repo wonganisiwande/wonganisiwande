@@ -3,6 +3,7 @@ import { motion, useScroll, AnimatePresence } from 'motion/react';
 import { User, Lightbulb, Pen, Circle, SendHorizontal, Home, Menu, X, Sun, Moon } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useTheme } from './ThemeContext';
+import { useScrollLock } from '../lib/useScrollLock';
 import Logo from './Logo';
 
 const navItems = [
@@ -31,16 +32,7 @@ export default function Navigation() {
     setIsMenuOpen(false);
   }, [location.pathname]);
 
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isMenuOpen]);
+  useScrollLock(isMenuOpen);
 
   return (
     <nav className={`
@@ -137,7 +129,7 @@ export default function Navigation() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 bg-brand-bg lg:bg-brand-bg/95 lg:backdrop-blur-xl md:hidden flex flex-col justify-center px-10 pointer-events-auto z-[60]"
+            className="fixed inset-0 bg-brand-bg md:hidden flex flex-col justify-center overflow-y-auto px-10 py-24 pointer-events-auto z-[60]"
           >
             <ul className="space-y-6 md:space-y-8">
               {navItems.map((item, idx) => (

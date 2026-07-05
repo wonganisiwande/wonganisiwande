@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Pen, X, ArrowRight } from 'lucide-react';
 import Parallax from '../components/Parallax';
+import { useScrollLock } from '../lib/useScrollLock';
 
 const categories = [
   {
@@ -186,6 +187,8 @@ function ArticleReader({ article, onClose }: { article: Thought; onClose: () => 
   const images = article.media?.filter(m => m.type === 'image') ?? [];
   const videos = article.media?.filter(m => m.type === 'video') ?? [];
 
+  useScrollLock(true);
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -193,12 +196,8 @@ function ArticleReader({ article, onClose }: { article: Thought; onClose: () => 
         else onClose();
       }
     };
-    document.body.style.overflow = 'hidden';
     window.addEventListener('keydown', onKey);
-    return () => {
-      document.body.style.overflow = 'unset';
-      window.removeEventListener('keydown', onKey);
-    };
+    return () => window.removeEventListener('keydown', onKey);
   }, [onClose, zoom]);
 
   return (
@@ -365,7 +364,7 @@ export default function Thoughts() {
         image={openArticle?.cover}
       />
 
-      <header className="mb-20 md:mb-60 max-w-2xl relative">
+      <header className="mb-20 lg:mb-60 max-w-2xl relative">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 0.05, scale: 1 }}
@@ -418,7 +417,7 @@ export default function Thoughts() {
       </header>
 
       {/* Mobile: clean stack. Desktop: editorial scatter. */}
-      <div className="relative w-full space-y-8 md:space-y-0 pb-20 md:pb-0 md:min-h-[1050px]">
+      <div className="relative w-full space-y-8 lg:space-y-0 pb-20 lg:pb-0 lg:min-h-[1050px]">
         <AnimatePresence mode="popLayout">
           {filteredItems.map((item, idx) => (
             <motion.div
@@ -428,7 +427,7 @@ export default function Thoughts() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="md:absolute group cursor-pointer max-w-full md:max-w-sm"
+              className="lg:absolute group cursor-pointer max-w-full lg:max-w-sm"
               style={{
                 left: desktopPositions[idx % desktopPositions.length].left,
                 top: desktopPositions[idx % desktopPositions.length].top

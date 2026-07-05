@@ -3,6 +3,7 @@ import SEO from '../components/SEO';
 import { useEffect, useState } from 'react';
 import { User, Play, X } from 'lucide-react';
 import Parallax from '../components/Parallax';
+import { useScrollLock } from '../lib/useScrollLock';
 
 const categories = [
   {
@@ -118,6 +119,8 @@ const works: Work[] = [
 function WorkModal({ work, onClose }: { work: Work; onClose: () => void }) {
   const [zoom, setZoom] = useState<string | null>(null);
 
+  useScrollLock(true);
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -125,12 +128,8 @@ function WorkModal({ work, onClose }: { work: Work; onClose: () => void }) {
         else onClose();
       }
     };
-    document.body.style.overflow = 'hidden';
     window.addEventListener('keydown', onKey);
-    return () => {
-      document.body.style.overflow = 'unset';
-      window.removeEventListener('keydown', onKey);
-    };
+    return () => window.removeEventListener('keydown', onKey);
   }, [onClose, zoom]);
 
   return (
