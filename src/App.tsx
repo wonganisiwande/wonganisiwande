@@ -25,6 +25,7 @@ export default function App() {
               <Route path="/presence" element={<Presence />} />
               <Route path="/experiments" element={<Experiments />} />
               <Route path="/thoughts" element={<Thoughts />} />
+              <Route path="/thoughts/:slug" element={<Thoughts />} />
               <Route path="/essence" element={<Essence />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>

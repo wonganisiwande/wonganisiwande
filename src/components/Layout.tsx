@@ -34,7 +34,7 @@ export default function Layout({ children }: LayoutProps) {
 
       <AnimatePresence mode="wait">
         <motion.main
-          key={location.pathname}
+          key={location.pathname.split('/')[1] || 'home'}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
