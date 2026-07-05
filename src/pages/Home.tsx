@@ -55,12 +55,13 @@ export default function Home() {
             >
               <motion.div
                 animate={{
-                  y: [0, -15, 0],
+                  y: [0, -14, 0],
+                  scale: [1, 1.04, 1],
                 }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
                 className="mb-8"
               >
-                <Logo size={110} className="text-brand-ink" />
+                <Logo size={110} airy className="text-brand-ink" />
               </motion.div>
               <motion.div
                 initial={{ width: 0 }}
@@ -90,7 +91,7 @@ export default function Home() {
             className="max-w-3xl"
           >
             <p className="text-[10px] md:text-[11px] uppercase tracking-[0.4em] font-medium opacity-40 mb-8 md:mb-10">
-              Taste Direction · Malawi to the World
+              A Taste Director’s Life
             </p>
             <h1 className="text-4xl md:text-7xl font-serif mb-8 md:mb-12 leading-tight tracking-tight">
               I am the intersection of ideas, storytelling and strategy.

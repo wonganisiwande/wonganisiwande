@@ -7,6 +7,19 @@
     <title>Wongani Siwande — Taste Direction</title>
   </head>
   <body>
+    <!--
+      Netlify Forms detection. This hidden static form lets Netlify register the
+      "inquiry" form at build time; the visible form is React-rendered and submits
+      to it via AJAX (see src/pages/Contact.tsx).
+    -->
+    <form name="inquiry" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="services" />
+      <textarea name="message"></textarea>
+      <input type="file" name="brief" />
+      <input name="bot-field" />
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
