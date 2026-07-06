@@ -39,9 +39,13 @@ const amaryllisGallery = [
   '07-robe', '08-scarf', '09-scarf', '10-scarf', '11-beanie', '12-beanie', '13-details'
 ].map(n => `/media/amaryllis/gallery/${n}.jpg`);
 
-const denimGallery = Array.from({ length: 10 }, (_, i) =>
-  `/media/denim/gallery/${String(i + 1).padStart(2, '0')}.jpg`
-);
+// The full Denim in Bloom shoot (photography Keong Kadango) so the full scope shows.
+const denimGallery = [
+  6459, 6460, 6461, 6462, 6463, 6464, 6465, 6466, 6467, 6468, 6469, 6470, 6471,
+  6472, 6473, 6474, 6475, 6476, 6477, 6478, 6480, 6481, 6482, 6483, 6485, 6486,
+  6487, 6488, 6489, 6490, 6491, 6492, 6493, 6494, 6495, 6496, 6497, 6498, 6499,
+  6500, 6501, 6502, 6503
+].map(n => `/media/denim/gallery/${n}.jpg`);
 
 const works: Work[] = [
   {
@@ -60,7 +64,7 @@ const works: Work[] = [
     title: 'Denim in Bloom',
     category: 'Sightlines',
     kind: 'gallery',
-    hero: '/media/denim/gallery/03.jpg',
+    hero: '/media/denim/gallery/6491.jpg',
     roles: 'Editorial · Photography Keong Kadango',
     description: 'The toughest fabric in the wardrobe, gone soft for a day. Shorts cut at the knee, a white shirt worn easy, white socks doing honest work above black loafers, and flowers where a tie should be. Shot against brick and bougainvillea on a quiet street outside Blantyre.',
     size: 'large',

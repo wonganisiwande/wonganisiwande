@@ -77,7 +77,7 @@ const thoughtItems: Thought[] = [
     category: "Essays",
     description: "What happens when the toughest fabric in the wardrobe goes soft for a day.",
     credit: "Photography by Keong Kadango",
-    cover: D('03'),
+    cover: D('6491'),
     coverKind: 'photo',
     credits: [
       { role: 'A Production By', name: 'Tikonze Apapa × Wongani Siwande × Ruva' },
@@ -100,10 +100,10 @@ const thoughtItems: Thought[] = [
       "P.s, the bench was colder than it looks."
     ],
     media: [
-      { type: 'image', src: D('01') },
-      { type: 'image', src: D('05') },
-      { type: 'image', src: D('09') },
-      { type: 'image', src: D('10') },
+      { type: 'image', src: D('6469') },
+      { type: 'image', src: D('6488') },
+      { type: 'image', src: D('6495') },
+      { type: 'image', src: D('6483') },
       { type: 'video', src: '/media/denim/denim-in-bloom.mp4', poster: '/media/denim/poster-denim-in-bloom.jpg' }
     ]
   },
@@ -134,7 +134,7 @@ const thoughtItems: Thought[] = [
     category: "Concept Notes",
     description: "Styling notes from the Denim Chill shoot, for anyone who wants the recipe.",
     credit: "Photography by Keong Kadango",
-    cover: D('06'),
+    cover: D('6468'),
     coverKind: 'photo',
     body: [
       "Styling notes from the Denim Chill shoot, for anyone who wants the recipe.",
@@ -144,9 +144,9 @@ const thoughtItems: Thought[] = [
       "P.s, loafers with white socks divides rooms. I stand where I stand."
     ],
     media: [
-      { type: 'image', src: D('02') },
-      { type: 'image', src: D('06') },
-      { type: 'image', src: D('10') }
+      { type: 'image', src: D('6467') },
+      { type: 'image', src: D('6495') },
+      { type: 'image', src: D('6460') }
     ]
   },
   {

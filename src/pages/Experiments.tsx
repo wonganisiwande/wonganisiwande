@@ -1,8 +1,10 @@
 import { motion, AnimatePresence } from 'motion/react';
 import SEO from '../components/SEO';
-import { useState } from 'react';
-import { Lightbulb } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Lightbulb, X, ArrowRight } from 'lucide-react';
 import Parallax from '../components/Parallax';
+import { useScrollLock } from '../lib/useScrollLock';
 
 const categories = [
   {
@@ -23,40 +25,74 @@ const categories = [
   }
 ];
 
-const archiveItems = [
+type Archive = {
+  id: number;
+  title: string;
+  category: string;
+  description: string;
+  body: string[];
+  link?: { to: string; label: string };
+};
+
+const archiveItems: Archive[] = [
   {
     id: 1,
     title: "The Bachelor, at Amaryllis Residences",
     category: "Case Studies",
-    description: "An eight episode lifestyle series for a serviced residence in Mount Pleasant. One loft, one resident, one recurring glove. A house is just a house... until it's yours."
+    description: "An eight episode lifestyle series for a serviced residence in Mount Pleasant. One loft, one resident, one recurring glove. A house is just a house... until it's yours.",
+    body: [
+      "An eight episode lifestyle series built inside a serviced residence in Mount Pleasant. The premise is small and a little cinematic: one man, one loft, and the slow work of making a space feel like a life.",
+      "It opens with a question I hand to the audience, which of two apartments he should take, and it keeps returning to one object. A glove. The glove is the whole thesis: a home is finished by meaning, not furniture.",
+      "The look is warm and filmic, one grade throughout, a foreground object swiping the lens to hide each cut. The sign off never changes. A house is just a house... until it's yours."
+    ],
+    link: { to: '/presence', label: 'Watch The Resident' }
   },
   {
     id: 2,
     title: "The Amaryllis Editorial",
     category: "Collaborations",
-    description: "Five looks in one morning with photographer Keong Kadango. One warm grade, no wasted frames, an address turned into a person."
+    description: "Five looks in one morning with photographer Keong Kadango. One warm grade, no wasted frames, an address turned into a person.",
+    body: [
+      "Five looks in a single morning, shot with photographer Keong Kadango. The brief was one line: make an apartment feel like a person.",
+      "One warm grade, no wasted frames, an address turned into a character. The full write up lives in Thoughts, and the whole set lives in Presence."
+    ],
+    link: { to: '/thoughts/the-amaryllis-editorial', label: 'Read the piece' }
   },
   {
     id: 3,
     title: "Denim in Bloom",
     category: "Case Studies",
-    description: "A styling film about the toughest fabric gone soft. Shorts cut at the knee, flowers at the collar, one bench outside Blantyre."
+    description: "A styling story about the toughest fabric gone soft. Shorts cut at the knee, flowers at the collar, one bench outside Blantyre.",
+    body: [
+      "The toughest fabric in the wardrobe, argued into softness for a day. A co production with Tikonze Apapa and Ruva Flowerhouse, shot against brick and bougainvillea outside Blantyre.",
+      "Denim wants to be casual. The flowers refuse to let it. That argument is the whole shoot, and it runs across three films and a full editorial set."
+    ],
+    link: { to: '/thoughts/directing-denim-in-bloom', label: 'Read the piece' }
   },
   {
     id: 4,
     title: "Sambas, Three Ways",
     category: "Prototypes",
-    description: "One shoe, three registers. A styling system testing how far a single silhouette stretches before it breaks. It does not."
+    description: "One shoe, three registers. A styling system testing how far a single silhouette stretches before it breaks. It does not.",
+    body: [
+      "One shoe, three registers. A styling system that tests how far a single silhouette stretches before it breaks. It does not.",
+      "Built as a fast, repeatable format: same shoe, three moods, one clean edit. A small proof that a signature does more work than a wardrobe."
+    ],
+    link: { to: '/presence', label: 'Watch the film' }
   },
   {
     id: 5,
     title: "The Glove Edit",
     category: "Prototypes",
-    description: "A signature series about finishing details. The gap between fine and unforgettable is one detail."
+    description: "A signature series about finishing details. The gap between fine and unforgettable is one detail.",
+    body: [
+      "A signature series about finishing details, the gap between fine and unforgettable. It runs on one idea: the last thing you add is the thing people remember.",
+      "The glove is where it started, and it became the recurring symbol of the Amaryllis series. Small object, large claim."
+    ]
   }
 ];
 
-// Editorial scatter positions, desktop only. Mobile stacks in flow.
+// Editorial scatter positions, desktop only. Mobile and tablet stack in flow.
 const desktopPositions = [
   { left: '8%', top: 0 },
   { left: '52%', top: 140 },
@@ -65,8 +101,67 @@ const desktopPositions = [
   { left: '30%', top: 760 }
 ];
 
+function ExperimentModal({ item, onClose }: { item: Archive; onClose: () => void }) {
+  useScrollLock(true);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [onClose]);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+      className="fixed inset-0 z-[90] bg-brand-bg/98 backdrop-blur-md overflow-y-auto"
+      onClick={onClose}
+    >
+      <button
+        onClick={onClose}
+        aria-label="Close"
+        className="fixed top-6 right-6 md:top-10 md:right-10 p-3 opacity-50 hover:opacity-100 transition-opacity z-20"
+      >
+        <X size={22} strokeWidth={1.2} />
+      </button>
+
+      <div className="max-w-2xl mx-auto px-6 md:px-8 py-24 md:py-32 min-h-full" onClick={(e) => e.stopPropagation()}>
+        <motion.article
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <p className="text-[10px] uppercase tracking-[0.3em] font-semibold opacity-40 mb-6">{item.category}</p>
+          <h1 className="text-4xl md:text-5xl font-serif leading-tight mb-4">{item.title}</h1>
+          <div className="w-16 border-t border-brand-accent/40 mb-10" />
+          <div className="space-y-7">
+            {item.body.map((p, i) => (
+              <p key={i} className="text-lg font-light leading-relaxed opacity-80">{p}</p>
+            ))}
+          </div>
+          {item.link && (
+            <Link
+              to={item.link.to}
+              className="inline-flex items-center gap-3 mt-12 text-[10px] uppercase tracking-[0.2em] opacity-50 hover:opacity-100 transition-opacity"
+            >
+              <span>{item.link.label}</span>
+              <ArrowRight size={14} />
+            </Link>
+          )}
+          <div className="mt-14 pt-8 border-t border-brand-ink/5 text-[10px] uppercase tracking-[0.3em] opacity-30">
+            Wongani Siwande
+          </div>
+        </motion.article>
+      </div>
+    </motion.div>
+  );
+}
+
 export default function Experiments() {
   const [activeCategory, setActiveCategory] = useState('All');
+  const [openItem, setOpenItem] = useState<Archive | null>(null);
 
   const filteredItems = activeCategory === 'All'
     ? archiveItems
@@ -130,7 +225,7 @@ export default function Experiments() {
         </AnimatePresence>
       </header>
 
-      {/* Mobile: clean stack. Desktop: editorial scatter. */}
+      {/* Mobile & tablet: clean stack. Desktop: editorial scatter. */}
       <div className="relative w-full space-y-8 lg:space-y-0 pb-20 lg:pb-0 lg:min-h-[1100px]">
         <AnimatePresence mode="popLayout">
           {filteredItems.map((item, idx) => (
@@ -141,7 +236,8 @@ export default function Experiments() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:absolute group max-w-full lg:max-w-sm"
+              onClick={() => setOpenItem(item)}
+              className="lg:absolute group cursor-pointer max-w-full lg:max-w-sm"
               style={{
                 left: desktopPositions[idx % desktopPositions.length].left,
                 top: desktopPositions[idx % desktopPositions.length].top
@@ -155,8 +251,11 @@ export default function Experiments() {
                   <h3 className="text-2xl font-serif mb-4 group-hover:italic transition-all duration-500">
                     {item.title}
                   </h3>
-                  <p className="text-sm font-light leading-relaxed opacity-40 group-hover:opacity-70 transition-opacity">
+                  <p className="text-sm font-light leading-relaxed opacity-40 group-hover:opacity-70 transition-opacity mb-6">
                     {item.description}
+                  </p>
+                  <p className="text-[9px] uppercase tracking-[0.2em] opacity-0 group-hover:opacity-50 transition-opacity">
+                    Open
                   </p>
                 </div>
               </Parallax>
@@ -164,6 +263,10 @@ export default function Experiments() {
           ))}
         </AnimatePresence>
       </div>
+
+      <AnimatePresence>
+        {openItem && <ExperimentModal item={openItem} onClose={() => setOpenItem(null)} />}
+      </AnimatePresence>
     </div>
   );
 }
