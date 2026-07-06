@@ -2,6 +2,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { motion, useScroll, AnimatePresence } from 'motion/react';
 import { User, Lightbulb, Pen, Circle, SendHorizontal, Home, Menu, X, Sun, Moon } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { useTheme } from './ThemeContext';
 import { useScrollLock } from '../lib/useScrollLock';
 import Logo from './Logo';
@@ -121,15 +122,17 @@ export default function Navigation() {
         </motion.button>
       </div>
 
-      {/* Mobile Navigation Overlay */}
-      <AnimatePresence>
-        {isMenuOpen && (
+      {/* Mobile Navigation Overlay — portaled to <body> so the nav's backdrop-filter
+          (active once scrolled) can't trap this fixed overlay and let the page bleed through. */}
+      {createPortal(
+        <AnimatePresence>
+          {isMenuOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 bg-brand-bg md:hidden flex flex-col justify-center overflow-y-auto px-10 py-24 pointer-events-auto z-[60]"
+            className="fixed inset-0 bg-brand-bg md:hidden flex flex-col justify-center overflow-y-auto px-10 py-24 z-[60]"
           >
             <ul className="space-y-6 md:space-y-8">
               {navItems.map((item, idx) => (
@@ -167,8 +170,10 @@ export default function Navigation() {
               </div>
             </motion.div>
           </motion.div>
-        )}
-      </AnimatePresence>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </nav>
   );
 }
