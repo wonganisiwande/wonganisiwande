@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'motion/react';
 import SEO from '../components/SEO';
-import { Instagram, Linkedin, Music2, Check, SendHorizontal, FileText, MessageCircle, ArrowRight } from 'lucide-react';
+import { Instagram, Linkedin, Music2, Check, SendHorizontal, FileText, MessageCircle, ArrowRight, X } from 'lucide-react';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import FileUpload from '../components/FileUpload';
@@ -63,6 +63,7 @@ export default function Contact() {
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [status, setStatus] = useState<Status>('idle');
   const [briefFile, setBriefFile] = useState<File | null>(null);
+  const [showCurrency, setShowCurrency] = useState(false);
 
   const toggleService = (service: string) => {
     setSelectedServices(prev =>
@@ -141,15 +142,14 @@ export default function Contact() {
 
             {/* Rate card + WhatsApp — the two fastest paths to a booking */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="/rate-card.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                type="button"
+                onClick={() => setShowCurrency(true)}
                 className="flex items-center justify-center gap-3 border border-brand-ink/15 hover:border-brand-ink px-8 py-5 text-[10px] uppercase tracking-[0.25em] font-semibold transition-colors duration-500"
               >
                 <FileText size={15} strokeWidth={1.5} />
                 <span>View the 2026 rate card</span>
-              </a>
+              </button>
               <a
                 href={WHATSAPP}
                 target="_blank"
@@ -160,6 +160,64 @@ export default function Contact() {
                 <span>WhatsApp me</span>
               </a>
             </div>
+
+            {/* Currency chooser for the rate card */}
+            <AnimatePresence>
+              {showCurrency && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="fixed inset-0 z-[90] bg-brand-bg/98 backdrop-blur-md flex items-center justify-center px-6"
+                  onClick={() => setShowCurrency(false)}
+                >
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                    className="w-full max-w-md border border-brand-ink/10 bg-brand-bg p-10 md:p-12 relative"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <button
+                      onClick={() => setShowCurrency(false)}
+                      aria-label="Close"
+                      className="absolute top-4 right-4 p-2 opacity-40 hover:opacity-100 transition-opacity"
+                    >
+                      <X size={18} strokeWidth={1.2} />
+                    </button>
+                    <p className="text-[10px] uppercase tracking-[0.3em] font-semibold opacity-40 mb-3">2026 Rate Card</p>
+                    <h3 className="text-2xl font-serif mb-8">Pick your currency.</h3>
+                    <div className="space-y-4">
+                      <a
+                        href="/rate-card-mwk.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setShowCurrency(false)}
+                        className="flex items-baseline justify-between border border-brand-ink/15 hover:border-brand-ink px-6 py-5 transition-colors duration-500 group"
+                      >
+                        <span className="text-xs uppercase tracking-[0.2em] font-semibold">MWK</span>
+                        <span className="text-[10px] uppercase tracking-[0.15em] opacity-40 group-hover:opacity-70 transition-opacity">Malawi Kwacha</span>
+                      </a>
+                      <a
+                        href="/rate-card-usd.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setShowCurrency(false)}
+                        className="flex items-baseline justify-between border border-brand-ink/15 hover:border-brand-ink px-6 py-5 transition-colors duration-500 group"
+                      >
+                        <span className="text-xs uppercase tracking-[0.2em] font-semibold">USD</span>
+                        <span className="text-[10px] uppercase tracking-[0.15em] opacity-40 group-hover:opacity-70 transition-opacity">International</span>
+                      </a>
+                    </div>
+                    <p className="text-[10px] font-light leading-relaxed opacity-40 mt-8">
+                      Same services either way. 50% books the date, balance on delivery.
+                    </p>
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
             <div className="flex space-x-12 pt-4">
               <a href="https://www.instagram.com/wonganisiwande/" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center space-y-4 opacity-40 hover:opacity-100 transition-all">

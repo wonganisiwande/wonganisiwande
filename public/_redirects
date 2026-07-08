@@ -1,1 +1,5 @@
+# Old single rate card URL -> MWK version (link may be in circulation)
+/rate-card.pdf    /rate-card-mwk.pdf    302
+
+# SPA fallback
 /*    /index.html   200
