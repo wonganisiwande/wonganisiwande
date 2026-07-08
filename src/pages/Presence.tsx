@@ -34,17 +34,16 @@ type Work = {
   poster?: string;
 };
 
+// Amaryllis, curated ten across all five looks.
 const amaryllisGallery = [
-  '01-taupe', '02-taupe', '03-taupe', '04-robe', '05-robe', '06-robe',
-  '07-robe', '08-scarf', '09-scarf', '10-scarf', '11-beanie', '12-beanie', '13-details'
+  '01-taupe', '02-taupe', '04-robe', '05-robe', '07-robe',
+  '08-scarf', '09-scarf', '10-scarf', '11-beanie', '13-details'
 ].map(n => `/media/amaryllis/gallery/${n}.jpg`);
 
-// The full Denim in Bloom shoot (photography Keong Kadango) so the full scope shows.
+// Denim in Bloom, curated ten (photography Keong Kadango): portraits, details,
+// full looks, the street, and the bouquet frames that close the story.
 const denimGallery = [
-  6459, 6460, 6461, 6462, 6463, 6464, 6465, 6466, 6467, 6468, 6469, 6470, 6471,
-  6472, 6473, 6474, 6475, 6476, 6477, 6478, 6480, 6481, 6482, 6483, 6485, 6486,
-  6487, 6488, 6489, 6490, 6491, 6492, 6493, 6494, 6495, 6496, 6497, 6498, 6499,
-  6500, 6501, 6502, 6503
+  6501, 6459, 6485, 6468, 6491, 6477, 6493, 6495, 6504, 6510
 ].map(n => `/media/denim/gallery/${n}.jpg`);
 
 const works: Work[] = [
@@ -65,8 +64,8 @@ const works: Work[] = [
     category: 'Sightlines',
     kind: 'gallery',
     hero: '/media/denim/gallery/6491.jpg',
-    roles: 'Editorial · Photography Keong Kadango',
-    description: 'The toughest fabric in the wardrobe, gone soft for a day. Shorts cut at the knee, a white shirt worn easy, white socks doing honest work above black loafers, and flowers where a tie should be. Shot against brick and bougainvillea on a quiet street outside Blantyre.',
+    roles: 'Denim Chill Show Promo · Photography Keong Kadango',
+    description: 'The promo campaign for the Denim Chill fashion show, built around Tikonze Apapa\'s upcycled denim (I walked in it too). The toughest fabric in the wardrobe, gone soft for a day: shorts cut at the knee, flowers where a tie should be, brick and bougainvillea on a quiet street outside Blantyre.',
     size: 'large',
     gallery: denimGallery
   },

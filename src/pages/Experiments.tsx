@@ -62,10 +62,11 @@ const archiveItems: Archive[] = [
     id: 3,
     title: "Denim in Bloom",
     category: "Case Studies",
-    description: "A styling story about the toughest fabric gone soft. Shorts cut at the knee, flowers at the collar, one bench outside Blantyre.",
+    description: "The promo campaign for the Denim Chill fashion show. Denim argued into softness: flowers at the collar, one bench outside Blantyre.",
     body: [
-      "The toughest fabric in the wardrobe, argued into softness for a day. A co production with Tikonze Apapa and Ruva Flowerhouse, shot against brick and bougainvillea outside Blantyre.",
-      "Denim wants to be casual. The flowers refuse to let it. That argument is the whole shoot, and it runs across three films and a full editorial set."
+      "The promo campaign for Denim Chill, a fashion show I walked in, built around Tikonze Apapa's upcycled denim. The brief: make people feel the show before a single ticket was sold.",
+      "So we argued with the fabric. Shorts cut at the knee, a white shirt worn easy, flowers where a tie should be. Denim wants to be casual. The flowers refuse to let it. That argument was the whole campaign, and it ran across an editorial set and three films with Tikonze Apapa and Ruva Flowerhouse.",
+      "The shoot did its job: the look set the tone for the runway, and the films carried the show onto feeds it would never have reached on its own."
     ],
     link: { to: '/thoughts/directing-denim-in-bloom', label: 'Read the piece' }
   },
@@ -89,6 +90,18 @@ const archiveItems: Archive[] = [
       "A signature series about finishing details, the gap between fine and unforgettable. It runs on one idea: the last thing you add is the thing people remember.",
       "The glove is where it started, and it became the recurring symbol of the Amaryllis series. Small object, large claim."
     ]
+  },
+  {
+    id: 6,
+    title: "Tikonze Apapa, Brand Ambassador",
+    category: "Collaborations",
+    description: "Official face of Tikonze Apapa, the Malawian brand turning upcycled denim into fashion with a conscience. Campaigns, content, and the runway.",
+    body: [
+      "I serve as an official brand ambassador for Tikonze Apapa, a Malawian label built on upcycled denim, ethical fashion and community impact.",
+      "The work is ongoing: monthly content across Instagram and TikTok, campaign shoots, and their events, including the Denim Chill fashion show and the Jean Drive. Denim in Bloom, the promo campaign for the show, came out of this partnership.",
+      "It is the kind of collaboration I take on deliberately. A brand with a real point of view, and a story worth wearing."
+    ],
+    link: { to: '/presence', label: 'Watch Jean Drive' }
   }
 ];
 

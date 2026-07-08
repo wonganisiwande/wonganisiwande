@@ -92,11 +92,12 @@ const thoughtItems: Thought[] = [
       { role: 'Special Thanks', name: "Joe's Cafe" }
     ],
     body: [
+      "First, the job: Denim in Bloom was the promo campaign for Denim Chill, a fashion show built around Tikonze Apapa's upcycled denim. I walked in the show, and I directed the campaign that invited people to it. The brief was simple: make people feel the show before a single ticket was sold.",
       "The idea arrived as a question: what happens when the toughest fabric in the wardrobe goes soft for a day?",
       "So we argued with denim. Shorts cut at the knee. A white shirt worn open and easy. White socks doing honest work above black loafers. Then flowers where a tie should be, baby's breath and something pink from the hedge.",
-      "Denim wants to be casual. The flowers refuse to allow it. That argument is the whole film, and the whole shoot.",
-      "We filmed against brick and bougainvillea on a quiet street outside Blantyre. Keong Kadango took the stills and kept catching the wind at the right time (the frame we kept has petals mid move). The films came after: Denim Chill for the slow read, Denim in Bloom for the mood, Jean Drive for the fun of it.",
-      "Direction is mostly deciding what a thing is about before the camera comes out. This one was about softness earning its place.",
+      "Denim wants to be casual. The flowers refuse to allow it. That argument is the whole film, and it became the tone of the runway itself.",
+      "We filmed against brick and bougainvillea on a quiet street outside Blantyre. Keong Kadango took the stills and kept catching the wind at the right time (the frame we kept has petals mid move). The films came after: Denim in Bloom for the mood, Jean Drive for the fun of it.",
+      "Direction is mostly deciding what a thing is about before the camera comes out. This one was about softness earning its place, and about giving a show its face.",
       "P.s, the bench was colder than it looks."
     ],
     media: [

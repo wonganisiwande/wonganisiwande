@@ -1,19 +1,63 @@
 import { motion, AnimatePresence } from 'motion/react';
 import SEO from '../components/SEO';
-import { Instagram, Linkedin, Music2, Check, SendHorizontal } from 'lucide-react';
+import { Instagram, Linkedin, Music2, Check, SendHorizontal, FileText, MessageCircle, ArrowRight } from 'lucide-react';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import FileUpload from '../components/FileUpload';
 
-const services = [
-  'Videography',
-  'Concept Development',
-  'Content Creation',
-  'Brand Strategy',
-  'Presence / Modeling',
-  'Creative Direction'
+type Service = {
+  name: string;
+  value: string;
+  ask: string;
+  sample: { to: string; label: string };
+};
+
+// Each service says what it includes, what to send so we skip the back and forth,
+// and links to visual proof.
+const services: Service[] = [
+  {
+    name: 'Creative Direction',
+    value: 'Concept to final frame: the idea, look order, shot list, grade and pace.',
+    ask: 'Send what you are making, where it will live, and your date.',
+    sample: { to: '/thoughts/the-amaryllis-editorial', label: 'The Amaryllis Editorial' }
+  },
+  {
+    name: 'Videography',
+    value: 'Shot and edited films with one warm grade, cut for IG and TikTok.',
+    ask: 'Send the story you want told, the location, and your timeline.',
+    sample: { to: '/presence', label: 'The Resident' }
+  },
+  {
+    name: 'Content Creation',
+    value: 'Short form series built to a repeatable format your audience returns for.',
+    ask: 'Send your platform, your goal, and how often you want to post.',
+    sample: { to: '/presence', label: 'Sambas, Three Ways' }
+  },
+  {
+    name: 'Concept Development',
+    value: 'Campaign and series concepts with hooks, arcs and a reason to exist.',
+    ask: 'Send your product and who it is for. I will bring the idea.',
+    sample: { to: '/experiments', label: 'The Bachelor series' }
+  },
+  {
+    name: 'Brand Strategy',
+    value: 'Positioning, content pillars and a plan your team can actually run.',
+    ask: 'Send where the brand is now and where you want it to be.',
+    sample: { to: '/experiments', label: 'Selected case studies' }
+  },
+  {
+    name: 'Presence / Modeling',
+    value: 'Editorial and campaign presence, directed or in front of the lens.',
+    ask: 'Send the campaign concept, usage, and dates.',
+    sample: { to: '/presence', label: 'Denim in Bloom' }
+  }
 ];
 
 type Status = 'idle' | 'sending' | 'sent' | 'error';
+
+const WHATSAPP = 'https://wa.me/265884243161?text=' + encodeURIComponent(
+  'Hi Wongani, I found you through wonganisiwande.com. I am interested in: '
+);
 
 export default function Contact() {
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
@@ -54,7 +98,10 @@ export default function Contact() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 md:px-12 pb-40">
-      <SEO title="Contact" />
+      <SEO
+        title="Contact"
+        description="Book creative direction, videography, content, brand strategy or presence. Rate card available. Blantyre, Malawi and beyond."
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 md:gap-40 items-start pt-20">
         {/* Left Side: Info */}
@@ -77,7 +124,7 @@ export default function Contact() {
               Let’s build something intentional.
             </h1>
             <p className="text-brand-muted text-lg font-light leading-relaxed opacity-60 max-w-md">
-              Reach out to exchange ideas, collaborate, or connect.
+              Tell me what you are building and I will tell you exactly how I can help. The clearer the brief, the faster the yes.
             </p>
           </div>
 
@@ -92,7 +139,29 @@ export default function Contact() {
               </a>
             </div>
 
-            <div className="flex space-x-12 pt-8">
+            {/* Rate card + WhatsApp — the two fastest paths to a booking */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="/rate-card.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-3 border border-brand-ink/15 hover:border-brand-ink px-8 py-5 text-[10px] uppercase tracking-[0.25em] font-semibold transition-colors duration-500"
+              >
+                <FileText size={15} strokeWidth={1.5} />
+                <span>View the 2026 rate card</span>
+              </a>
+              <a
+                href={WHATSAPP}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-3 bg-brand-ink text-brand-bg px-8 py-5 text-[10px] uppercase tracking-[0.25em] font-semibold hover:opacity-90 transition-opacity duration-500"
+              >
+                <MessageCircle size={15} strokeWidth={1.5} />
+                <span>WhatsApp me</span>
+              </a>
+            </div>
+
+            <div className="flex space-x-12 pt-4">
               <a href="https://www.instagram.com/wonganisiwande/" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center space-y-4 opacity-40 hover:opacity-100 transition-all">
                 <Instagram size={20} strokeWidth={1.5} />
                 <span className="text-[9px] uppercase tracking-[0.2em]">Instagram</span>
@@ -116,7 +185,10 @@ export default function Contact() {
           transition={{ duration: 1.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           className="bg-brand-ink/[0.02] border border-brand-ink/5 p-8 md:p-12 backdrop-blur-sm"
         >
-          <h2 className="text-[11px] uppercase tracking-[0.3em] font-semibold mb-12 opacity-40">Request a Quotation</h2>
+          <h2 className="text-[11px] uppercase tracking-[0.3em] font-semibold mb-4 opacity-40">Request a Quotation</h2>
+          <p className="text-sm font-light leading-relaxed opacity-50 mb-10">
+            Pick a service to see what it includes and what to send. Each one links to a finished example, so you know what you are buying before we talk.
+          </p>
 
           <form
             name="inquiry"
@@ -132,23 +204,57 @@ export default function Contact() {
 
             <div className="space-y-6">
               <p className="text-[10px] uppercase tracking-[0.2em] opacity-40">Select Services</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {services.map((service) => (
-                  <button
-                    key={service}
-                    type="button"
-                    onClick={() => toggleService(service)}
-                    className={`
-                      flex items-center justify-between px-6 py-4 border transition-all duration-500 text-left
-                      ${selectedServices.includes(service)
-                        ? 'bg-brand-ink text-brand-bg border-brand-ink'
-                        : 'border-brand-ink/10 hover:border-brand-ink/30'}
-                    `}
-                  >
-                    <span className="text-xs uppercase tracking-wider">{service}</span>
-                    {selectedServices.includes(service) && <Check size={14} />}
-                  </button>
-                ))}
+              <div className="grid grid-cols-1 gap-4">
+                {services.map((service) => {
+                  const active = selectedServices.includes(service.name);
+                  return (
+                    <div
+                      key={service.name}
+                      className={`
+                        border transition-all duration-500
+                        ${active ? 'border-brand-ink/60 bg-brand-ink/[0.03]' : 'border-brand-ink/10 hover:border-brand-ink/30'}
+                      `}
+                    >
+                      <button
+                        type="button"
+                        onClick={() => toggleService(service.name)}
+                        className="w-full flex items-center justify-between px-6 py-4 text-left"
+                      >
+                        <span className="text-xs uppercase tracking-wider font-medium">{service.name}</span>
+                        <span className={`flex items-center justify-center w-5 h-5 border transition-all duration-300 ${active ? 'bg-brand-ink border-brand-ink text-brand-bg' : 'border-brand-ink/20'}`}>
+                          {active && <Check size={12} />}
+                        </span>
+                      </button>
+
+                      <AnimatePresence initial={false}>
+                        {active && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                            className="overflow-hidden"
+                          >
+                            <div className="px-6 pb-5 space-y-3">
+                              <p className="text-sm font-light leading-relaxed opacity-70">{service.value}</p>
+                              <p className="text-[11px] font-light leading-relaxed text-brand-muted">
+                                <span className="uppercase tracking-[0.15em] font-medium opacity-70">To quote you fast: </span>
+                                {service.ask}
+                              </p>
+                              <Link
+                                to={service.sample.to}
+                                className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-brand-accent hover:opacity-70 transition-opacity"
+                              >
+                                <span>See it done: {service.sample.label}</span>
+                                <ArrowRight size={12} />
+                              </Link>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
@@ -183,7 +289,7 @@ export default function Contact() {
                 name="message"
                 rows={4}
                 className="w-full bg-transparent border-b border-brand-ink/10 py-3 focus:border-brand-ink outline-none transition-colors font-light resize-none"
-                placeholder="Tell me about your vision..."
+                placeholder="Your goal, your dates, your budget range if you have one..."
               />
             </div>
 

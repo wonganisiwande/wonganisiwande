@@ -1,6 +1,6 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import { motion, useScroll, AnimatePresence } from 'motion/react';
-import { User, Lightbulb, Pen, Circle, SendHorizontal, Home, Menu, X, Sun, Moon } from 'lucide-react';
+import { User, Lightbulb, Pen, Circle, SendHorizontal, Menu, X, Sun, Moon } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useTheme } from './ThemeContext';
