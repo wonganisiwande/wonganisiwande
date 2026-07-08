@@ -155,7 +155,7 @@ export default function Home() {
             className="max-w-2xl mx-auto"
           >
             <p className="text-2xl md:text-3xl font-serif italic leading-relaxed mb-8 md:mb-12">
-              "Taste is a form of respect."
+              "Taste is an artform."
             </p>
             <Link to="/experiments" className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-semibold opacity-40 hover:opacity-100 transition-opacity">
               Explore the Experiments

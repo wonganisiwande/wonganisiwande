@@ -6,7 +6,7 @@ import Parallax from '../components/Parallax';
 const sections = [
   {
     title: 'Philosophy',
-    content: 'Taste is a form of respect. Ideas come first, opportunity second, action third.'
+    content: 'Taste is an artform. Ideas come first, opportunity second, action third.'
   },
   {
     title: 'Capabilities',
