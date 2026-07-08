@@ -385,20 +385,10 @@ export default function Contact() {
         </motion.div>
       </div>
 
-      {/* Floating Background Element */}
+      {/* Static background wash. Was an infinitely animating 150px blur, which
+          cost real frame time on phones and made the page feel sluggish. */}
       <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.01, 0.02, 0.01]
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-brand-ink rounded-full blur-[150px]"
-        />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-brand-ink opacity-[0.015] rounded-full blur-[150px]" />
       </div>
     </div>
   );

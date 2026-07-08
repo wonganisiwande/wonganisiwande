@@ -164,9 +164,10 @@ export default function Navigation() {
               className="absolute bottom-16 left-10 right-10 pt-10 border-t border-brand-ink/5"
             >
               <p className="text-[10px] uppercase tracking-[0.4em] opacity-20 font-semibold mb-6">Connect</p>
-              <div className="flex space-x-10">
+              <div className="flex flex-wrap gap-x-10 gap-y-4">
                 <a href="https://www.instagram.com/wonganisiwande/" target="_blank" rel="noopener noreferrer" className="text-[11px] uppercase tracking-[0.2em] opacity-40 hover:opacity-100 transition-opacity">Instagram</a>
                 <a href="https://www.tiktok.com/@wonganisiwande" target="_blank" rel="noopener noreferrer" className="text-[11px] uppercase tracking-[0.2em] opacity-40 hover:opacity-100 transition-opacity">TikTok</a>
+                <a href="https://www.linkedin.com/in/wongani-siwande-/" target="_blank" rel="noopener noreferrer" className="text-[11px] uppercase tracking-[0.2em] opacity-40 hover:opacity-100 transition-opacity">LinkedIn</a>
               </div>
             </motion.div>
           </motion.div>

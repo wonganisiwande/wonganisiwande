@@ -102,19 +102,8 @@ export default function Home() {
           </motion.div>
         </Parallax>
 
-        {/* Floating Background Element */}
-        <motion.div
-          animate={{
-            y: [0, -20, 0],
-            rotate: [0, 2, 0]
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-brand-ink/2 rounded-full blur-[100px]"
-        />
+        {/* Static background wash (was an infinite blur animation; costly on phones) */}
+        <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-brand-ink/2 rounded-full blur-[100px]" />
       </section>
 
       {/* Selected Work */}
