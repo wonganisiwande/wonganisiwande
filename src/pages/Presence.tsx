@@ -36,16 +36,27 @@ type Work = {
   poster?: string;
 };
 
-// Amaryllis, curated ten across all five looks.
+// The Amaryllis Residences, thirty frames in shoot order so the set reads like
+// an issue: the suite wakes up, the tastemaker settles in, the exterior does its
+// old money turn, off duty lets the air out, and the property details close.
+// Phase 1 Robe, Phase 2 Taupe, Phase 3 White & Scarf, Phase 4 Beanie, Phase 5 Details.
 const amaryllisGallery = [
-  '01-taupe', '02-taupe', '04-robe', '05-robe', '07-robe',
-  '08-scarf', '09-scarf', '10-scarf', '11-beanie', '13-details'
+  9235, 9217, 9232, 9203, 9294, 9287, 9209, 9364,
+  9395, 9462, 9468, 9416, 9418, 9485, 9484,
+  9512, 9506, 9531, 9561, 9564, 9510, 9568,
+  9592, 9591, 9579, 9588,
+  9252, 9268, 9502, 9593
 ].map(n => `/media/amaryllis/gallery/${n}.jpg`);
 
-// Denim in Bloom, curated ten (photography Keong Kadango): portraits, details,
-// full looks, the street, and the bouquet frames that close the story.
+// Denim in Bloom, thirty frames (photography Keong Kadango) in story order: the
+// bench and the street, the sock and loafer details, the portraits that carry
+// the thesis, the bougainvillea wall, and the bouquet frames that close it.
 const denimGallery = [
-  6501, 6459, 6485, 6468, 6491, 6477, 6493, 6495, 6504, 6510
+  6459, 6461, 6465, 6466, 6477, 6471, 6469, 6470, 6467, 6468,
+  6480, 6481, 6482, 6483, 6478,
+  6485, 6486, 6487,
+  6488, 6489, 6490, 6491, 6492, 6493,
+  6495, 6497, 6499, 6501, 6504, 6510
 ].map(n => `/media/denim/gallery/${n}.jpg`);
 
 const works: Work[] = [
