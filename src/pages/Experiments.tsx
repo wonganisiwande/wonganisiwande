@@ -62,7 +62,7 @@ const archiveItems: Archive[] = [
     id: 3,
     title: "Denim in Bloom",
     category: "Case Studies",
-    description: "The promo campaign for the Denim Chill fashion show. Denim argued into softness: flowers at the collar, one bench outside Blantyre.",
+    description: "When you bring on the right people, you do not need more people. The promo campaign for Denim Chill, made deliberately small.",
     body: [
       "The promo campaign for Denim Chill, a fashion show I walked in, built around Tikonze Apapa's upcycled denim. The brief: make people feel the show before a single ticket was sold.",
       "So we argued with the fabric. Shorts cut at the knee, a white shirt worn easy, flowers where a tie should be. Denim wants to be casual. The flowers refuse to let it. That argument was the whole campaign, and it ran across an editorial set and three films with Tikonze Apapa and Ruva Flowerhouse.",

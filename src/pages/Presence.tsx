@@ -65,7 +65,7 @@ const works: Work[] = [
     kind: 'gallery',
     hero: '/media/denim/gallery/6491.jpg',
     roles: 'Denim Chill Show Promo · Photography Keong Kadango',
-    description: 'The promo campaign for the Denim Chill fashion show, built around Tikonze Apapa\'s upcycled denim (I walked in it too). The toughest fabric in the wardrobe, gone soft for a day: shorts cut at the knee, flowers where a tie should be, brick and bougainvillea on a quiet street outside Blantyre.',
+    description: 'The one thing you cannot teach past aesthetic is taste. Flowers that did not blend with the pose came out, and everything that stayed was intended. Shot on a quiet street in Blantyre with Keong Kadango.',
     size: 'large',
     gallery: denimGallery
   },

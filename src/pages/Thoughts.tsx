@@ -73,9 +73,9 @@ const thoughtItems: Thought[] = [
   {
     id: 2,
     slug: 'directing-denim-in-bloom',
-    title: "Directing Denim in Bloom",
+    title: "The Bloom Before the Chill, All in Denim",
     category: "Essays",
-    description: "What happens when the toughest fabric in the wardrobe goes soft for a day.",
+    description: "I have always thought flowers were a bit misrepresented. On bringing jeans and flowers together for a show that gives back.",
     credit: "Photography by Keong Kadango",
     cover: D('6491'),
     coverKind: 'photo',
@@ -84,21 +84,22 @@ const thoughtItems: Thought[] = [
       { role: 'Concept & Direction', name: 'Tikonze Apapa, Wongani Siwande' },
       { role: 'Creative Direction', name: 'Wongani Siwande' },
       { role: 'Photography & Co Direction', name: 'Keong Kadango' },
-      { role: 'Florals', name: 'Ruva Flowerhouse' },
+      { role: 'Florals', name: 'Ruva Flowerhouse (Tasleema)' },
       { role: 'Reel Edit & Direction', name: 'Wongani Siwande' },
-      { role: 'Wardrobe', name: 'Grace & Hustle, Tikonze Apapa' },
+      { role: 'Wardrobe', name: 'Grace & Hustle Thrift Shop, Tikonze Apapa' },
       { role: 'Models', name: 'Karen Lombe, Flossy Kapoloma, Wongani Siwande' },
       { role: 'Behind the Scenes', name: 'Sam from Ruva' },
-      { role: 'Special Thanks', name: "Joe's Cafe" }
+      { role: 'Special Thanks', name: "Joe's Café" }
     ],
     body: [
-      "First, the job: Denim in Bloom was the promo campaign for Denim Chill, a fashion show built around Tikonze Apapa's upcycled denim. I walked in the show, and I directed the campaign that invited people to it. The brief was simple: make people feel the show before a single ticket was sold.",
-      "The idea arrived as a question: what happens when the toughest fabric in the wardrobe goes soft for a day?",
-      "So we argued with denim. Shorts cut at the knee. A white shirt worn open and easy. White socks doing honest work above black loafers. Then flowers where a tie should be, baby's breath and something pink from the hedge.",
-      "Denim wants to be casual. The flowers refuse to allow it. That argument is the whole film, and it became the tone of the runway itself.",
-      "We filmed against brick and bougainvillea on a quiet street outside Blantyre. Keong Kadango took the stills and kept catching the wind at the right time (the frame we kept has petals mid move). The films came after: Denim in Bloom for the mood, Jean Drive for the fun of it.",
-      "Direction is mostly deciding what a thing is about before the camera comes out. This one was about softness earning its place, and about giving a show its face.",
-      "P.s, the bench was colder than it looks."
+      "I’ve always thought flowers were a bit misrepresented. Actually, grossly misrepresented. Every time you see flowers, they are attached to a wedding, a funeral or a proposal. Functional, set-in-stone occasions. These fine works of art have never existed, at least in mainstream culture, as the versatile beauties that they are. The same can be said for denim jeans, but that is allowed. This piece of clothing was always intended for a certain casual market.",
+      "As the creative director and model for the Denim in Bloom photoshoot that went ahead of the Denim Chill fashion show hosted by Tikonze Apapa, an organisation supporting and empowering the deaf and hearing-impaired, I had a task to bring jeans and flowers together in a way no one in my circle had seen or attempted. It would be more accurate to say that I brought this idea to their attention (you miss 100% of the shots you do not take, ladies and gentlemen), and so they agreed.",
+      "Having an idea is one thing; executing that idea to the closest possible rendition is another. And so began the talent scouting, which was fairly easy because I have been around enough people I know can rock a look and pose. It was also great to have help from the staff at TKA who volunteered some selected models from the fashion show to do the shoot with us. As someone who’s constantly questioned or held in scepticism when they present a creative idea in my working circles, I understood that not many people would line up for this photoshoot, and people sometimes just need a nudge.",
+      "As I said, I have had the pleasure of working with a lot of brilliant people in the industry who have always been open to my somewhat unconventional ideas and actually let me direct start to finish. A big, warm thank you to those. With this said, I reached out to Ruva, a flowerhouse based in Michiru, Blantyre. It was my goal to reduce logistical costs as much as possible, even though TKA was helping with those costs. After all, it was meant to be a project that gives back, and that doesn’t really work when you take too much. Tasleema, the brain behind the flowerhouse, gladly agreed because we had been putting off a collaboration together for the longest time. That was half the puzzle done. For the visual element, we had two things to consider: a photographer who understands the vision and a partner fashion house that could offer some more pieces to bring volume to the photoshoot. The problem was that we couldn’t showcase everything meant for the show, as that would defeat the purpose. A glimpse was what people were meant to get. That’s it.",
+      "Enter Keong Kadango. I don’t think I’ve ever clicked with a man behind a camera the way I do with him, which is funny because I never saw us working together in the beginning, but after a few random shoots and ideation together, we both saw something only we could make happen, so we started working closely from 2025, and the rest is history. What I had done was make use of Pinterest to its fullest with a moodboard of my vision; then we also did a short BTS film to cover all our bases. Then came Grace & Hustle Thrift Shop, which really helped in dressing the ladies. Three quarters of the way there.",
+      "The location was right here in Blantyre, the wardrobe was done, the talent was ready and on time for the most part. The one thing you can’t teach past aesthetic is taste. Taste is what helps you cut out what doesn’t work, from flowers that didn’t blend with the pose, look or person to the smallest details such as who gets to do the bench scene and who does the Barber Pole. Everything was intended. I think we did this for most of this shoot, and it really kept us on schedule to the point that we could experiment with different sets at Joe’s Café (a big shoutout to them) and brought on some ladders, which we were sceptical about but ended up working in a chrome kind of way.",
+      "The takeaway from all this is that when you bring on the right people, you don’t need more people. All you need is to share in taste or at least let the people following you have a taste of what you mean, and this can come through moodboards, movie references, a poem, a hairstyle or even a shared ice cream cone. Inspiration is everywhere.",
+      "After we released this shoot, we had a great turnout at the show, and even though no official stats prove it, I am sure a portion of that attendance was thanks to what we did outside the scope. And another metric we don’t talk about is talent morale. Having done something like that with such a limited logistical capacity showed the talent that all they needed was themselves and some confidence which, if you ask me, is the best thing you can ask for when it comes to fashion. No one does it like you do."
     ],
     media: [
       { type: 'image', src: D('6469') },
