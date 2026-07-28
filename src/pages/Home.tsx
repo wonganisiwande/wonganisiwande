@@ -11,19 +11,22 @@ const selectedWork = [
     id: 1,
     title: "The Tastemaker at Home",
     tags: "Amaryllis Residences · Creative Direction / Presence",
-    image: "/media/amaryllis/taupe-tastemaker.jpg"
+    image: "/media/amaryllis/taupe-tastemaker.jpg",
+    to: "/presence/the-amaryllis-residences"
   },
   {
     id: 2,
     title: "Denim in Bloom",
     tags: "Editorial · Creative Direction / Styling",
-    image: "/media/denim/bloom-portrait.jpg"
+    image: "/media/denim/bloom-portrait.jpg",
+    to: "/presence/denim-in-bloom"
   },
   {
     id: 3,
     title: "The Place to Be",
     tags: "Amaryllis Residences · Photography Keong Kadango",
-    image: "/media/amaryllis/scarf-exterior.jpg"
+    image: "/media/amaryllis/scarf-exterior.jpg",
+    to: "/presence/the-amaryllis-residences"
   }
 ];
 
@@ -126,7 +129,7 @@ export default function Home() {
               transition={{ duration: 1, delay: idx * 0.2, ease: [0.22, 1, 0.36, 1] }}
               className="group cursor-pointer"
             >
-              <Link to="/presence">
+              <Link to={work.to}>
                 <Parallax offset={idx % 2 === 0 ? 40 : 20}>
                   <div className="aspect-[3/4] overflow-hidden mb-6 md:mb-8 bg-brand-ink/5 relative">
                     <img

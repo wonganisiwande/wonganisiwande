@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'motion/react';
 import SEO from '../components/SEO';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Lightbulb, X, ArrowRight } from 'lucide-react';
 import Parallax from '../components/Parallax';
 import { useScrollLock } from '../lib/useScrollLock';
@@ -27,6 +27,7 @@ const categories = [
 
 type Archive = {
   id: number;
+  slug: string;
   title: string;
   category: string;
   description: string;
@@ -37,6 +38,7 @@ type Archive = {
 const archiveItems: Archive[] = [
   {
     id: 1,
+    slug: 'the-bachelor-at-amaryllis',
     title: "The Bachelor, at Amaryllis Residences",
     category: "Case Studies",
     description: "An eight episode lifestyle series for a serviced residence in Mount Pleasant. One loft, one resident, one recurring glove. A house is just a house... until it's yours.",
@@ -49,6 +51,7 @@ const archiveItems: Archive[] = [
   },
   {
     id: 2,
+    slug: 'the-amaryllis-editorial',
     title: "The Amaryllis Editorial",
     category: "Collaborations",
     description: "Five looks in one morning with photographer Keong Kadango. One warm grade, no wasted frames, an address turned into a person.",
@@ -60,6 +63,7 @@ const archiveItems: Archive[] = [
   },
   {
     id: 3,
+    slug: 'denim-in-bloom',
     title: "Denim in Bloom",
     category: "Case Studies",
     description: "When you bring on the right people, you do not need more people. The promo campaign for Denim Chill, made deliberately small.",
@@ -72,6 +76,7 @@ const archiveItems: Archive[] = [
   },
   {
     id: 4,
+    slug: 'sambas-three-ways',
     title: "Sambas, Three Ways",
     category: "Prototypes",
     description: "One shoe, three registers. A styling system testing how far a single silhouette stretches before it breaks. It does not.",
@@ -83,6 +88,7 @@ const archiveItems: Archive[] = [
   },
   {
     id: 5,
+    slug: 'the-glove-edit',
     title: "The Glove Edit",
     category: "Prototypes",
     description: "A signature series about finishing details. The gap between fine and unforgettable is one detail.",
@@ -93,6 +99,7 @@ const archiveItems: Archive[] = [
   },
   {
     id: 6,
+    slug: 'tikonze-apapa-ambassador',
     title: "Tikonze Apapa, Brand Ambassador",
     category: "Collaborations",
     description: "Official face of Tikonze Apapa, the Malawian brand turning upcycled denim into fashion with a conscience. Campaigns, content, and the runway.",
@@ -173,8 +180,13 @@ function ExperimentModal({ item, onClose }: { item: Archive; onClose: () => void
 }
 
 export default function Experiments() {
+  // The open item lives in the URL, not in state, so every case study can be
+  // linked to directly and shared. An unknown slug just falls back to the index.
+  const { slug } = useParams();
+  const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState('All');
-  const [openItem, setOpenItem] = useState<Archive | null>(null);
+
+  const openItem = slug ? archiveItems.find(i => i.slug === slug) ?? null : null;
 
   const filteredItems = activeCategory === 'All'
     ? archiveItems
@@ -184,7 +196,10 @@ export default function Experiments() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 md:px-12 relative">
-      <SEO title="Experiments" />
+      <SEO
+        title={openItem ? openItem.title : 'Experiments'}
+        description={openItem?.description}
+      />
 
       <header className="mb-20 lg:mb-60 max-w-2xl relative">
         <motion.div
@@ -249,7 +264,7 @@ export default function Experiments() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              onClick={() => setOpenItem(item)}
+              onClick={() => navigate(`/experiments/${item.slug}`)}
               className="lg:absolute group cursor-pointer max-w-full lg:max-w-sm"
               style={{
                 left: desktopPositions[idx % desktopPositions.length].left,
@@ -278,7 +293,7 @@ export default function Experiments() {
       </div>
 
       <AnimatePresence>
-        {openItem && <ExperimentModal item={openItem} onClose={() => setOpenItem(null)} />}
+        {openItem && <ExperimentModal item={openItem} onClose={() => navigate('/experiments')} />}
       </AnimatePresence>
     </div>
   );

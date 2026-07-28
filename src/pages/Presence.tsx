@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'motion/react';
 import SEO from '../components/SEO';
 import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { User, Play, X } from 'lucide-react';
 import Parallax from '../components/Parallax';
 import { useScrollLock } from '../lib/useScrollLock';
@@ -22,6 +23,7 @@ const categories = [
 
 type Work = {
   id: number;
+  slug: string;
   title: string;
   category: 'Sightlines' | 'Stories in Motion';
   kind: 'gallery' | 'film';
@@ -49,6 +51,7 @@ const denimGallery = [
 const works: Work[] = [
   {
     id: 1,
+    slug: 'the-amaryllis-residences',
     title: 'The Amaryllis Residences',
     category: 'Sightlines',
     kind: 'gallery',
@@ -60,6 +63,7 @@ const works: Work[] = [
   },
   {
     id: 2,
+    slug: 'denim-in-bloom',
     title: 'Denim in Bloom',
     category: 'Sightlines',
     kind: 'gallery',
@@ -71,6 +75,7 @@ const works: Work[] = [
   },
   {
     id: 3,
+    slug: 'the-resident',
     title: 'The Resident',
     category: 'Stories in Motion',
     kind: 'film',
@@ -83,6 +88,7 @@ const works: Work[] = [
   },
   {
     id: 4,
+    slug: 'denim-in-bloom-the-film',
     title: 'Denim in Bloom, the Film',
     category: 'Stories in Motion',
     kind: 'film',
@@ -95,6 +101,7 @@ const works: Work[] = [
   },
   {
     id: 5,
+    slug: 'sambas-three-ways',
     title: 'Sambas, Three Ways',
     category: 'Stories in Motion',
     kind: 'film',
@@ -107,6 +114,7 @@ const works: Work[] = [
   },
   {
     id: 6,
+    slug: 'jean-drive',
     title: 'Jean Drive',
     category: 'Stories in Motion',
     kind: 'film',
@@ -215,8 +223,13 @@ function WorkModal({ work, onClose }: { work: Work; onClose: () => void }) {
 }
 
 export default function Presence() {
+  // Same as Experiments: the open work lives in the URL so a gallery or film
+  // can be linked to directly. An unknown slug falls back to the index.
+  const { slug } = useParams();
+  const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState('All');
-  const [openWork, setOpenWork] = useState<Work | null>(null);
+
+  const openWork = slug ? works.find(w => w.slug === slug) ?? null : null;
 
   const filtered = activeCategory === 'All'
     ? works
@@ -226,7 +239,11 @@ export default function Presence() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 md:px-12">
-      <SEO title="Presence" />
+      <SEO
+        title={openWork ? openWork.title : 'Presence'}
+        description={openWork?.description}
+        image={openWork?.hero}
+      />
 
       <header className="mb-20 md:mb-40 max-w-2xl relative">
         <motion.div
@@ -290,7 +307,7 @@ export default function Presence() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              onClick={() => setOpenWork(work)}
+              onClick={() => navigate(`/presence/${work.slug}`)}
               className={`
                 relative group cursor-pointer
                 ${work.size === 'large' ? 'w-full md:w-4/5' : 'w-full md:w-3/5'}
@@ -332,7 +349,7 @@ export default function Presence() {
       </div>
 
       <AnimatePresence>
-        {openWork && <WorkModal work={openWork} onClose={() => setOpenWork(null)} />}
+        {openWork && <WorkModal work={openWork} onClose={() => navigate('/presence')} />}
       </AnimatePresence>
     </div>
   );

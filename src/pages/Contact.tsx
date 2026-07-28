@@ -25,19 +25,19 @@ const services: Service[] = [
     name: 'Videography',
     value: 'Shot and edited films with one warm grade, cut for IG and TikTok.',
     ask: 'Send the story you want told, the location, and your timeline.',
-    sample: { to: '/presence', label: 'The Resident' }
+    sample: { to: '/presence/the-resident', label: 'The Resident' }
   },
   {
     name: 'Content Creation',
     value: 'Short form series built to a repeatable format your audience returns for.',
     ask: 'Send your platform, your goal, and how often you want to post.',
-    sample: { to: '/presence', label: 'Sambas, Three Ways' }
+    sample: { to: '/presence/sambas-three-ways', label: 'Sambas, Three Ways' }
   },
   {
     name: 'Concept Development',
     value: 'Campaign and series concepts with hooks, arcs and a reason to exist.',
     ask: 'Send your product and who it is for. I will bring the idea.',
-    sample: { to: '/experiments', label: 'The Bachelor series' }
+    sample: { to: '/experiments/the-bachelor-at-amaryllis', label: 'The Bachelor series' }
   },
   {
     name: 'Brand Strategy',
@@ -49,7 +49,7 @@ const services: Service[] = [
     name: 'Presence / Modeling',
     value: 'Editorial and campaign presence, directed or in front of the lens.',
     ask: 'Send the campaign concept, usage, and dates.',
-    sample: { to: '/presence', label: 'Denim in Bloom' }
+    sample: { to: '/presence/denim-in-bloom', label: 'Denim in Bloom' }
   }
 ];
 
