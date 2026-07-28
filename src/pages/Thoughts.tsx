@@ -84,12 +84,12 @@ const thoughtItems: Thought[] = [
       { role: 'Concept & Direction', name: 'Tikonze Apapa, Wongani Siwande' },
       { role: 'Creative Direction', name: 'Wongani Siwande' },
       { role: 'Photography & Co Direction', name: 'Keong Kadango' },
-      { role: 'Florals', name: 'Ruva Flowerhouse (Tasleema)' },
+      { role: 'Florals', name: 'Ruva Flowerhouse (Tasleema Mlomba)' },
       { role: 'Reel Edit & Direction', name: 'Wongani Siwande' },
       { role: 'Wardrobe', name: 'Grace & Hustle Thrift Shop, Tikonze Apapa' },
       { role: 'Models', name: 'Karen Lombe, Flossy Kapoloma, Wongani Siwande' },
       { role: 'Behind the Scenes', name: 'Sam from Ruva' },
-      { role: 'Special Thanks', name: "Joe's Café" }
+      { role: 'Special Thanks', name: "Joe’s Café" }
     ],
     body: [
       "I’ve always thought flowers were a bit misrepresented. Actually, grossly misrepresented. Every time you see flowers, they are attached to a wedding, a funeral or a proposal. Functional, set-in-stone occasions. These fine works of art have never existed, at least in mainstream culture, as the versatile beauties that they are. The same can be said for denim jeans, but that is allowed. This piece of clothing was always intended for a certain casual market.",
@@ -160,7 +160,7 @@ const thoughtItems: Thought[] = [
     cover: '/media/covers/cover-checked-in.jpg',
     coverKind: 'magazine',
     body: [
-      "A house is just a house... until it's yours. I spent a night at the Amaryllis Residences in Mount Pleasant to test a theory: that a serviced apartment can feel less like a hotel and more like a rehearsal for the life you are building.",
+      "A house is just a house... until it’s yours. I spent a night at the Amaryllis Residences in Mount Pleasant to test a theory: that a serviced apartment can feel less like a hotel and more like a rehearsal for the life you are building.",
       "The loft makes its case in small ways. Morning light on the mezzanine rail. A kitchen that expects you to actually cook. Stairs that ask you to slow down on the way up (I did, partly for the view, partly for the knees). The kind of quiet that lets you hear your own taste.",
       "I made coffee, wore the robe longer than the schedule allowed, and watched the hills do their slow show through the window. Nobody knocked. That detail alone is worth the address.",
       "What I took home was a note about aspiration. The point of a beautiful room is not the room. It is who you get to practice being while you are in it.",
