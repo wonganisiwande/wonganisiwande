@@ -40,13 +40,23 @@ type Work = {
 // an issue: the suite wakes up, the tastemaker settles in, the exterior does its
 // old money turn, off duty lets the air out, and the property details close.
 // Phase 1 Robe, Phase 2 Taupe, Phase 3 White & Scarf, Phase 4 Beanie, Phase 5 Details.
-const amaryllisGallery = [
-  9235, 9217, 9232, 9203, 9294, 9287, 9209, 9364,
-  9395, 9462, 9468, 9416, 9418, 9485, 9484,
-  9512, 9506, 9531, 9561, 9564, 9510, 9568,
-  9592, 9591, 9579, 9588,
-  9252, 9268, 9502, 9593
+// The five covers open the set, in phase order, because the whole idea was to
+// treat the residence like an issue. Two of them (slow mornings, off duty) had
+// never appeared anywhere on the site before this.
+const amaryllisCovers = [
+  'cover-checked-in', 'cover-slow-mornings', 'cover-tastemaker',
+  'cover-place-to-be', 'cover-off-duty'
+].map(n => `/media/covers/${n}.jpg`);
+
+const amaryllisFrames = [
+  9235, 9217, 9232, 9203, 9294, 9287, 9364,
+  9395, 9462, 9468, 9418, 9485, 9484,
+  9512, 9506, 9561, 9564, 9510, 9568,
+  9592, 9579, 9588,
+  9252, 9268, 9502
 ].map(n => `/media/amaryllis/gallery/${n}.jpg`);
+
+const amaryllisGallery = [...amaryllisCovers, ...amaryllisFrames];
 
 // Denim in Bloom, thirty frames (photography Keong Kadango) in story order: the
 // bench and the street, the sock and loafer details, the portraits that carry
