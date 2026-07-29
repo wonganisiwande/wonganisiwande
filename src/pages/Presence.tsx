@@ -65,8 +65,8 @@ const denimGallery = [
   6459, 6461, 6465, 6466, 6477, 6471, 6469, 6470, 6467, 6468,
   6480, 6481, 6482, 6483, 6478,
   6485, 6486, 6487,
-  6488, 6489, 6490, 6492, 6493,
-  6495, 6497, 6499, 6501, 6502, 6504, 6510
+  6488, 6490, 6492, 6493,
+  6495, 6497, 6499, 6501, 6502, 6508, 6504, 6510
 ].map(n => `/media/denim/gallery/${n}.jpg`);
 // 6491 is deliberately absent: it is the hero frame above the grid, and listing
 // it here as well rendered the same photograph twice.
