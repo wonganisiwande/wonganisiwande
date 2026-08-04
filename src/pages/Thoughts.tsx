@@ -44,6 +44,9 @@ type Thought = {
 
 const A = (n: string) => `/media/amaryllis/gallery/${n}.jpg`;
 const D = (n: string) => `/media/denim/gallery/${n}.jpg`;
+// Glove of the Town. Frames by Romeo Damaso, licensed for site and social with
+// credit. Drop them in public/media/glove/ before this article goes live.
+const G = (n: string) => `/media/glove/${n}.jpg`;
 
 const thoughtItems: Thought[] = [
   {
@@ -171,6 +174,41 @@ const thoughtItems: Thought[] = [
       { type: 'image', src: A('06-robe') },
       { type: 'image', src: A('13-details') },
       { type: 'video', src: '/media/amaryllis/the-resident.mp4', poster: '/media/amaryllis/poster-the-resident.jpg' }
+    ]
+  },
+  {
+    id: 6,
+    slug: 'glove-of-the-town',
+    title: "Glove of the Town",
+    category: "Essays",
+    description: "A crocheted, rhinestoned glove split the internet in June. Four moves later it was in a gallery, on a runway and on stage. Notes on owning your narrative.",
+    credit: "Photography by Romeo Damaso",
+    cover: G('cover'),
+    coverKind: 'photo',
+    credits: [
+      { role: 'The Glove', name: 'Zizi Kalua, HookedByZie' },
+      { role: 'Denim Version', name: 'Collins Chisenge' },
+      { role: 'Photography', name: 'Romeo Damaso' },
+      { role: 'Exhibited At', name: 'Glasshouse gallery' },
+      { role: 'Runway', name: 'Denim Chill, Tikonze Apapa Foundation' },
+      { role: 'Words & Direction', name: 'Wongani Siwande' }
+    ],
+    body: [
+      "It was the first week of June that I had to assemble the one man PR team against a slew of insults and abuse on the internet. I have been in the public eye long enough to know that most of it is best left alone, and usually I do.",
+      "The Sunday Soiree Vinoir festival had one of the boldest and most experimental colour palettes ever. If you saw the same design in black or white, you’d immediately say “nice”, but there is a fine line between “nice” and “exceptional” and that is what this palette asked of everyone. I obviously am a big fan of texture and layers. The palette and inspiration boards did not mean “wear only these in this way”, it meant “here is an idea of how far you could take your personal style”.",
+      "Iceman had just come out and the cover art was the iconic bedazzled glove made famous by Michael Jackson. This gave me an idea to take my “nice” outfit into something exceptional, especially to me and my style. So I took it to Zizi Kalua, who owns HookedByZie. She crocheted the glove by hand and set it with rhinestones, and what came back was better than the thing I had described to her. Another reason I never address things is that I am always the first person I try to impress, and that is all that should matter. You.",
+      "Opinions are one thing, hate is a totally different ball game. After the glove made its debut on social media, people called it a bathing glove, among other comments that quickly turned hateful and started touching on me as a person.",
+      "The only thing I had actually been careful about was standing out in the wrong way. I thought I had got that right, and then it got taken out of my hands by people I could do nothing about.",
+      "A lot of people reached out. More than I expected, and quietly, which is its own kind of loyalty.",
+      "I took it all, but I also had a plan.",
+      "First, I posted the actual HD photos of me in the entire outfit, taken by Romeo Damaso, both during the day and at night. What his frames caught that a phone never could was the texture, the layers, the way the palette actually sat in daylight and then again under lights. The tone online that weekend started to look, to me, like something a lot of creators had quietly been dealing with. Discourse started around the outfits.",
+      "I want to be clear about one thing here. I was not the only person who took it that weekend. Other creators got the same treatment and did not have my platform, my contacts, or a run of events already lined up to answer it with. That is the part of this I do not find funny.",
+      "There was a phenomenon of hiding behind “this is what showbiz is, deal with it or stop being in the public eye”. Understandable, but also very narrow in thought, because the people trolling were not tabloids or getting paid; they just genuinely wanted to humble other people, which is something I can never stand for. So I decided to integrate my GLOVE into my everyday. A few days after that was my birthday, so I made a video celebrating it, holding a glass of wine and wearing the glove. It was about refusing to hide something I liked, and showing that taste is subjective in the everyday. The well wishes came in.",
+      "That same week I was doing creative direction and content for an art gallery called the Glasshouse gallery. I pitched putting the glove into the show as a piece, the team liked how it sat with the theme, and on one of the exhibit days I hung it and made a video about it. Light, no argument in it.",
+      "Then another event was on the lineup. I had a fashion show in which I was modelling: the Denim Chill fashion show that showcased upcycled clothes through thrifted denim, organised by the Tikonze Apapa Foundation. I worked with Collins Chisenge, one of the designers there, on a custom denim version. He took the same shape and rebuilt it in offcuts, bedazzled, so it read as denim first and glove second. I never fully vlogged this because I let the third party media do all the talking. After the show, I posted a picture with the glove captioned “new set just dropped”. At this point, people started asking me to create a custom fashion line with the glove as the centrepiece.",
+      "What am I trying to say here? The human mind will only see as far as you let it. This whole situation caused such a major discourse that I couldn’t let other people frame my narrative for me. Had I left it that way, it would have been pitiful: as someone in marketing, I would have let a chance to control my own narrative and market myself slip away. But more importantly, I would have been silently admitting that I made a bad fashion choice I myself never believed in.",
+      "“Keep quiet and let your work do the talking.” Damson Idris. I really live by this, and I think a lot of creatives could learn from knowing that their work is not defined by people or what they think you should be. A great way to stand by what you do is to believe in what you do.",
+      "Last weekend, one of the biggest artists in the country had one made for a performance. I keep seeing recreations at shows and across different sectors. Fashion houses putting their spin on it, artists wearing it on stage, people reaching out for collabs. All I did was keep wearing it. The rest of it is just what happens when you stop apologising for something you actually believe in."
     ]
   }
 ];
