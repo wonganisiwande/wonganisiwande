@@ -209,6 +209,10 @@ const thoughtItems: Thought[] = [
       "What am I trying to say here? The human mind will only see as far as you let it. This whole situation caused such a major discourse that I couldn’t let other people frame my narrative for me. Had I left it that way, it would have been pitiful: as someone in marketing, I would have let a chance to control my own narrative and market myself slip away. But more importantly, I would have been silently admitting that I made a bad fashion choice I myself never believed in.",
       "“Keep quiet and let your work do the talking.” Damson Idris. I really live by this, and I think a lot of creatives could learn from knowing that their work is not defined by people or what they think you should be. A great way to stand by what you do is to believe in what you do.",
       "Last weekend, one of the biggest artists in the country had one made for a performance. I keep seeing recreations at shows and across different sectors. Fashion houses putting their spin on it, artists wearing it on stage, people reaching out for collabs. All I did was keep wearing it. The rest of it is just what happens when you stop apologising for something you actually believe in."
+    ],
+    media: [
+      { type: 'image', src: G('01-thinking') },
+      { type: 'image', src: G('02-laughing') }
     ]
   }
 ];
