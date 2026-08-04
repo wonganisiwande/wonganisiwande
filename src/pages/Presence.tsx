@@ -62,11 +62,20 @@ const amaryllisGallery = [...amaryllisCovers, ...amaryllisFrames];
 // bench and the street, the sock and loafer details, the portraits that carry
 // the thesis, the bougainvillea wall, and the bouquet frames that close it.
 const denimGallery = [
-  6459, 6461, 6465, 6466, 6477, 6471, 6469, 6470, 6467, 6468,
-  6480, 6481, 6482, 6483, 6478,
-  6485, 6486, 6487,
-  6488, 6490, 6492, 6493,
-  6495, 6497, 6499, 6501, 6502, 6508, 6504, 6510
+  // the bench and the street, solo
+  6459, 6465, 6469, 6481, 6468,
+  // the bougainvillea wall
+  6490, 6493, 6508, 6510,
+  // the denim duffel, still life and carried
+  6542, 6553, 6573,
+  // two up on the bench
+  6546, 6551, 6557, 6565,
+  // the ladders, full cast
+  6647, 6664, 6669, 6688, 6693,
+  // back to solo at the ladder
+  6708, 6712, 6717, 6724,
+  // the black look and the braces
+  6733, 6744, 6764, 6762, 6740
 ].map(n => `/media/denim/gallery/${n}.jpg`);
 // 6491 is deliberately absent: it is the hero frame above the grid, and listing
 // it here as well rendered the same photograph twice.
