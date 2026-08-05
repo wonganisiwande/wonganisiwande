@@ -212,7 +212,11 @@ const thoughtItems: Thought[] = [
     ],
     media: [
       { type: 'image', src: G('01-thinking') },
-      { type: 'image', src: G('02-laughing') }
+      { type: 'image', src: G('02-laughing') },
+      { type: 'image', src: G('03-venue') },
+      { type: 'image', src: G('04-runway-glove') },
+      { type: 'image', src: G('05-runway-braces') },
+      { type: 'image', src: G('06-runway-aisle') }
     ]
   }
 ];
