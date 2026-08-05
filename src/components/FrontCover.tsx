@@ -35,8 +35,22 @@ export default function FrontCover() {
     }
     if (dismissed === featured.id) return;
 
-    const timer = window.setTimeout(() => setVisible(true), 2200);
-    return () => window.clearTimeout(timer);
+    // Hold off until they have started reading. Landing straight into a card
+    // that covers the hero copy is worse than surfacing a moment later. The
+    // timer is the fallback for anyone who never scrolls.
+    const show = () => setVisible(true);
+    const onScroll = () => {
+      if (window.scrollY > 200) show();
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    const timer = window.setTimeout(show, 9000);
+    onScroll();
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.clearTimeout(timer);
+    };
   }, [location.pathname]);
 
   const dismiss = () => {
