@@ -182,13 +182,14 @@ const thoughtItems: Thought[] = [
     title: "Glove of the Town",
     category: "Essays",
     description: "A crocheted, rhinestoned glove split the internet in June. Four moves later it was in a gallery, on a runway and on stage. Notes on owning your narrative.",
-    credit: "Photography by Romeo Damaso",
+    credit: "Photography by Romeo Damaso and the Tikonze Apapa media team",
     cover: G('cover'),
     coverKind: 'photo',
     credits: [
       { role: 'The Glove', name: 'Zizi Kalua, HookedByZie' },
       { role: 'Denim Version', name: 'Collins Chisenge' },
-      { role: 'Photography', name: 'Romeo Damaso' },
+      { role: 'Photography, Festival', name: 'Romeo Damaso' },
+      { role: 'Photography, Denim Chill', name: 'Tikonze Apapa media team' },
       { role: 'Exhibited At', name: 'Glasshouse gallery' },
       { role: 'Runway', name: 'Denim Chill, Tikonze Apapa Foundation' },
       { role: 'Words & Direction', name: 'Wongani Siwande' }

@@ -3,6 +3,7 @@ import Navigation from './Navigation';
 import { motion, AnimatePresence, useScroll } from 'motion/react';
 import { useLocation } from 'react-router-dom';
 import { Instagram, Linkedin, Music2, Copyright } from 'lucide-react';
+import FrontCover from './FrontCover';
 
 interface LayoutProps {
   children: ReactNode;
@@ -31,6 +32,11 @@ export default function Layout({ children }: LayoutProps) {
         <a href="https://www.linkedin.com/in/wongani-siwande-/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform"><Linkedin size={18} strokeWidth={1.5} /></a>
         <div className="w-[1px] h-20 bg-brand-accent/60 mx-auto" />
       </div>
+
+      {/* Front cover story. Bottom right, so it never collides with the social
+          bar on the left. Sits at z-40, below the z-90 readers and galleries,
+          so an open article always covers it. */}
+      <FrontCover />
 
       <AnimatePresence mode="wait">
         <motion.main
