@@ -20,10 +20,10 @@ export type Featured = {
 };
 
 export const featured: Featured | null = {
-  id: 'glove-of-the-town',
+  id: 'a-lookbook-is-never-neutral',
   kicker: 'New this week',
-  title: 'Glove of the Town',
-  blurb: 'A glove split the internet in June. Four moves later it was on a runway.',
-  href: '/thoughts/glove-of-the-town',
-  image: '/media/glove/cover.jpg'
+  title: 'A Lookbook Is Never Neutral',
+  blurb: 'Taste is generous. A culture of inferiority is not. Notes from building a lookbook.',
+  href: '/thoughts/a-lookbook-is-never-neutral',
+  image: '/media/glove/02-laughing.jpg'
 };

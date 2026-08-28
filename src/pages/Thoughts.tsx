@@ -40,6 +40,9 @@ type Thought = {
   coverKind: 'magazine' | 'photo';
   body: string[];
   media?: Media[];
+  // An external companion to the piece, shown at the very end. Opens in a new
+  // tab. Use the clean public URL, never a share link carrying an invite code.
+  outbound?: { href: string; label: string; note?: string };
 };
 
 const A = (n: string) => `/media/amaryllis/gallery/${n}.jpg`;
@@ -219,6 +222,37 @@ const thoughtItems: Thought[] = [
       { type: 'image', src: G('05-runway-braces') },
       { type: 'image', src: G('06-runway-aisle') }
     ]
+  },
+  {
+    id: 7,
+    slug: 'a-lookbook-is-never-neutral',
+    title: "A Lookbook Is Never Neutral",
+    category: "Essays",
+    description: "Taste is generous. A culture of inferiority is not. Notes on building a lookbook for a room whose standard keeps rising.",
+    cover: G('02-laughing'),
+    coverKind: 'photo',
+    credits: [
+      { role: 'Lookbook & Styling', name: 'Wongani Siwande' },
+      { role: 'The Night', name: 'Sunday Soirée' },
+      { role: 'Season Partners', name: 'FDH Bank, Ekhaya Farms Foods' },
+      { role: 'Theme', name: 'Vieille Monnaie' }
+    ],
+    body: [
+      "My first Sunday Soirée was at Kumbali Castle and I was there as a creator (how far we have come). Said plainly it sounds like a schedule. What it actually describes is a Sunday afternoon that quietly became an institution, and I have had the strange privilege of watching that happen closely enough to catalogue the details, most recently as the person building a lookbook for the next one.",
+      "Sunday Soirée started as something closer to a gathering than an event, live music, local art, food and design in one room, run on what the people behind it call a micro economy. Guests fund the night, the night sells out, artists and vendors get paid from that, the culture grows, and more people come next time because word got round it was worth planning a Sunday around. No traditional sponsorship, no cash changing hands at the door. It worked because everyone in the room actually believed the premise, that culture is the product, not an accessory to one.",
+      "By this year that premise had grown big enough to attract real backing. FDH Bank and Ekhaya Farms Foods came in as the exclusive partners for the season, which sounds like a business update and is actually something quieter and more important than that. It means the artists and vendors who make the night what it is know they are getting paid, on time, for a full season, instead of hoping the door numbers work out edition to edition. That is the difference between a scene and an economy, and it happened gradually enough that most people simply noticed the lineup getting better and moved on without asking why.",
+      "I was asked to build the lookbook for the next one, and that brief is what finally made me look at the evolution instead of just living inside it as a guest. A lookbook, stripped down to its simplest form, is a document of what a room like this expects from the people walking into it. Which means it is never neutral. It either widens that door or it narrows it, and there is no version of the document that does neither.",
+      "Here is the part of this that does not photograph well. Taste has become sharper here, genuinely, people plan outfits weeks out now, and there is a real pride in getting the details right that only shows up in a community actually paying attention to itself. I love that part without reservation. But when a room’s standard rises, some people experience that rise as a wall instead of an invitation, and I know this one personally. I have stood on the wrong side of that wall myself, made to feel small over what I was wearing, but I had the language and the confidence to understand what taste even was. It is not comfortable to admit that being put on the spot isn’t always a good feeling. It is also the only honest place to start from when you are the one being handed the brief, because the document you make either teaches people to look closer or it just tells them they have not arrived yet.",
+      "Taste is generous. It notices something specific, a fabric, a colour, a combination that should not work and somehow does, and it shares that noticing instead of hoarding it. It invites you closer and makes you want to try something you would not have tried before. A culture of inferiority does the opposite of all of that. It has no interest in specifics, only in the vague sense that you have not quite arrived, kept just fuzzy enough that you can never actually fix it. One builds a person up by teaching them to look closer. The other keeps a person small by making sure they never feel like they looked closely enough.",
+      "What I did was recreate some of the look inspirations posted by the Soirée team and translate them into my own wardrobe, to show that the theme, Vieille Monnaie, isn’t telling you to break the bank, be out of place to fit in, or create a persona you don’t identify with. It’s telling you to take a closer look at what you have and make something tasteful. It’s telling you to be quietly confident enough that it shows in your choice of outfit. That is what style is. More care into the choice of clothes you put on your back.",
+      "The market has shifted toward the aspirational end of all this. Dressing well is more visible now, more photographed, closer to a flex than it used to be, and mostly that is good. But there is a real risk sitting right underneath the shift, which is that a scene can start selling the anxiety instead of the taste, because anxiety is a lot easier to package than genuine style ever was. I did not want the lookbook doing that. I wanted it to read like an invitation from someone who actually wants you to look good, not a test with a pass mark nobody shows you.",
+      "Taste is an artform. An artform is something you practice, get wrong, refine, and get a little better at every time you try it. It is not a bar hovering above your head that you either clear or do not. That is the whole distinction I tried to put into eight editions’ worth of evolution, without saying a single word of it out loud inside the lookbook itself. The clothes were always going to do that talking."
+    ],
+    outbound: {
+      href: 'https://www.pinterest.com/sundaysoireemw/au-rchest-ra-vieille-monnaie/',
+      label: 'View the Vieille Monnaie board',
+      note: 'The look inspirations the Soirée team put together for this edition. What I did was take these and translate them into my own wardrobe.'
+    }
   }
 ];
 
@@ -351,6 +385,26 @@ function ArticleReader({ article, onClose }: { article: Thought; onClose: () => 
                 <span>See the full shoot in Presence</span>
                 <ArrowRight size={14} />
               </Link>
+            </div>
+          )}
+
+          {article.outbound && (
+            <div className="mt-14 md:mt-16 pt-8 border-t border-brand-ink/5">
+              <p className="text-[10px] uppercase tracking-[0.3em] font-semibold opacity-40 mb-5">The board</p>
+              {article.outbound.note && (
+                <p className="text-sm font-light leading-relaxed opacity-50 mb-6 max-w-md">
+                  {article.outbound.note}
+                </p>
+              )}
+              <a
+                href={article.outbound.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 border border-brand-ink/15 hover:border-brand-ink px-7 py-4 text-[10px] uppercase tracking-[0.25em] font-semibold transition-colors duration-500"
+              >
+                <span>{article.outbound.label}</span>
+                <ArrowRight size={14} />
+              </a>
             </div>
           )}
 
