@@ -25,5 +25,5 @@ export const featured: Featured | null = {
   title: 'A Lookbook Is Never Neutral',
   blurb: 'Taste is generous. A culture of inferiority is not. Notes from building a lookbook.',
   href: '/thoughts/a-lookbook-is-never-neutral',
-  image: '/media/glove/02-laughing.jpg'
+  image: '/media/soiree/cover.jpg'
 };

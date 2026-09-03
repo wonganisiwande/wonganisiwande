@@ -43,6 +43,10 @@ type Thought = {
   // An external companion to the piece, shown at the very end. Opens in a new
   // tab. Use the clean public URL, never a share link carrying an invite code.
   outbound?: { href: string; label: string; note?: string };
+  // Presence slug for the gallery this shoot lives in. Only set it when that
+  // gallery actually exists, otherwise the link promises something that is not
+  // there. Omit and no link is shown.
+  shootIn?: string;
 };
 
 const A = (n: string) => `/media/amaryllis/gallery/${n}.jpg`;
@@ -50,11 +54,15 @@ const D = (n: string) => `/media/denim/gallery/${n}.jpg`;
 // Glove of the Town. Frames by Romeo Damaso, licensed for site and social with
 // credit. Drop them in public/media/glove/ before this article goes live.
 const G = (n: string) => `/media/glove/${n}.jpg`;
+// Sunday Soirée, Vieille Monnaie. The finished lookbook cards, captions and all,
+// because the captions are the argument the essay is making.
+const S = (n: string) => `/media/soiree/${n}.jpg`;
 
 const thoughtItems: Thought[] = [
   {
     id: 1,
     slug: 'the-amaryllis-editorial',
+    shootIn: 'the-amaryllis-residences',
     title: "The Amaryllis Editorial, Directed",
     category: "Essays",
     description: "Five looks, one morning, one idea. Notes on directing a shoot inside a serviced residence.",
@@ -79,6 +87,7 @@ const thoughtItems: Thought[] = [
   {
     id: 2,
     slug: 'directing-denim-in-bloom',
+    shootIn: 'denim-in-bloom',
     title: "The Bloom Before the Chill, All in Denim",
     category: "Essays",
     description: "I have always thought flowers were a bit misrepresented. On bringing jeans and flowers together for a show that gives back.",
@@ -118,6 +127,7 @@ const thoughtItems: Thought[] = [
   {
     id: 3,
     slug: 'dressing-for-an-address',
+    shootIn: 'the-amaryllis-residences',
     title: "Dressing for an Address",
     category: "Concept Notes",
     description: "Every wardrobe decision on the Amaryllis shoot answered one question: what would this address wear?",
@@ -138,6 +148,7 @@ const thoughtItems: Thought[] = [
   {
     id: 4,
     slug: 'loafers-white-socks-flowers',
+    shootIn: 'denim-in-bloom',
     title: "Loafers, White Socks, Flowers",
     category: "Concept Notes",
     description: "Styling notes from the Denim Chill shoot, for anyone who wants the recipe.",
@@ -160,6 +171,7 @@ const thoughtItems: Thought[] = [
   {
     id: 5,
     slug: 'checked-in',
+    shootIn: 'the-amaryllis-residences',
     title: "Checked In: a Night at the Bachelor Pad",
     category: "Reflections",
     description: "A serviced apartment as a rehearsal for the life you are building. Notes from a night at Amaryllis Residences.",
@@ -229,8 +241,8 @@ const thoughtItems: Thought[] = [
     title: "A Lookbook Is Never Neutral",
     category: "Essays",
     description: "Taste is generous. A culture of inferiority is not. Notes on building a lookbook for a room whose standard keeps rising.",
-    cover: G('02-laughing'),
-    coverKind: 'photo',
+    cover: S('cover'),
+    coverKind: 'magazine',
     credits: [
       { role: 'Lookbook & Styling', name: 'Wongani Siwande' },
       { role: 'The Night', name: 'Sunday Soirée' },
@@ -247,6 +259,18 @@ const thoughtItems: Thought[] = [
       "What I did was recreate some of the look inspirations posted by the Soirée team and translate them into my own wardrobe, to show that the theme, Vieille Monnaie, isn’t telling you to break the bank, be out of place to fit in, or create a persona you don’t identify with. It’s telling you to take a closer look at what you have and make something tasteful. It’s telling you to be quietly confident enough that it shows in your choice of outfit. That is what style is. More care into the choice of clothes you put on your back.",
       "The market has shifted toward the aspirational end of all this. Dressing well is more visible now, more photographed, closer to a flex than it used to be, and mostly that is good. But there is a real risk sitting right underneath the shift, which is that a scene can start selling the anxiety instead of the taste, because anxiety is a lot easier to package than genuine style ever was. I did not want the lookbook doing that. I wanted it to read like an invitation from someone who actually wants you to look good, not a test with a pass mark nobody shows you.",
       "Taste is an artform. An artform is something you practice, get wrong, refine, and get a little better at every time you try it. It is not a bar hovering above your head that you either clear or do not. That is the whole distinction I tried to put into eight editions’ worth of evolution, without saying a single word of it out loud inside the lookbook itself. The clothes were always going to do that talking."
+    ],
+    media: [
+      { type: 'image', src: S('01-look01') },
+      { type: 'image', src: S('02-look02') },
+      { type: 'image', src: S('03-look03') },
+      { type: 'image', src: S('04-look04') },
+      { type: 'image', src: S('05-look05') },
+      { type: 'image', src: S('06-look06') },
+      { type: 'image', src: S('07-look07') },
+      { type: 'image', src: S('08-look08') },
+      { type: 'image', src: S('09-look09') },
+      { type: 'image', src: S('10-closer') }
     ],
     outbound: {
       href: 'https://www.pinterest.com/sundaysoireemw/au-rchest-ra-vieille-monnaie/',
@@ -378,13 +402,15 @@ function ArticleReader({ article, onClose }: { article: Thought; onClose: () => 
                 </div>
               ))}
 
-              <Link
-                to="/presence"
-                className="inline-flex items-center gap-3 mt-10 text-[10px] uppercase tracking-[0.2em] opacity-50 hover:opacity-100 transition-opacity"
-              >
-                <span>See the full shoot in Presence</span>
-                <ArrowRight size={14} />
-              </Link>
+              {article.shootIn && (
+                <Link
+                  to={`/presence/${article.shootIn}`}
+                  className="inline-flex items-center gap-3 mt-10 text-[10px] uppercase tracking-[0.2em] opacity-50 hover:opacity-100 transition-opacity"
+                >
+                  <span>See the full shoot in Presence</span>
+                  <ArrowRight size={14} />
+                </Link>
+              )}
             </div>
           )}
 
