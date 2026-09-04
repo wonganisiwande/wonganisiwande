@@ -269,7 +269,7 @@ const thoughtItems: Thought[] = [
       { type: 'image', src: S('06-look06') },
       { type: 'image', src: S('07-look07') },
       { type: 'image', src: S('08-look08') },
-      { type: 'image', src: S('09-scarf-hand') },
+      { type: 'image', src: S('09-look09') },
       { type: 'image', src: S('10-closer') }
     ],
     outbound: {
