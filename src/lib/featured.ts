@@ -20,10 +20,10 @@ export type Featured = {
 };
 
 export const featured: Featured | null = {
-  id: 'a-lookbook-is-never-neutral',
+  id: 'sun-set-match',
   kicker: 'New this week',
-  title: 'A Lookbook Is Never Neutral',
-  blurb: 'Taste is generous. A culture of inferiority is not. Notes from building a lookbook.',
-  href: '/thoughts/a-lookbook-is-never-neutral',
-  image: '/media/soiree/cover.jpg'
+  title: 'Sun, Set, Match',
+  blurb: 'Four colours, a tennis court, and weather that decided the rest. Five looks.',
+  href: '/thoughts/sun-set-match',
+  image: '/media/tennis/cover.jpg'
 };

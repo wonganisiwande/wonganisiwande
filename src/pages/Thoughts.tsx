@@ -57,6 +57,9 @@ const G = (n: string) => `/media/glove/${n}.jpg`;
 // Sunday Soirée, Vieille Monnaie. The finished lookbook cards, captions and all,
 // because the captions are the argument the essay is making.
 const S = (n: string) => `/media/soiree/${n}.jpg`;
+// Sunday Soirée at the Blantyre Open. Photography Keong Kadango, video
+// Polycarp Films, clothes The Stitchroom.
+const T = (n: string) => `/media/tennis/${n}.jpg`;
 
 const thoughtItems: Thought[] = [
   {
@@ -277,6 +280,63 @@ const thoughtItems: Thought[] = [
       label: 'View the Vieille Monnaie board',
       note: 'The look inspirations the Soirée team put together for this edition. What I did was take these and translate them into my own wardrobe.'
     }
+  },
+  {
+    id: 8,
+    slug: 'sun-set-match',
+    title: "Sun, Set, Match",
+    category: "Essays",
+    description: "Four colours, a tennis court, and weather that decided the rest. Five looks from the Blantyre Open edition of the Sunday Soirée.",
+    credit: "Photography by Keong Kadango",
+    cover: T('cover'),
+    coverKind: 'photo',
+    credits: [
+      { role: 'Photography', name: 'Keong Kadango' },
+      { role: 'Video', name: 'Polycarp Films' },
+      { role: 'Clothes', name: 'The Stitchroom' },
+      { role: 'Watches & Eyewear', name: 'Watch Galore' },
+      { role: 'Words & Styling', name: 'Wongani Siwande' }
+    ],
+    body: [
+      "The Blantyre Open gave us four colours and a tennis court but the weather decided the rest for me. When an event starts at 1:30 in full sun to a somewhat warm evening, you have to take into account comfort which is a big part of looking good.",
+      "Summer in 2026 looks very different for me, and not only because I do fashion lookbooks for events like the Sunday Soirée now. It’s hotter, it’s more erratic and, most of all, it is very hard to find a good in-between outfit that actually looks good.",
+      "For this edition of the Sunday Soirée, I was inspired by the weather, hence the large, light and breathable fabrics, the old and modern country club aesthetic, and some of my favourite sports fashionistas, like Lewis Hamilton on and off the track (how does he do that?) and Naomi Osaka, and the way she shows up in her clothes on and off the court.",
+      "I wanted to create a player and spectator contrast, but my focus was more spectator, and I collaborated with The Stitchroom to bring these breathable pieces to life. I had a mix of shorts and pants, and I mostly used white to set up my looks, which, ironically, made the other colours stand out more.",
+      "This edition gave us four colour inspirations: matcha, rosé pink, muted blue and white. Consider this your reminder that inspiration does not mean a strict dress code. Fashion is about expression, and you can bring your own palette and aesthetic into the officially released one. Most people think this isn’t the case, and that is okay, but listen to me if you want to wear something you can be comfortable in while you have a good time.",
+      "Let’s break down the outfit combinations.",
+      "## Look 01 · Rosé Pink",
+      "I started with the spectator. A blush pink satin shirt with a band collar, worn loose over white wide leg pants, because if it’s going to be this hot I want air moving. The cow print Sambas were my bit of fun at the bottom, and the black and gold frames with the lilac lens kept the pink from getting too sweet (pink tips over fast if you let it).",
+      "## Look 02 · Matcha",
+      "This is the closest I got to dressing like a player. A matcha polo, white tennis shorts and the Adidas Originals Sambas, so basically kit. I went oversized on the polo so it felt more clubhouse than uniform, and I added a silk neckerchief because I liked the idea of a player who looks like he also came to watch. Gold frames and a black digital watch to finish it off.",
+      "## Look 03 · White",
+      "You can’t do a tennis lookbook without an all white look. When everything is one colour, the texture has to do the work, so I went for a textured tee and matching shorts, a washed pink cap and, yes, the cow print Sambas again. I told you I like them.",
+      "## Look 04 · White and Matcha",
+      "Back to the stands, or the lawn chair if I’m being honest. A seersucker tee and shorts, because that crinkle keeps the fabric off your skin when it’s this hot. The neckerchief from look 02 came back, so did the Adidas Originals Sambas, and the green cap brought in a bit of the grass.",
+      "## Look 05 · Powder Blue",
+      "The last look bends the rules a little. A powder blue wrap front shirt with the collar left open, over straight leg jeans and mint Sambas. Denim is not the first thing anyone thinks of at a country club, which is exactly why I wanted it there. I kept everything else quiet so the turquoise dial on the watch could have its moment.",
+      "If you noticed, a lot of these pieces came back more than once. The Sambas, the neckerchief, the watch. That was on purpose. You don’t need a new outfit for every colour on the invite; you need a few good pieces and the confidence to wear them your way.",
+      "Thank you to The Stitchroom for bringing my ideas to life, to Keong and Polycarp for seeing them the way I did, and to Watch Galore for the details. I’m grateful every single time people say yes to something that only existed in my head.",
+      "See you on the grass."
+    ],
+    media: [
+      { type: 'image', src: T('01-pink-portrait') },
+      { type: 'image', src: T('02-pink-full') },
+      { type: 'image', src: T('03-pink-frames') },
+      { type: 'image', src: T('04-pink-sambas') },
+      { type: 'image', src: T('05-matcha-full') },
+      { type: 'image', src: T('06-matcha-portrait') },
+      { type: 'image', src: T('07-matcha-watch') },
+      { type: 'image', src: T('08-matcha-sambas') },
+      { type: 'image', src: T('09-white-full') },
+      { type: 'image', src: T('10-white-portrait') },
+      { type: 'image', src: T('11-white-texture') },
+      { type: 'image', src: T('12-lawn-seated') },
+      { type: 'image', src: T('13-lawn-portrait') },
+      { type: 'image', src: T('14-lawn-crossed') },
+      { type: 'image', src: T('15-blue-portrait') },
+      { type: 'image', src: T('16-blue-full') },
+      { type: 'image', src: T('17-blue-watch') }
+    ]
   }
 ];
 
@@ -359,11 +419,23 @@ function ArticleReader({ article, onClose }: { article: Thought; onClose: () => 
           )}
           <div className="w-16 border-t border-brand-accent/40 mb-10" />
           <div className="space-y-7">
-            {article.body.map((para, i) => (
-              <p key={i} className="text-lg font-light leading-relaxed opacity-80">
-                {para}
-              </p>
-            ))}
+            {article.body.map((para, i) =>
+              // A body line prefixed with "## " is a section heading. Used by the
+              // lookbooks, which break into a run of individual looks. Champagne,
+              // small and tracked, so it marks the break without shouting.
+              para.startsWith('## ') ? (
+                <h2
+                  key={i}
+                  className="text-[11px] uppercase tracking-[0.3em] font-semibold text-brand-accent pt-6"
+                >
+                  {para.slice(3)}
+                </h2>
+              ) : (
+                <p key={i} className="text-lg font-light leading-relaxed opacity-80">
+                  {para}
+                </p>
+              )
+            )}
           </div>
 
           {article.media && article.media.length > 0 && (
