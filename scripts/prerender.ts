@@ -66,11 +66,35 @@ for (const r of routes) {
     .replace(TITLE_RE, head)
     .replace(ROOT_RE, `<div id="root">${r.html}</div>`);
 
-  const out = r.path === '/' ? templatePath : join(DIST, r.path, 'index.html');
-  mkdirSync(dirname(out), { recursive: true });
-  writeFileSync(out, html);
+  // Write "thoughts/one-of-two.html" rather than "thoughts/one-of-two/index.html".
+  // Netlify serves a clean URL straight from the .html file, so the address
+  // stays exactly as the app links it, the canonical matches what is served,
+  // and there is no 301 hop onto a trailing slash.
+  if (r.path === '/') {
+    writeFileSync(templatePath, html);
+  } else {
+    // Both spellings, so the page exists whichever way Netlify resolves the
+    // request. If it prefers the flat file the URL stays clean; if it prefers
+    // the directory it behaves exactly as before. Either way nothing 404s.
+    const flat = join(DIST, `${r.path}.html`);
+    const dir = join(DIST, r.path, 'index.html');
+    mkdirSync(dirname(dir), { recursive: true });
+    writeFileSync(flat, html);
+    writeFileSync(dir, html);
+  }
   written++;
 }
+
+// A real not found page. With the SPA catch all rewrite removed, Netlify serves
+// dist/404.html with a 404 status for any path that has no file. The app still
+// mounts on it and React Router shows the same message for the actual URL.
+const notFound = template
+  .replace(TITLE_RE, `<title>Not found | ${esc(SITE_NAME)}</title>\n    <meta name="robots" content="noindex" />`)
+  .replace(
+    ROOT_RE,
+    `<div id="root"><main class="max-w-2xl mx-auto px-6 py-28"><p class="text-[10px] uppercase tracking-[0.4em] font-semibold opacity-40 mb-8">404</p><h1 class="text-4xl md:text-6xl font-serif leading-tight mb-8">That page is not here. The work is.</h1><p class="text-lg font-light opacity-60 mb-10">Either the link was old or the address was a guess. Both happen.</p><p><a href="/">Home</a> · <a href="/presence">Presence</a> · <a href="/experiments">Experiments</a> · <a href="/thoughts">Thoughts</a> · <a href="/contact">Contact</a></p></main></div>`
+  );
+writeFileSync(join(DIST, '404.html'), notFound);
 
 // Sitemap from the same source of truth.
 const sitemap =

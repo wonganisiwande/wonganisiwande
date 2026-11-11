@@ -14,6 +14,7 @@ import Experiments from './pages/Experiments';
 import Thoughts from './pages/Thoughts';
 import Essence from './pages/Essence';
 import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
 
 // Reset scroll to the top when the section changes (not when opening an article,
 // which keeps the same section) so you never land part-way down a new page.
@@ -43,6 +44,9 @@ export default function App() {
               <Route path="/thoughts/:slug" element={<Thoughts />} />
               <Route path="/essence" element={<Essence />} />
               <Route path="/contact" element={<Contact />} />
+              {/* Anything else. Direct loads of unknown URLs get dist/404.html from
+                  Netlify with a real 404; this covers in-app navigation to a bad link. */}
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>
         </Router>
