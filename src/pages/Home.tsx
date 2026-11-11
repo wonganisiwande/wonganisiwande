@@ -22,15 +22,16 @@ const selectedWork = [
     id: 2,
     title: "MLKY Bar, Three Rounds",
     tags: "With Tyra Sabadia · Series and release strategy",
-    image: "/media/mlky/0443.jpg",
+    image: "/media/mlky/0624.jpg",
+    position: "28% 50%",
     to: "/presence/mlky-bar-three-rounds"
   },
   {
     id: 3,
-    title: "Sun, Set, Match",
+    title: "Sun, Set, Matcha",
     tags: "Sunday Soirée · Lookbook and styling",
-    image: "/media/tennis/15-blue-portrait.jpg",
-    to: "/thoughts/sun-set-match"
+    image: "/media/tennis/05-matcha-full.jpg",
+    to: "/thoughts/sun-set-matcha"
   },
   {
     id: 4,
@@ -43,15 +44,8 @@ const selectedWork = [
     id: 5,
     title: "One of Two",
     tags: "Essay · On the nomination",
-    image: "/media/amaryllis/gallery/9485.jpg",
+    image: "/media/amaryllis/gallery/9418.jpg",
     to: "/thoughts/one-of-two"
-  },
-  {
-    id: 6,
-    title: "The Pharmacist",
-    tags: "Memona Pharmacy · Documentary and content system",
-    image: "/media/memona/poster-pharmacist-documentary.jpg",
-    to: "/presence/memona-pharmacist-documentary"
   }
 ];
 
@@ -163,6 +157,7 @@ export default function Home() {
                       loading="lazy"
                       decoding="async"
                       className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 ease-out"
+                      style={work.position ? { objectPosition: work.position } : undefined}
                     />
                   </div>
                 </Parallax>

@@ -7,8 +7,7 @@
 export const HOME = {
   kicker: 'A note from the taste director',
   headline: 'You have good taste. Welcome.',
-  intro:
-    'I’m Wongani, a creative director based in Blantyre. I come up with the idea, make it look the way it should, and sometimes end up in front of the camera too. Fashion, film, content, and brands that want to be remembered for something.',
+  intro: 'Creative director, Blantyre. I find the idea, make it look right, and sometimes end up in the frame.',
   workLabel: 'A few things I’m proud of',
   workLink: 'See everything',
   quote: 'Taste is an artform.',

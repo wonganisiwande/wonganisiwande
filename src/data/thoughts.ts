@@ -267,11 +267,11 @@ export const thoughtItems: Thought[] = [
   },
   {
     id: 8,
-    slug: 'sun-set-match',
+    slug: 'sun-set-matcha',
     published: '2026-10-21',
-    title: "Sun, Set, Match",
+    title: "Sun, Set, Matcha",
     category: "Essays",
-    description: "Four colours, a tennis court, and weather that decided the rest. Five looks from the Blantyre Open edition of the Sunday Soirée.",
+    description: "My first matcha was at a Soirée tasting, and the colour stuck. Five looks from the Blantyre Open edition of the Sunday Soirée, starting with the green one.",
     credit: "Photography by Keong Kadango",
     cover: T('cover'),
     coverKind: 'photo',
@@ -283,6 +283,7 @@ export const thoughtItems: Thought[] = [
       { role: 'Words & Styling', name: 'Wongani Siwande' }
     ],
     body: [
+      "The first time I tried matcha was at a Sunday Soirée tasting. I went in for the drink and came out with a colour. That soft green stayed in my head long after the cup, so when the Blantyre Open edition handed us four colours and one of them was matcha, I knew which look I was building first.",
       "The Blantyre Open gave us four colours and a tennis court but the weather decided the rest for me. When an event starts at 1:30 in full sun to a somewhat warm evening, you have to take into account comfort which is a big part of looking good.",
       "Summer in 2026 looks very different for me, and not only because I do fashion lookbooks for events like the Sunday Soirée now. It’s hotter, it’s more erratic and, most of all, it is very hard to find a good in-between outfit that actually looks good.",
       "For this edition of the Sunday Soirée, I was inspired by the weather, hence the large, light and breathable fabrics, the old and modern country club aesthetic, and some of my favourite sports fashionistas, like Lewis Hamilton on and off the track (how does he do that?) and Naomi Osaka, and the way she shows up in her clothes on and off the court.",
