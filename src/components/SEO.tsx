@@ -1,7 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
-
-const SITE = 'https://wonganisiwande.com';
+import { SITE, DEFAULT_TITLE, DEFAULT_DESCRIPTION, DEFAULT_IMAGE, PERSON } from '../data/site';
 
 interface SEOProps {
   title?: string;
@@ -12,37 +11,19 @@ interface SEOProps {
 
 export default function SEO({
   title = "Wongani Siwande",
-  description = "Creative director building aspiration through fashion, taste and premium personal brands. Creative direction, videography, content and presence from Blantyre, Malawi to the world.",
-  image = "/media/amaryllis/taupe-tastemaker.jpg",
+  description = DEFAULT_DESCRIPTION,
+  image = DEFAULT_IMAGE,
   url
 }: SEOProps) {
   const { pathname } = useLocation();
   const fullTitle = title === "Wongani Siwande"
-    ? "Wongani Siwande — Creative Director & Taste Direction, Malawi"
+    ? DEFAULT_TITLE
     : `${title} | Wongani Siwande`;
   const canonical = url ?? `${SITE}${pathname}`;
   // og:image must be absolute for WhatsApp, IG, X and Google previews
   const absImage = image.startsWith('http') ? image : `${SITE}${image}`;
 
-  const personSchema = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Wongani Siwande",
-    url: SITE,
-    image: `${SITE}/media/amaryllis/taupe-tastemaker.jpg`,
-    jobTitle: "Creative Director",
-    description: "Creative director and tastemaker. Creative direction, brand strategy, videography, content creation and modeling.",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Blantyre",
-      addressCountry: "MW"
-    },
-    sameAs: [
-      "https://www.instagram.com/wonganisiwande/",
-      "https://www.tiktok.com/@wonganisiwande",
-      "https://www.linkedin.com/in/wongani-siwande-/"
-    ]
-  };
+  const personSchema = { '@context': 'https://schema.org', ...PERSON };
 
   return (
     <Helmet>
