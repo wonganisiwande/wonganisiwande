@@ -122,5 +122,18 @@ export const archiveItems: Archive[] = [
       "Holding back means the audience learns one thing at a time. Two people, a bar, orange drinks. Then what’s being made. Then who’s making it."
     ],
     link: { to: '/presence/mlky-bar-three-rounds', label: 'See the set' }
+  },
+  {
+    id: 9,
+    slug: 'road-to-relief',
+    published: '2026-11-11',
+    title: "Road to Relief: Twenty Beds",
+    category: "Case Studies",
+    description: "A short documentary for the dialysis ward at Queen Elizabeth Central Hospital, made as a volunteer. Five beds today, twenty if the room gets built.",
+    body: [
+      "Road to Relief is a Blantyre charity raising money to expand the dialysis ward at Queen Elizabeth Central Hospital. The ward has five beds and sees fewer than twenty patients a month. The plan is a twenty bed unit that could treat around a hundred. I directed the documentary for the campaign, and the promo for Padel for a Purpose, the fundraiser that brought in more than twenty corporate sponsors. Both as a volunteer.",
+      "The brief I set myself was quiet and observational. No dramatics, no narration until the very end. Let the room speak first: the machines, the worn chair, a nurse adjusting a drip, sunlight on the wall. Then the doctor, in his own words, with the captions kept raw. The numbers come in only after you have seen the place they describe.",
+      "It is the kind of film I want to make more of. Point the camera at the people doing the work, keep the camera still, and get out of the way."
+    ]
   }
 ];

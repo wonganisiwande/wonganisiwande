@@ -46,6 +46,13 @@ const selectedWork = [
     tags: "Essay · On the nomination",
     image: "/media/amaryllis/gallery/9418.jpg",
     to: "/thoughts/one-of-two"
+  },
+  {
+    id: 6,
+    title: "Twenty Beds",
+    tags: "Road to Relief · Documentary direction",
+    image: "/media/rtr/cover.jpg",
+    to: "/experiments/road-to-relief"
   }
 ];
 
