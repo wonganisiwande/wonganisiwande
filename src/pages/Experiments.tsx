@@ -10,19 +10,19 @@ import { type Archive, archiveItems } from '../data/experiments';
 const categories = [
   {
     name: 'All',
-    explainer: 'Ideas brought to life across brand, culture, and narrative.'
+    explainer: 'The thinking behind the work: what the brief was, what we tried, and what it did.'
   },
   {
     name: 'Case Studies',
-    explainer: 'Completed projects showing strategy and impact.'
+    explainer: 'Finished projects, with the strategy and what came of it.'
   },
   {
     name: 'Prototypes',
-    explainer: 'Early stage ideas and experiments.'
+    explainer: 'Ideas I’m still testing. Some will grow up, some won’t.'
   },
   {
     name: 'Collaborations',
-    explainer: 'Co created work with brands and creators.'
+    explainer: 'Work made alongside other brands and creators, with everyone credited.'
   }
 ];
 

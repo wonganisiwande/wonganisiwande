@@ -4,9 +4,9 @@
 export const SITE = 'https://wonganisiwande.com';
 export const SITE_NAME = 'Wongani Siwande';
 
-export const DEFAULT_TITLE = 'Wongani Siwande — Creative Director & Taste Direction, Malawi';
+export const DEFAULT_TITLE = 'Wongani Siwande | Creative Director, Fashion and Film, Malawi';
 export const DEFAULT_DESCRIPTION =
-  'Creative director building aspiration through fashion, taste and premium personal brands. Creative direction, videography, content and presence from Blantyre, Malawi to the world.';
+  'Wongani Siwande is a creative director in Blantyre, Malawi. Creative and art direction, content creation, brand consulting, fashion, modelling and film direction, for brands that want to be remembered for something.';
 export const DEFAULT_IMAGE = '/media/amaryllis/taupe-tastemaker.jpg';
 
 export const SOCIAL = [
@@ -28,6 +28,7 @@ export const PERSON = {
     'Creative director, content creator and brand consultant in Blantyre, Malawi. Creative and art direction, content creation, brand strategy and consulting, fashion styling and modelling, film direction.',
   address: { '@type': 'PostalAddress', addressLocality: 'Blantyre', addressCountry: 'MW' },
   sameAs: SOCIAL,
+  award: 'Nominee, Content Creator of the Year, Institute of Marketing in Malawi (IMM), 2026',
   knowsAbout: [
     'Creative direction',
     'Art direction',

@@ -79,7 +79,7 @@ export const works: Work[] = [
     kind: 'gallery',
     hero: '/media/amaryllis/gallery/01-taupe.jpg',
     roles: 'Editorial · Photography Keong Kadango',
-    description: 'A morning inside a serviced loft in Mount Pleasant, told in five looks. The robe for the slow start, taupe for the tastemaker, a white shirt and silk scarf for the garden, the beanie to land soft. One warm grade, no wasted frames, an address turned into a person.',
+    description: "A morning inside a serviced loft in Mount Pleasant, told in five looks. The robe for the slow start, taupe for the tastemaker, a white shirt and silk scarf for the garden, and the beanie to land soft. One warm grade, no wasted frames, and an address that turned into a person.",
     size: 'large',
     gallery: amaryllisGallery
   },
@@ -107,7 +107,7 @@ export const works: Work[] = [
     poster: '/media/amaryllis/poster-the-resident.jpg',
     video: '/media/amaryllis/the-resident.mp4',
     roles: 'Amaryllis Residences · Direction / Edit',
-    description: 'A quiet walk through the loft, cut to breathe. The kind of film that sells a feeling, not a floor plan.',
+    description: "A slow walk through the loft, cut so it can breathe. It sells a feeling, not a floor plan.",
     size: 'medium'
   },
   {
@@ -121,7 +121,7 @@ export const works: Work[] = [
     poster: '/media/denim/poster-denim-in-bloom.jpg',
     video: '/media/denim/denim-in-bloom.mp4',
     roles: 'Editorial · Direction / Edit · with Tikonze Apapa & Ruva',
-    description: 'The denim editorial in motion. Softness earning its place, one bench and one bouquet at a time.',
+    description: "The denim editorial, moving this time. One bench, one bouquet, and softness earning its place.",
     size: 'medium'
   },
   {
@@ -135,7 +135,7 @@ export const works: Work[] = [
     poster: '/media/amaryllis/poster-sambas.jpg',
     video: '/media/amaryllis/sambas-3-ways.mp4',
     roles: 'Direction / Styling',
-    description: 'One shoe, three registers. A quiet study in how far a single silhouette stretches before it breaks. It does not.',
+    description: "One shoe, three moods, and a quiet look at how far a single silhouette can stretch before it breaks. It doesn’t.",
     size: 'medium'
   },
   {
@@ -149,7 +149,7 @@ export const works: Work[] = [
     poster: '/media/denim/poster-jean-drive.jpg',
     video: '/media/denim/jean-drive.mp4',
     roles: 'TKA Collaboration · Direction / Edit',
-    description: 'The fun cut. Denim, motion, and a drive that was worth it.',
+    description: "The fun cut. Denim, a bit of motion, and a drive that was worth showing up for.",
     size: 'medium'
   },
   {
@@ -160,8 +160,8 @@ export const works: Work[] = [
     category: 'Sightlines',
     kind: 'gallery',
     hero: '/media/mlky/0443.jpg',
-    roles: 'Series, Episode 01 · with MLKY Bar',
-    description: 'Three rounds behind the bar. Released in three drops, hands first, then the drinks, then the reveal. This is the reveal.',
+    roles: 'Series, Episode 01 · with MLKY Bar · Co-host Tyra Sabadia',
+    description: "Three rounds behind the bar with Tyra Sabadia. It came out in three drops, hands first, then the drinks, then the reveal. This is the reveal.",
     size: 'medium',
     gallery: mlkyGallery
   },
@@ -176,7 +176,7 @@ export const works: Work[] = [
     poster: '/media/memona/poster-pharmacist-documentary.jpg',
     video: '/media/memona/pharmacist-documentary.mp4',
     roles: 'Memona Pharmacy · Direction / Strategy',
-    description: 'A short documentary portrait of the pharmacist, from a twelve film content system built for a neighbourhood pharmacy in Blantyre.',
+    description: "A short documentary portrait of the pharmacist, one of twelve films in a content system I built for a neighbourhood pharmacy in Blantyre.",
     size: 'medium'
   }
 ];

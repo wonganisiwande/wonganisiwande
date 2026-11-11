@@ -5,28 +5,53 @@ import { ArrowRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Logo from '../components/Logo';
 import Parallax from '../components/Parallax';
+import BrandLoop from '../components/BrandLoop';
+import { HOME } from '../data/copy';
 
+// Six frames across the range: direction, styling, film, campaign, writing,
+// documentary. Each tile opens the full piece. No employer work here.
 const selectedWork = [
   {
     id: 1,
     title: "The Tastemaker at Home",
-    tags: "Amaryllis Residences · Creative Direction / Presence",
-    image: "/media/amaryllis/taupe-tastemaker.jpg",
+    tags: "Amaryllis Residences · Creative direction and presence",
+    image: "/media/amaryllis/gallery/08-scarf.jpg",
     to: "/presence/the-amaryllis-residences"
   },
   {
     id: 2,
-    title: "Sun, Set, Match",
-    tags: "Sunday Soirée · Lookbook / Styling",
-    image: "/media/tennis/cover.jpg",
-    to: "/thoughts/sun-set-match"
+    title: "MLKY Bar, Three Rounds",
+    tags: "With Tyra Sabadia · Series and release strategy",
+    image: "/media/mlky/0443.jpg",
+    to: "/presence/mlky-bar-three-rounds"
   },
   {
     id: 3,
-    title: "Glove of the Town",
-    tags: "Essay · Creative Direction / Presence",
-    image: "/media/glove/cover.jpg",
-    to: "/thoughts/glove-of-the-town"
+    title: "Sun, Set, Match",
+    tags: "Sunday Soirée · Lookbook and styling",
+    image: "/media/tennis/15-blue-portrait.jpg",
+    to: "/thoughts/sun-set-match"
+  },
+  {
+    id: 4,
+    title: "Denim in Bloom",
+    tags: "Tikonze Apapa · Campaign and modelling",
+    image: "/media/denim/bloom-portrait.jpg",
+    to: "/presence/denim-in-bloom"
+  },
+  {
+    id: 5,
+    title: "One of Two",
+    tags: "Essay · On the nomination",
+    image: "/media/amaryllis/gallery/9485.jpg",
+    to: "/thoughts/one-of-two"
+  },
+  {
+    id: 6,
+    title: "The Pharmacist",
+    tags: "Memona Pharmacy · Documentary and content system",
+    image: "/media/memona/poster-pharmacist-documentary.jpg",
+    to: "/presence/memona-pharmacist-documentary"
   }
 ];
 
@@ -94,13 +119,13 @@ export default function Home() {
             className="max-w-3xl"
           >
             <p className="text-[10px] md:text-[11px] uppercase tracking-[0.4em] font-medium opacity-40 mb-8 md:mb-10">
-              A Note From the Taste Director
+              {HOME.kicker}
             </p>
             <h1 className="text-4xl md:text-7xl font-serif mb-8 md:mb-12 leading-tight tracking-tight">
-              You have good taste. Welcome.
+              {HOME.headline}
             </h1>
             <p className="text-brand-muted text-base md:text-xl font-light leading-relaxed max-w-2xl mx-auto">
-              Creative direction, content and brand consulting from Blantyre, Malawi. Fashion and film, in front of the camera and behind it.
+              {HOME.intro}
             </p>
           </motion.div>
         </Parallax>
@@ -112,9 +137,9 @@ export default function Home() {
       {/* Selected Work */}
       <section className="py-20 md:py-40 px-4">
         <div className="flex justify-between items-end mb-12 md:mb-20">
-          <h2 className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-semibold opacity-40">Selected Work</h2>
+          <h2 className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-semibold opacity-40">{HOME.workLabel}</h2>
           <Link to="/presence" className="group flex items-center space-x-3 py-3 -my-3 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-medium opacity-60 hover:opacity-100 transition-all">
-            <span>View All</span>
+            <span>{HOME.workLink}</span>
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
@@ -135,6 +160,8 @@ export default function Home() {
                     <img
                       src={work.image}
                       alt={work.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 ease-out"
                     />
                   </div>
@@ -147,6 +174,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Brands, logos only */}
+      <div className="border-t border-brand-ink/5">
+        <BrandLoop />
+      </div>
+
       {/* Philosophy Section */}
       <section className="py-20 md:py-40 border-t border-brand-ink/5 text-center px-4">
         <Parallax offset={60}>
@@ -158,10 +190,10 @@ export default function Home() {
             className="max-w-2xl mx-auto"
           >
             <p className="text-2xl md:text-3xl font-serif italic leading-relaxed mb-8 md:mb-12">
-              "Taste is an artform."
+              “{HOME.quote}”
             </p>
             <Link to="/experiments" className="inline-block py-3 text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-semibold opacity-40 hover:opacity-100 transition-opacity">
-              Explore the Experiments
+              {HOME.quoteLink}
             </Link>
           </motion.div>
         </Parallax>

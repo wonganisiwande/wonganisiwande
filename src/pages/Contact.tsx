@@ -17,38 +17,38 @@ type Service = {
 const services: Service[] = [
   {
     name: 'Creative Direction',
-    value: 'Concept to final frame: the idea, look order, shot list, grade and pace.',
-    ask: 'Send what you are making, where it will live, and your date.',
+    value: 'I take it from the first idea to the final frame: the concept, the order of the looks, the shot list, the grade and the pace.',
+    ask: 'Tell me what you’re making, where it will live, and when you need it.',
     sample: { to: '/thoughts/the-amaryllis-editorial', label: 'The Amaryllis Editorial' }
   },
   {
     name: 'Videography',
-    value: 'Shot and edited films with one warm grade, cut for IG and TikTok.',
-    ask: 'Send the story you want told, the location, and your timeline.',
+    value: 'Films I shoot and edit myself, with one warm grade and cuts made for Instagram and TikTok.',
+    ask: 'Tell me the story you want told, where we’re shooting, and your timeline.',
     sample: { to: '/presence/the-resident', label: 'The Resident' }
   },
   {
     name: 'Content Creation',
-    value: 'Short form series built to a repeatable format your audience returns for.',
-    ask: 'Send your platform, your goal, and how often you want to post.',
+    value: 'Short form series built on a format your audience will keep coming back for.',
+    ask: 'Tell me your platform, what you want it to do, and how often you want to post.',
     sample: { to: '/presence/sambas-three-ways', label: 'Sambas, Three Ways' }
   },
   {
     name: 'Concept Development',
-    value: 'Campaign and series concepts with hooks, arcs and a reason to exist.',
-    ask: 'Send your product and who it is for. I will bring the idea.',
+    value: 'Ideas for campaigns and series, with a hook, a story arc and an actual reason to exist.',
+    ask: 'Tell me what you’re selling and who it’s for. I’ll bring the idea.',
     sample: { to: '/experiments/the-bachelor-at-amaryllis', label: 'The Bachelor series' }
   },
   {
     name: 'Brand Strategy',
-    value: 'Positioning, content pillars and a plan your team can actually run.',
-    ask: 'Send where the brand is now and where you want it to be.',
+    value: 'Working out what your brand stands for, what it talks about, and a plan your team can actually run.',
+    ask: 'Tell me where the brand is now and where you want it to be.',
     sample: { to: '/experiments', label: 'Selected case studies' }
   },
   {
     name: 'Presence / Modeling',
-    value: 'Editorial and campaign presence, directed or in front of the lens.',
-    ask: 'Send the campaign concept, usage, and dates.',
+    value: 'Editorial and campaign work in front of the lens, or directing whoever is.',
+    ask: 'Tell me the concept, where the images will be used, and your dates.',
     sample: { to: '/presence/denim-in-bloom', label: 'Denim in Bloom' }
   }
 ];
@@ -125,7 +125,7 @@ export default function Contact() {
               Let’s build something intentional.
             </h1>
             <p className="text-brand-muted text-lg font-light leading-relaxed opacity-60 max-w-md">
-              Tell me what you are building and I will tell you exactly how I can help. The clearer the brief, the faster the yes.
+              Tell me what you’re building and I’ll tell you exactly how I can help. The clearer the brief, the quicker the yes.
             </p>
           </div>
 
@@ -212,7 +212,7 @@ export default function Contact() {
                       </a>
                     </div>
                     <p className="text-[10px] font-light leading-relaxed opacity-40 mt-8">
-                      Same services either way. 50% books the date, balance on delivery.
+                      Same services either way. Half up front books your date, and the rest is due on delivery.
                     </p>
                   </motion.div>
                 </motion.div>
@@ -245,7 +245,7 @@ export default function Contact() {
         >
           <h2 className="text-[11px] uppercase tracking-[0.3em] font-semibold mb-4 opacity-40">Request a Quotation</h2>
           <p className="text-sm font-light leading-relaxed opacity-50 mb-10">
-            Pick a service to see what it includes and what to send. Each one links to a finished example, so you know what you are buying before we talk.
+            Pick a service to see what it covers and what I’ll need from you. Each one links to something I’ve already made, so you know what you’re getting before we even talk.
           </p>
 
           <form
@@ -347,7 +347,7 @@ export default function Contact() {
                 name="message"
                 rows={4}
                 className="w-full bg-transparent border-b border-brand-ink/10 py-3 focus:border-brand-ink outline-none transition-colors font-light resize-none"
-                placeholder="Your goal, your dates, your budget range if you have one..."
+                placeholder="What you’re making, your dates, and a budget range if you have one"
               />
             </div>
 
@@ -367,7 +367,7 @@ export default function Contact() {
                   exit={{ opacity: 0 }}
                   className="text-[10px] uppercase tracking-[0.2em] text-center opacity-60 italic"
                 >
-                  Thank you. I will be in touch shortly.
+                  Thank you. I’ll be in touch soon.
                 </motion.p>
               )}
               {status === 'error' && (
@@ -377,7 +377,7 @@ export default function Contact() {
                   exit={{ opacity: 0 }}
                   className="text-[10px] uppercase tracking-[0.2em] text-center text-red-500/80"
                 >
-                  Something went wrong. Please email siwandewongani@gmail.com directly.
+                  Something went wrong on my side. Please email me at siwandewongani@gmail.com instead.
                 </motion.p>
               )}
             </AnimatePresence>

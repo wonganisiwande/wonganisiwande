@@ -10,15 +10,15 @@ import { type Work, works } from '../data/presence';
 const categories = [
   {
     name: 'All',
-    explainer: 'Moments of intention, movement, and energy captured visually and in motion.'
+    explainer: 'The work you can look at. Shoots in stills, and films that move.'
   },
   {
     name: 'Sightlines',
-    explainer: 'Full shoots you can step into. Click a cover to see the whole scope.'
+    explainer: 'Full shoots you can step into. Tap a cover and the whole set opens up.'
   },
   {
     name: 'Stories in Motion',
-    explainer: 'Films that move, inform, and inspire.'
+    explainer: 'Short films I’ve directed, edited, or ended up in.'
   }
 ];
 
@@ -90,7 +90,7 @@ function WorkModal({ work, onClose }: { work: Work; onClose: () => void }) {
                   <img
                     src={src}
                     loading="lazy"
-                    alt={`${work.title} — frame ${i + 1}`}
+                    alt={`${work.title}, frame ${i + 1}`}
                     className="w-full opacity-90 group-hover/photo:opacity-100 group-hover/photo:scale-[1.03] transition-all duration-700 ease-out"
                   />
                 </button>

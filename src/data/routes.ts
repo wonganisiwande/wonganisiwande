@@ -7,6 +7,7 @@ import { thoughtItems } from './thoughts';
 import { archiveItems } from './experiments';
 import { works } from './presence';
 import { SITE, SITE_NAME, DEFAULT_TITLE, DEFAULT_DESCRIPTION, DEFAULT_IMAGE, PERSON } from './site';
+import { HOME, ESSENCE } from './copy';
 
 export type Route = {
   path: string;          // "/thoughts/one-of-two"
@@ -78,9 +79,9 @@ export function buildRoutes(): Route[] {
     priority: '1.0',
     html: shell(
       [
-        sectionLabel('A note from the taste director'),
-        `<h1 class="text-4xl md:text-7xl font-serif mb-8 leading-tight tracking-tight">You have good taste. Welcome.</h1>`,
-        `<p class="text-lg font-light leading-relaxed opacity-70">Creative direction, content and brand consulting from Blantyre, Malawi. Fashion and film, in front of the camera and behind it.</p>`,
+        sectionLabel(HOME.kicker),
+        `<h1 class="text-4xl md:text-7xl font-serif mb-8 leading-tight tracking-tight">${esc(HOME.headline)}</h1>`,
+        `<p class="text-lg font-light leading-relaxed opacity-70">${esc(HOME.intro)}</p>`,
         `<h2 class="text-[10px] uppercase tracking-[0.3em] font-semibold opacity-40 mt-16 mb-6">Latest</h2>`,
         `<ul class="space-y-3">` +
           thoughtItems
@@ -152,11 +153,12 @@ export function buildRoutes(): Route[] {
     html: shell(
       [
         h1('Essence'),
-        `<p class="text-lg font-light leading-relaxed opacity-70">Who I am, how I think, and why I do what I do.</p>`,
-        `<h2 class="text-[10px] uppercase tracking-[0.3em] font-semibold opacity-40 mt-12 mb-3">Capabilities</h2>`,
-        `<p class="text-lg font-light leading-relaxed opacity-70">Creative and art direction. Content creation and short form series. Brand strategy and consulting. Fashion, styling and modelling. Film direction, from treatment to final cut. Sometimes I direct the frame, sometimes I am in it.</p>`,
-        `<h2 class="text-[10px] uppercase tracking-[0.3em] font-semibold opacity-40 mt-12 mb-3">Journey</h2>`,
-        `<p class="text-lg font-light leading-relaxed opacity-70">Blantyre first. Mister Africa International 2023, representing Malawi. Nominated for Content Creator of the Year in 2026. Now building premium personal brands, from Malawi to the world.</p>`
+        `<p class="text-lg font-light leading-relaxed opacity-70">${esc(ESSENCE.intro)}</p>`,
+        ...ESSENCE.sections.flatMap(sec => [
+          `<h2 class="text-[10px] uppercase tracking-[0.3em] font-semibold opacity-40 mt-12 mb-3">${esc(sec.title)}</h2>`,
+          `<p class="text-lg font-light leading-relaxed opacity-70">${esc(sec.content)}</p>`
+        ]),
+        `<p class="text-lg font-light leading-relaxed opacity-70 mt-12">${esc(ESSENCE.closer)}</p>`
       ].join('\n')
     ),
     jsonLd: [{ '@context': 'https://schema.org', ...PERSON }, crumbs([{ name: 'Home', path: '/' }, { name: 'Essence', path: '/essence' }])]
@@ -169,7 +171,7 @@ export function buildRoutes(): Route[] {
     image: abs(DEFAULT_IMAGE),
     lastmod: '2026-11-11',
     priority: '0.8',
-    html: shell([h1('Let’s build something intentional.'), `<p class="text-lg font-light leading-relaxed opacity-70">Tell me what you are building and I will tell you exactly how I can help. The clearer the brief, the faster the yes.</p>`, `<p class="mt-8"><a href="mailto:siwandewongani@gmail.com" class="text-2xl font-light">siwandewongani@gmail.com</a></p>`].join('\n')),
+    html: shell([h1('Let’s build something intentional.'), `<p class="text-lg font-light leading-relaxed opacity-70">Tell me what you’re building and I’ll tell you exactly how I can help. The clearer the brief, the quicker the yes.</p>`, `<p class="mt-8"><a href="mailto:siwandewongani@gmail.com" class="text-2xl font-light">siwandewongani@gmail.com</a></p>`].join('\n')),
     jsonLd: [crumbs([{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }])]
   });
 

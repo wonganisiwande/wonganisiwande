@@ -10,19 +10,19 @@ import { type Credit, type Media, type Thought, thoughtItems } from '../data/tho
 const categories = [
   {
     name: 'All',
-    explainer: 'Reflections as essays, concept notes, and observations.'
+    explainer: 'Where I write things down. Essays, short notes on ideas, and what each project taught me.'
   },
   {
     name: 'Essays',
-    explainer: 'Long form reflections on creativity and direction.'
+    explainer: 'Longer pieces on creativity and direction, for when one paragraph won’t do.'
   },
   {
     name: 'Concept Notes',
-    explainer: 'Short, focused insights into ideas and choices.'
+    explainer: 'Short notes on one idea or one decision, and why I made it.'
   },
   {
     name: 'Reflections',
-    explainer: 'Personal perspectives on places, projects and taste.'
+    explainer: 'The personal ones. Places, projects, and what they taught me about taste.'
   }
 ];
 

@@ -30,8 +30,8 @@ export type Thought = {
 
 export const A = (n: string) => `/media/amaryllis/gallery/${n}.jpg`;
 export const D = (n: string) => `/media/denim/gallery/${n}.jpg`;
-// Glove of the Town. Frames by Romeo Damaso, licensed for site and social with
-// credit. Drop them in public/media/glove/ before this article goes live.
+// Glove of the Town. Festival photographer not confirmed, so the festival
+// frames carry no individual credit. Do not add one without his say so.
 export const G = (n: string) => `/media/glove/${n}.jpg`;
 // Sunday Soirée, Vieille Monnaie. The finished lookbook cards, captions and all,
 // because the captions are the argument the essay is making.
@@ -185,13 +185,11 @@ export const thoughtItems: Thought[] = [
     title: "Glove of the Town",
     category: "Essays",
     description: "A crocheted, rhinestoned glove split the internet in June. Four moves later it was in a gallery, on a runway and on stage. Notes on owning your narrative.",
-    credit: "Photography by Romeo Damaso and the Tikonze Apapa media team",
     cover: G('cover'),
     coverKind: 'photo',
     credits: [
       { role: 'The Glove', name: 'Zizi Kalua, HookedByZie' },
       { role: 'Denim Version', name: 'Collins Chisenge' },
-      { role: 'Photography, Festival', name: 'Romeo Damaso' },
       { role: 'Photography, Denim Chill', name: 'Tikonze Apapa media team' },
       { role: 'Exhibited At', name: 'Glasshouse gallery' },
       { role: 'Runway', name: 'Denim Chill, Tikonze Apapa Foundation' },
@@ -205,7 +203,7 @@ export const thoughtItems: Thought[] = [
       "The only thing I had actually been careful about was standing out in the wrong way. I thought I had got that right, and then it got taken out of my hands by people I could do nothing about.",
       "A lot of people reached out. More than I expected, and quietly, which is its own kind of loyalty.",
       "I took it all, but I also had a plan.",
-      "First, I posted the actual HD photos of me in the entire outfit, taken by Romeo Damaso, both during the day and at night. What his frames caught that a phone never could was the texture, the layers, the way the palette actually sat in daylight and then again under lights. The tone online that weekend started to look, to me, like something a lot of creators had quietly been dealing with. Discourse started around the outfits.",
+      "First, I posted the actual HD photos of me in the entire outfit, both during the day and at night. What those frames caught that a phone never could was the texture, the layers, the way the palette actually sat in daylight and then again under lights. The tone online that weekend started to look, to me, like something a lot of creators had quietly been dealing with. Discourse started around the outfits.",
       "I want to be clear about one thing here. I was not the only person who took it that weekend. Other creators got the same treatment and did not have my platform, my contacts, or a run of events already lined up to answer it with. That is the part of this I do not find funny.",
       "There was a phenomenon of hiding behind “this is what showbiz is, deal with it or stop being in the public eye”. Understandable, but also very narrow in thought, because the people trolling were not tabloids or getting paid; they just genuinely wanted to humble other people, which is something I can never stand for. So I decided to integrate my GLOVE into my everyday. A few days after that was my birthday, so I made a video celebrating it, holding a glass of wine and wearing the glove. It was about refusing to hide something I liked, and showing that taste is subjective in the everyday. The well wishes came in.",
       "That same week I was doing creative direction and content for an art gallery called the Glasshouse gallery. I pitched putting the glove into the show as a piece, the team liked how it sat with the theme, and on one of the exhibit days I hung it and made a video about it. Light, no argument in it.",
@@ -235,13 +233,13 @@ export const thoughtItems: Thought[] = [
     credits: [
       { role: 'Lookbook & Styling', name: 'Wongani Siwande' },
       { role: 'The Night', name: 'Sunday Soirée' },
-      { role: 'Season Partners', name: 'FDH Bank, Ekhaya Farms Foods' },
+      { role: 'Season Partner', name: 'FDH Bank' },
       { role: 'Theme', name: 'Vieille Monnaie' }
     ],
     body: [
       "My first Sunday Soirée was at Kumbali Castle and I was there as a creator (how far we have come). Said plainly it sounds like a schedule. What it actually describes is a Sunday afternoon that quietly became an institution, and I have had the strange privilege of watching that happen closely enough to catalogue the details, most recently as the person building a lookbook for the next one.",
       "Sunday Soirée started as something closer to a gathering than an event, live music, local art, food and design in one room, run on what the people behind it call a micro economy. Guests fund the night, the night sells out, artists and vendors get paid from that, the culture grows, and more people come next time because word got round it was worth planning a Sunday around. No traditional sponsorship, no cash changing hands at the door. It worked because everyone in the room actually believed the premise, that culture is the product, not an accessory to one.",
-      "By this year that premise had grown big enough to attract real backing. FDH Bank and Ekhaya Farms Foods came in as the exclusive partners for the season, which sounds like a business update and is actually something quieter and more important than that. It means the artists and vendors who make the night what it is know they are getting paid, on time, for a full season, instead of hoping the door numbers work out edition to edition. That is the difference between a scene and an economy, and it happened gradually enough that most people simply noticed the lineup getting better and moved on without asking why.",
+      "By this year that premise had grown big enough to attract real backing. FDH Bank came in as a partner for the season, which sounds like a business update and is actually something quieter and more important than that. It means the artists and vendors who make the night what it is know they are getting paid, on time, for a full season, instead of hoping the door numbers work out edition to edition. That is the difference between a scene and an economy, and it happened gradually enough that most people simply noticed the lineup getting better and moved on without asking why.",
       "I was asked to build the lookbook for the next one, and that brief is what finally made me look at the evolution instead of just living inside it as a guest. A lookbook, stripped down to its simplest form, is a document of what a room like this expects from the people walking into it. Which means it is never neutral. It either widens that door or it narrows it, and there is no version of the document that does neither.",
       "Here is the part of this that does not photograph well. Taste has become sharper here, genuinely, people plan outfits weeks out now, and there is a real pride in getting the details right that only shows up in a community actually paying attention to itself. I love that part without reservation. But when a room’s standard rises, some people experience that rise as a wall instead of an invitation, and I know this one personally. I have stood on the wrong side of that wall myself, made to feel small over what I was wearing, but I had the language and the confidence to understand what taste even was. It is not comfortable to admit that being put on the spot isn’t always a good feeling. It is also the only honest place to start from when you are the one being handed the brief, because the document you make either teaches people to look closer or it just tells them they have not arrived yet.",
       "Taste is generous. It notices something specific, a fabric, a colour, a combination that should not work and somehow does, and it shares that noticing instead of hoarding it. It invites you closer and makes you want to try something you would not have tried before. A culture of inferiority does the opposite of all of that. It has no interest in specifics, only in the vague sense that you have not quite arrived, kept just fuzzy enough that you can never actually fix it. One builds a person up by teaching them to look closer. The other keeps a person small by making sure they never feel like they looked closely enough.",
@@ -332,14 +330,14 @@ export const thoughtItems: Thought[] = [
     title: "One of Two",
     category: "Reflections",
     description: "A year of firsts, one nomination, and the camera I actually had. On finally knowing what the work is worth.",
-    credit: "Content Creator of the Year nominee, 2026",
+    credit: "Nominated for Content Creator of the Year by the Institute of Marketing in Malawi (IMM), 2026",
     cover: A('9485'),
     coverKind: 'photo',
     body: [
       "Being a creative has handed me a lot of wins (and a lot of headaches). There is never a set rule or standard way of doing things, which for me looks like devising a formula for every single concept.",
-      "When I received this nomination for Content Creator of the Year, I looked back at every single challenge that led me here. It has been a year of a lot of firsts. First solo campaign. First solo trip to go and shoot content. And now, first marketing-related nomination.",
+      "When I received this nomination for Content Creator of the Year from the Institute of Marketing in Malawi, I looked back at every single challenge that led me here. It has been a year of a lot of firsts. First solo campaign. First solo trip to go and shoot content. And now, first marketing-related nomination.",
       "The most important first for me has been finally knowing what I do is worth (if I charge what I am worth, not even I can afford me). I know that a lot of the mechanics in the background will rarely be seen, but the output always speaks for itself.",
-      "I was lucky to work on my personal brand alongside a lot of big brands like Enkosi, FDH, Ekhaya and Kwithu Kitchen. I was so proud of this work that it easily landed me as one of two contenders, and I am forever grateful that I took the camera on my then iPhone X seriously. Not the camera I wanted. The camera I had.",
+      "I was lucky to work on my personal brand alongside a lot of big brands like Enkosi, FDH and Kwithu Kitchen. I was so proud of this work that it easily landed me as one of two contenders, and I am forever grateful that I took the camera on my then iPhone X seriously. Not the camera I wanted. The camera I had.",
       "This nomination in itself has opened doors for me, and you can expect a lot more greatness going forward."
     ]
   }
