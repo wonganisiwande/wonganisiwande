@@ -16,17 +16,17 @@ const selectedWork = [
   },
   {
     id: 2,
-    title: "Denim in Bloom",
-    tags: "Editorial · Creative Direction / Styling",
-    image: "/media/denim/bloom-portrait.jpg",
-    to: "/presence/denim-in-bloom"
+    title: "Sun, Set, Match",
+    tags: "Sunday Soirée · Lookbook / Styling",
+    image: "/media/tennis/cover.jpg",
+    to: "/thoughts/sun-set-match"
   },
   {
     id: 3,
-    title: "The Place to Be",
-    tags: "Amaryllis Residences · Photography Keong Kadango",
-    image: "/media/amaryllis/scarf-exterior.jpg",
-    to: "/presence/the-amaryllis-residences"
+    title: "Glove of the Town",
+    tags: "Essay · Creative Direction / Presence",
+    image: "/media/glove/cover.jpg",
+    to: "/thoughts/glove-of-the-town"
   }
 ];
 
@@ -100,7 +100,7 @@ export default function Home() {
               You have good taste. Welcome.
             </h1>
             <p className="text-brand-muted text-base md:text-xl font-light leading-relaxed max-w-2xl mx-auto">
-              Explore my presence, experiments, and thoughts behind the work and sometimes within it.
+              Creative direction, content and brand consulting from Blantyre, Malawi. Fashion and film, in front of the camera and behind it.
             </p>
           </motion.div>
         </Parallax>
@@ -113,7 +113,7 @@ export default function Home() {
       <section className="py-20 md:py-40 px-4">
         <div className="flex justify-between items-end mb-12 md:mb-20">
           <h2 className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-semibold opacity-40">Selected Work</h2>
-          <Link to="/presence" className="group flex items-center space-x-3 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-medium opacity-60 hover:opacity-100 transition-all">
+          <Link to="/presence" className="group flex items-center space-x-3 py-3 -my-3 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-medium opacity-60 hover:opacity-100 transition-all">
             <span>View All</span>
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </Link>
@@ -160,7 +160,7 @@ export default function Home() {
             <p className="text-2xl md:text-3xl font-serif italic leading-relaxed mb-8 md:mb-12">
               "Taste is an artform."
             </p>
-            <Link to="/experiments" className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-semibold opacity-40 hover:opacity-100 transition-opacity">
+            <Link to="/experiments" className="inline-block py-3 text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-semibold opacity-40 hover:opacity-100 transition-opacity">
               Explore the Experiments
             </Link>
           </motion.div>

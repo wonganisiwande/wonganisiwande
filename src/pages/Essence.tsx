@@ -10,11 +10,11 @@ const sections = [
   },
   {
     title: 'Capabilities',
-    content: 'Creative direction, brand strategy, styling, content and presence. Sometimes I direct the frame, sometimes I am in it.'
+    content: 'Creative and art direction. Content creation and short form series. Brand strategy and consulting. Fashion, styling and modelling. Film direction, from treatment to final cut. Sometimes I direct the frame, sometimes I am in it.'
   },
   {
     title: 'Journey',
-    content: 'Blantyre first. Mister Africa International 2023, representing Malawi. Now building premium personal brands, from Malawi to the world.'
+    content: 'Blantyre first. Mister Africa International 2023, representing Malawi. Nominated for Content Creator of the Year in 2026. Now building premium personal brands, from Malawi to the world.'
   }
 ];
 
@@ -76,6 +76,21 @@ export default function Essence() {
         >
           <p>
             I believe every strong idea begins with curiosity. My work exists both behind and in front of the camera, shaping ideas, and at times, embodying them. I notice the small thing that makes the whole thing work, then I build around it.
+          </p>
+        </motion.div>
+
+        {/* Names he has already used publicly, in his own words or on this site.
+            A quiet roster, not a logo wall. */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 2, delay: 0.3 }}
+          className="space-y-6"
+        >
+          <h2 className="text-[10px] uppercase tracking-[0.3em] font-semibold opacity-40">Worked with</h2>
+          <p className="text-base md:text-lg font-light leading-relaxed opacity-60 max-w-3xl">
+            Amaryllis Residences · Tikonze Apapa · Sunday Soirée · FDH Bank · Kwithu Kitchen · Enkosi · Ekhaya · Memona Pharmacy · The Stitchroom · Watch Galore · Ruva Flowerhouse · HookedByZie
           </p>
         </motion.div>
       </div>

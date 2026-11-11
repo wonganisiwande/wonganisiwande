@@ -79,7 +79,7 @@ export default function FrontCover() {
             <button
               onClick={dismiss}
               aria-label="Dismiss"
-              className="absolute top-2 right-2 z-10 p-1.5 opacity-30 hover:opacity-100 transition-opacity"
+              className="absolute top-0 right-0 z-10 p-3 opacity-30 hover:opacity-100 transition-opacity"
             >
               <X size={13} strokeWidth={1.4} />
             </button>
@@ -88,7 +88,7 @@ export default function FrontCover() {
               <div className="w-[58px] shrink-0 overflow-hidden bg-brand-ink/5">
                 <img
                   src={featured.image}
-                  alt=""
+                  alt={featured.title}
                   loading="lazy"
                   className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
                 />
@@ -98,9 +98,9 @@ export default function FrontCover() {
                 <p className="text-[9px] uppercase tracking-[0.25em] font-semibold text-brand-accent mb-2">
                   {featured.kicker}
                 </p>
-                <h3 className="font-serif text-[15px] leading-snug mb-1.5 group-hover:italic transition-all duration-500">
+                <p className="font-serif text-[15px] leading-snug mb-1.5 group-hover:italic transition-all duration-500">
                   {featured.title}
-                </h3>
+                </p>
                 <p className="text-[11px] font-light leading-relaxed opacity-45 line-clamp-2">
                   {featured.blurb}
                 </p>

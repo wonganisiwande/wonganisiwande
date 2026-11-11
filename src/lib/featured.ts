@@ -20,10 +20,10 @@ export type Featured = {
 };
 
 export const featured: Featured | null = {
-  id: 'sun-set-match',
-  kicker: 'New this week',
-  title: 'Sun, Set, Match',
-  blurb: 'Four colours, a tennis court, and weather that decided the rest. Five looks.',
-  href: '/thoughts/sun-set-match',
-  image: '/media/tennis/cover.jpg'
+  id: 'one-of-two',
+  kicker: 'Latest',
+  title: 'One of Two',
+  blurb: 'A year of firsts, one nomination, and the camera I actually had.',
+  href: '/thoughts/one-of-two',
+  image: '/media/amaryllis/gallery/9485.jpg'
 };
