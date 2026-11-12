@@ -10,22 +10,26 @@ const STORAGE_KEY = 'ws-front-cover-dismissed';
  * The front cover bubble. Sits bottom right (the social bar owns bottom left)
  * and points at whatever is newest on the site.
  *
- * It stays out of the way on purpose: it waits before appearing so it never
- * fights the page load, it hides on the page it points at, and once someone
- * closes it they do not see it again until a new story is published.
+ * It is a greeting, not a chaser. It appears once when a page opens (a fresh
+ * load, a refresh or switching pages), steps aside the moment you start
+ * scrolling, and leaves on its own after a few seconds. Scrolling never brings
+ * it back; only the next page does. It hides on the page it points at, and once
+ * someone closes it they do not see it again until a new story is published.
  */
+const DELAY_HOME = 3800; // the home splash runs 2.5s; let the hero land first
+const DELAY = 1600;
+const STAY = 9000;
+
 export default function FrontCover() {
   const location = useLocation();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    setVisible(false);
     if (!featured) return;
 
     // Already on the thing being advertised, so there is nothing to advertise.
-    if (location.pathname === featured.href) {
-      setVisible(false);
-      return;
-    }
+    if (location.pathname === featured.href) return;
 
     let dismissed: string | null = null;
     try {
@@ -35,21 +39,29 @@ export default function FrontCover() {
     }
     if (dismissed === featured.id) return;
 
-    // Hold off until they have started reading. Landing straight into a card
-    // that covers the hero copy is worse than surfacing a moment later. The
-    // timer is the fallback for anyone who never scrolls.
-    const show = () => setVisible(true);
-    const onScroll = () => {
-      if (window.scrollY > 200) show();
+    let hideTimer: number | undefined;
+    let shown = false;
+    const hide = () => {
+      setVisible(false);
+      window.removeEventListener('scroll', onScroll);
     };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    const timer = window.setTimeout(show, 9000);
-    onScroll();
+    // Once it is up, the first real scroll sends it away for this page.
+    const onScroll = () => {
+      if (shown && window.scrollY > 120) hide();
+    };
+    const showTimer = window.setTimeout(() => {
+      // Already reading by the time it would appear: skip this page entirely.
+      if (window.scrollY > 120) return;
+      shown = true;
+      setVisible(true);
+      window.addEventListener('scroll', onScroll, { passive: true });
+      hideTimer = window.setTimeout(hide, STAY);
+    }, location.pathname === '/' ? DELAY_HOME : DELAY);
 
     return () => {
+      window.clearTimeout(showTimer);
+      if (hideTimer) window.clearTimeout(hideTimer);
       window.removeEventListener('scroll', onScroll);
-      window.clearTimeout(timer);
     };
   }, [location.pathname]);
 
@@ -73,7 +85,7 @@ export default function FrontCover() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 12 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed bottom-5 right-4 md:bottom-10 md:right-10 z-40 w-[calc(100vw-2rem)] max-w-[300px]"
+          className="fixed bottom-4 right-4 md:bottom-10 md:right-10 z-40 w-[calc(100vw-2rem)] max-w-[260px] md:max-w-[300px]"
         >
           <div className="relative border border-brand-ink/10 bg-brand-bg/95 backdrop-blur-md shadow-2xl shadow-brand-ink/10">
             <button
@@ -84,8 +96,8 @@ export default function FrontCover() {
               <X size={13} strokeWidth={1.4} />
             </button>
 
-            <Link to={featured.href} onClick={() => setVisible(false)} className="flex items-stretch gap-4 p-4 group">
-              <div className="w-[58px] shrink-0 overflow-hidden bg-brand-ink/5">
+            <Link to={featured.href} onClick={() => setVisible(false)} className="flex items-stretch gap-3 md:gap-4 p-3 md:p-4 group">
+              <div className="w-[44px] md:w-[58px] shrink-0 overflow-hidden bg-brand-ink/5">
                 <img
                   src={featured.image}
                   alt={featured.title}
@@ -95,16 +107,16 @@ export default function FrontCover() {
               </div>
 
               <div className="min-w-0 pr-4">
-                <p className="text-[9px] uppercase tracking-[0.25em] font-semibold text-brand-accent mb-2">
+                <p className="text-[10px] uppercase tracking-[0.25em] font-semibold text-brand-accent mb-2">
                   {featured.kicker}
                 </p>
                 <p className="font-serif text-[15px] leading-snug mb-1.5 group-hover:italic transition-all duration-500">
                   {featured.title}
                 </p>
-                <p className="text-[11px] font-light leading-relaxed opacity-45 line-clamp-2">
+                <p className="hidden md:block text-[11px] font-light leading-relaxed opacity-45 line-clamp-2">
                   {featured.blurb}
                 </p>
-                <span className="mt-2.5 inline-flex items-center gap-1.5 text-[9px] uppercase tracking-[0.2em] opacity-40 group-hover:opacity-90 transition-opacity">
+                <span className="hidden md:inline-flex mt-2.5 items-center gap-1.5 text-[10px] uppercase tracking-[0.2em] opacity-40 group-hover:opacity-90 transition-opacity">
                   Read
                   <ArrowRight size={11} strokeWidth={1.5} />
                 </span>

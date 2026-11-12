@@ -104,7 +104,7 @@ export default function Contact() {
         description="Book creative direction, videography, content, brand strategy or presence. Rate card available. Blantyre, Malawi and beyond."
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 md:gap-40 items-start pt-20">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 lg:gap-40 items-start pt-10 md:pt-20">
         {/* Left Side: Info */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -222,15 +222,15 @@ export default function Contact() {
             <div className="flex space-x-12 pt-4">
               <a href="https://www.instagram.com/wonganisiwande/" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center space-y-4 opacity-40 hover:opacity-100 transition-all">
                 <Instagram size={20} strokeWidth={1.5} />
-                <span className="text-[9px] uppercase tracking-[0.2em]">Instagram</span>
+                <span className="text-[10px] uppercase tracking-[0.2em]">Instagram</span>
               </a>
               <a href="https://www.tiktok.com/@wonganisiwande" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center space-y-4 opacity-40 hover:opacity-100 transition-all">
                 <Music2 size={20} strokeWidth={1.5} />
-                <span className="text-[9px] uppercase tracking-[0.2em]">TikTok</span>
+                <span className="text-[10px] uppercase tracking-[0.2em]">TikTok</span>
               </a>
               <a href="https://www.linkedin.com/in/wongani-siwande-/" target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center space-y-4 opacity-40 hover:opacity-100 transition-all">
                 <Linkedin size={20} strokeWidth={1.5} />
-                <span className="text-[9px] uppercase tracking-[0.2em]">LinkedIn</span>
+                <span className="text-[10px] uppercase tracking-[0.2em]">LinkedIn</span>
               </a>
             </div>
           </div>
@@ -318,7 +318,7 @@ export default function Contact() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-2">
-                <label className="text-[9px] uppercase tracking-[0.2em] opacity-40 ml-1">Name</label>
+                <label className="text-[10px] uppercase tracking-[0.2em] opacity-40 ml-1">Name</label>
                 <input
                   type="text"
                   name="name"
@@ -328,7 +328,7 @@ export default function Contact() {
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-[9px] uppercase tracking-[0.2em] opacity-40 ml-1">Email</label>
+                <label className="text-[10px] uppercase tracking-[0.2em] opacity-40 ml-1">Email</label>
                 <input
                   type="email"
                   name="email"
@@ -342,7 +342,7 @@ export default function Contact() {
             <FileUpload accept=".pdf" onFileSelect={setBriefFile} />
 
             <div className="space-y-2">
-              <label className="text-[9px] uppercase tracking-[0.2em] opacity-40 ml-1">Project Details</label>
+              <label className="text-[10px] uppercase tracking-[0.2em] opacity-40 ml-1">Project Details</label>
               <textarea
                 name="message"
                 rows={4}

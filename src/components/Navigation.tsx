@@ -84,7 +84,7 @@ export default function Navigation() {
                   className="flex items-center gap-2"
                 >
                   <item.icon size={14} strokeWidth={1.2} className={isScrolled ? 'opacity-60' : 'opacity-40 group-hover:opacity-100'} />
-                  <span className="text-[9px] lg:text-[10px] uppercase tracking-[0.2em] font-medium whitespace-nowrap">
+                  <span className="text-[10px] lg:text-[10px] uppercase tracking-[0.2em] font-medium whitespace-nowrap">
                     {item.name}
                   </span>
                 </motion.div>

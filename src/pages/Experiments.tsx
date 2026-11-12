@@ -136,7 +136,7 @@ export default function Experiments() {
         image={openItem ? `/media/share/experiments-${openItem.slug}.jpg` : undefined}
       />
 
-      <header className="mb-20 lg:mb-60 max-w-2xl relative">
+      <header className="mb-14 md:mb-20 lg:mb-60 max-w-2xl relative">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 0.05, scale: 1 }}
@@ -158,14 +158,14 @@ export default function Experiments() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5, delay: 0.2 }}
-          className="flex flex-wrap gap-6 md:gap-10 mb-16"
+          className="flex flex-wrap gap-x-6 gap-y-1 md:gap-10 mb-10 md:mb-16"
         >
           {categories.map((cat) => (
             <button
               key={cat.name}
               onClick={() => setActiveCategory(cat.name)}
               className={`
-                text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-medium transition-all duration-500
+                py-2 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-medium transition-all duration-500
                 ${activeCategory === cat.name ? 'opacity-100 italic underline underline-offset-8' : 'opacity-30 hover:opacity-100'}
               `}
             >
@@ -189,7 +189,7 @@ export default function Experiments() {
       </header>
 
       {/* Mobile & tablet: clean stack. Desktop: editorial scatter. */}
-      <div className="relative w-full space-y-8 lg:space-y-0 pb-20 lg:pb-0 lg:min-h-[var(--scatter-h)]"
+      <div className="relative w-full grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:block pb-20 lg:pb-0 lg:min-h-[var(--scatter-h)]"
         style={{ ['--scatter-h' as string]: `${desktopPositions(Math.max(0, filteredItems.length - 1)).top + 560}px` }}>
         <AnimatePresence mode="popLayout">
           {filteredItems.map((item, idx) => (
@@ -207,8 +207,8 @@ export default function Experiments() {
               }}
             >
               <Parallax offset={idx % 2 === 0 ? 20 : -20}>
-                <div className="p-8 md:p-12 border border-brand-ink/5 bg-brand-bg/50 backdrop-blur-sm hover:bg-brand-ink/[0.02] hover:border-brand-ink/10 transition-all duration-700">
-                  <p className="text-[9px] uppercase tracking-[0.3em] font-semibold mb-6 opacity-30 group-hover:opacity-60 transition-opacity">
+                <div className="h-full p-7 md:p-10 lg:p-12 border border-brand-ink/5 bg-brand-bg/50 backdrop-blur-sm hover:bg-brand-ink/[0.02] hover:border-brand-ink/10 transition-all duration-700">
+                  <p className="text-[10px] uppercase tracking-[0.3em] font-semibold mb-6 opacity-30 group-hover:opacity-60 transition-opacity">
                     {item.category}
                   </p>
                   <h3 className="text-2xl font-serif mb-3 group-hover:italic transition-all duration-500">
@@ -218,7 +218,7 @@ export default function Experiments() {
                   <p className="text-sm font-light leading-relaxed opacity-40 group-hover:opacity-70 transition-opacity mb-6">
                     {item.description}
                   </p>
-                  <p className="text-[9px] uppercase tracking-[0.2em] opacity-0 group-hover:opacity-50 transition-opacity">
+                  <p className="text-[10px] uppercase tracking-[0.2em] opacity-0 group-hover:opacity-50 transition-opacity">
                     Open
                   </p>
                 </div>

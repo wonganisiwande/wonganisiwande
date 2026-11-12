@@ -35,7 +35,7 @@ export default function Essence() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 md:gap-16 lg:gap-20">
           {sections.map((section, idx) => (
             <Parallax key={section.title} offset={idx * 15 + 10}>
               <motion.div

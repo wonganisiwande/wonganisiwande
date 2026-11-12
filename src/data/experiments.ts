@@ -173,27 +173,5 @@ export const archiveItems: Archive[] = [
       detail: "The worn dialysis chair, before any of the numbers.",
       result: "A documentary and a fundraiser promo for a twenty bed unit, both made as a volunteer."
     }
-  },
-  {
-    id: 10,
-    slug: 'kwithu-kitchen',
-    published: '2026-11-12',
-    title: "Kwithu Kitchen: Proof, Not Pity",
-    verdict: "Proof, not pity.",
-    category: "Case Studies",
-    description: "A women-led honey cooperative from Mzuzu, relaunched around one honest number. Seven portraits, a hero film and a promise written into the price.",
-    body: [
-      "Kwithu Kitchen started in Mzuzu in 2004, when Anna Msowoya Keys began cooking for twenty orphaned children. More than twenty years later it is a women-led cooperative making 100% natural Nyika honey and tomato puree, and it was getting ready to relaunch across the country.",
-      "The thing that made it special had been in the business from the start and had never had a name. Three percent of every jar’s value was already going towards meals and schooling for children in the North. So the relaunch gave it one, the 3% Promise, and built everything else around it. Feed, educate, empower. Kwithu ku Malawi, we fill jars with futures.",
-      "The direction I held onto was proof, not pity. The women of Kwithu run a business, so we went to Mzuzu and photographed them like the authorities they are. Seven women, Anna included, as still, dignified editorial portraits. The same women on film in Faces of Kwithu, each one answering in her own words, each cut built around the line that was most true. And Anna in her own kitchen, cooking the recipes the product actually goes into.",
-      "The hero film, The Sound of Mzuzu, opens on the hills at first light and comes down to the women’s hands at work. Honey pouring, lids sealing, pots being stirred. Then a school bell, and one child’s laugh turning into a room full of them. It closes on the jar.",
-      "Everything else came out of what we brought back from Mzuzu: the press feature on Anna, billboards built on the women’s hands, recipe cards, radio, and a social rollout that introduced the women one at a time before launch day on 1 July 2026.",
-      "If the good thing is real, you don’t have to dress it up. You just have to point the camera at the people doing it."
-    ],
-    three: {
-      call: "Lead with the 3% that was already on the label, and give it a name.",
-      detail: "Seven founding women, photographed as authorities, not as a charity story.",
-      result: "Relaunched nationally on 1 July 2026, across press, outdoor, radio, retail and social."
-    }
   }
 ];

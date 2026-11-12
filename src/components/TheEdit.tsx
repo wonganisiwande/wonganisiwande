@@ -7,8 +7,8 @@ import { edit } from '../data/edit';
 // not made.
 export default function TheEdit() {
   return (
-    <section aria-labelledby="the-edit" className="py-20 md:py-32 px-4 border-t border-brand-ink/5">
-      <div className="flex items-end justify-between gap-6 mb-12 md:mb-16">
+    <section aria-labelledby="the-edit" className="py-14 md:py-28 lg:py-32 md:px-4 border-t border-brand-ink/5">
+      <div className="flex items-end justify-between gap-6 mb-8 md:mb-16 px-4 md:px-0">
         <div>
           <h2 id="the-edit" className="text-[10px] md:text-[11px] uppercase tracking-[0.3em] font-semibold opacity-40 mb-3">
             The Edit
@@ -17,10 +17,10 @@ export default function TheEdit() {
         </div>
         <div className="flex flex-col items-end gap-2 shrink-0">
           <Seal size={46} title="Chosen by Wongani Siwande" />
-          <span className="text-[9px] uppercase tracking-[0.25em] opacity-40">{edit.issue}</span>
+          <span className="text-[10px] uppercase tracking-[0.25em] opacity-40">{edit.issue}</span>
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
+      <div className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none no-scrollbar gap-6 md:gap-10 lg:gap-8 px-4 md:px-0 md:grid-cols-3 lg:grid-cols-5 scroll-px-4">
         {edit.items.map((it, i) => (
           <motion.div
             key={it.what}
@@ -28,9 +28,9 @@ export default function TheEdit() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="border-t border-brand-ink pt-4 min-w-0"
+            className="border-t border-brand-ink pt-4 min-w-0 shrink-0 w-[70%] sm:w-[45%] md:w-auto snap-start"
           >
-            <p className="text-[9px] uppercase tracking-[0.25em] font-semibold opacity-40 mb-2">{it.cat}</p>
+            <p className="text-[10px] uppercase tracking-[0.25em] font-semibold opacity-40 mb-2">{it.cat}</p>
             <p className="font-serif text-xl leading-tight mb-2">{it.what}</p>
             <p className="text-sm font-light leading-relaxed opacity-60">{it.why}</p>
           </motion.div>

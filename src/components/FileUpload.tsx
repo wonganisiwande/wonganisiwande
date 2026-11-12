@@ -54,7 +54,7 @@ export default function FileUpload({ onFileSelect, accept = ".svg" }: FileUpload
 
   return (
     <div className="space-y-4">
-      <label className="text-[9px] uppercase tracking-[0.2em] opacity-40 ml-1">Project brief ({accept.replace('.', '').toUpperCase()}, optional)</label>
+      <label className="text-[10px] uppercase tracking-[0.2em] opacity-40 ml-1">Project brief ({accept.replace('.', '').toUpperCase()}, optional)</label>
       
       <div
         onDragOver={onDragOver}

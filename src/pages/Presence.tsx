@@ -164,14 +164,14 @@ export default function Presence() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5, delay: 0.3 }}
-          className="flex flex-wrap gap-6 md:gap-10 mb-12"
+          className="flex flex-wrap gap-x-6 gap-y-1 md:gap-10 mb-10 md:mb-12"
         >
           {categories.map((cat) => (
             <button
               key={cat.name}
               onClick={() => setActiveCategory(cat.name)}
               className={`
-                text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-medium transition-all duration-500
+                py-2 text-[10px] md:text-[11px] uppercase tracking-[0.2em] font-medium transition-all duration-500
                 ${activeCategory === cat.name ? 'opacity-100 italic underline underline-offset-8' : 'opacity-30 hover:opacity-100'}
               `}
             >
@@ -194,7 +194,7 @@ export default function Presence() {
         </AnimatePresence>
       </header>
 
-      <div className="flex flex-col space-y-24 md:space-y-40 pb-40">
+      <div className="flex flex-col space-y-16 md:space-y-28 lg:space-y-40 pb-24 md:pb-40">
         <AnimatePresence mode="popLayout">
           {filtered.map((work, idx) => (
             <motion.div
@@ -207,7 +207,7 @@ export default function Presence() {
               onClick={() => navigate(`/presence/${work.slug}`)}
               className={`
                 relative group cursor-pointer
-                ${work.size === 'large' ? 'w-full md:w-4/5' : 'w-full md:w-3/5'}
+                ${work.size === 'large' ? 'w-full md:w-4/5' : 'w-full md:w-2/3 lg:w-3/5'}
                 ${idx % 2 === 0 ? 'mr-auto' : 'ml-auto'}
               `}
             >
@@ -220,7 +220,7 @@ export default function Presence() {
                   />
 
                   <div className="absolute inset-0 bg-brand-ink/40 opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col justify-end p-8 md:p-12 text-white pointer-events-none">
-                    <p className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] font-semibold mb-2 opacity-70">
+                    <p className="text-[10px] uppercase tracking-[0.3em] font-semibold mb-2 opacity-70">
                       {work.kind === 'film' ? 'Play film' : `View gallery · ${work.gallery!.length} photos`}
                     </p>
                     <h3 className="text-3xl md:text-4xl font-serif italic">{work.title}</h3>
@@ -238,7 +238,7 @@ export default function Presence() {
 
               <div className="flex flex-col md:flex-row md:justify-between md:items-baseline gap-4">
                 <h3 className="text-2xl md:text-3xl font-serif group-hover:italic transition-all duration-500">{work.title}</h3>
-                <p className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] opacity-40 font-medium">{work.roles}</p>
+                <p className="text-[10px] uppercase tracking-[0.2em] opacity-40 font-medium">{work.roles}</p>
               </div>
               <p className="font-serif italic text-lg md:text-xl leading-snug opacity-70 mt-3">{work.verdict}</p>
             </motion.div>

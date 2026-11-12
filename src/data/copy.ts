@@ -7,7 +7,15 @@
 export const HOME = {
   kicker: 'A note from the taste director',
   headline: 'You have good taste. Welcome.',
-  intro: 'Creative director, Blantyre. I find the idea, make it look right, and sometimes end up in the frame.',
+  // The hero definition, set as a dictionary card. Kept to one short sense so
+  // it reads in three lines on a phone.
+  entry: {
+    word: 'taste di·rec·tor',
+    pron: '/teɪst dəˈrɛktə/',
+    pos: 'noun',
+    def: 'One who finds the idea, makes it look right, and sometimes ends up in the frame.',
+    eg: 'Wongani Siwande, Blantyre.'
+  },
   workLabel: 'A few things I’m proud of',
   workLink: 'See everything',
   quote: 'Taste is an artform.',

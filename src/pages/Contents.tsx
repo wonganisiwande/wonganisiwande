@@ -33,7 +33,7 @@ export default function Contents() {
                 <span className="font-serif text-xl md:text-2xl group-hover:italic transition-all duration-500">{e.title}</span>
                 <span className="block font-serif italic text-base opacity-55 mt-1">{e.verdict}</span>
               </span>
-              <span className="col-start-2 md:col-start-auto text-[9px] md:text-[10px] uppercase tracking-[0.22em] opacity-40 whitespace-nowrap">
+              <span className="col-start-2 md:col-start-auto text-[10px] uppercase tracking-[0.22em] opacity-40 whitespace-nowrap">
                 {e.no ? `${e.kind} · ` : ''}{e.month}
               </span>
             </Link>

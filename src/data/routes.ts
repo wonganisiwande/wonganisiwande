@@ -82,7 +82,7 @@ export function buildRoutes(): Route[] {
       [
         sectionLabel(HOME.kicker),
         `<h1 class="text-4xl md:text-7xl font-serif mb-8 leading-tight tracking-tight">${esc(HOME.headline)}</h1>`,
-        `<p class="text-lg font-light leading-relaxed opacity-70">${esc(HOME.intro)}</p>`,
+        `<dl class="max-w-md"><dt class="font-serif text-2xl">${esc(HOME.entry.word)} <span class="opacity-50 text-base">${esc(HOME.entry.pron)}</span> <em class="opacity-60 text-base">${esc(HOME.entry.pos)}</em></dt><dd class="text-lg font-light leading-relaxed opacity-80">${esc(HOME.entry.def)} <em class="opacity-60">${esc(HOME.entry.eg)}</em></dd></dl>`,
         `<h2 class="text-[10px] uppercase tracking-[0.3em] font-semibold opacity-40 mt-16 mb-6">Latest</h2>`,
         `<ul class="space-y-3">` +
           thoughtItems
