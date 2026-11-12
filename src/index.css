@@ -105,25 +105,3 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
-/* Detail first (components/Develop.tsx). The detail sits on top, muted; the
-   full frame comes up underneath in colour, like a print developing. */
-.develop .develop-full {
-  opacity: 0;
-  filter: grayscale(0.6) contrast(0.95);
-  transform: scale(1.04);
-  transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1), filter 2.2s ease, transform 1.8s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.develop .develop-detail {
-  opacity: 1;
-  filter: grayscale(0.35);
-  transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.develop.is-developed .develop-full { opacity: 1; filter: none; transform: scale(1); }
-.develop.is-developed .develop-detail { opacity: 0; }
-@media (hover: hover) {
-  .group:hover .develop.is-developed .develop-detail { opacity: 1; filter: none; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .develop .develop-full, .develop .develop-detail { transition: none; }
-}

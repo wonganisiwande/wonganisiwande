@@ -6,13 +6,11 @@ import { useState, useEffect } from 'react';
 import Logo from '../components/Logo';
 import Parallax from '../components/Parallax';
 import BrandLoop from '../components/BrandLoop';
-import Develop from '../components/Develop';
 import TheEdit from '../components/TheEdit';
 import { HOME } from '../data/copy';
 
 // Six frames across the range: direction, a series, styling, campaign, writing,
-// documentary. Each opens on a detail and develops into the full frame (see
-// components/Develop.tsx). The verdict under each is his own line from the piece.
+// documentary. The verdict under each is his own line from the piece.
 // No employer work here.
 const selectedWork = [
   {
@@ -21,7 +19,6 @@ const selectedWork = [
     tags: "Lookbook · Amaryllis Residences",
     verdict: "A shoot is one idea, wearing five outfits.",
     image: "/media/home/scarf.jpg",
-    detail: "/media/home/scarf-detail.jpg",
     to: "/presence/the-amaryllis-residences"
   },
   {
@@ -30,7 +27,6 @@ const selectedWork = [
     tags: "Series · with Tyra Sabadia",
     verdict: "The audience learns one thing at a time.",
     image: "/media/home/mlky.jpg",
-    detail: "/media/home/mlky-detail.jpg",
     to: "/presence/mlky-bar-three-rounds"
   },
   {
@@ -39,7 +35,6 @@ const selectedWork = [
     tags: "Lookbook · Sunday Soirée",
     verdict: "You don’t need a new outfit for every colour on the invite.",
     image: "/media/home/matcha.jpg",
-    detail: "/media/home/matcha-detail.jpg",
     to: "/thoughts/sun-set-matcha"
   },
   {
@@ -48,7 +43,6 @@ const selectedWork = [
     tags: "Campaign · Tikonze Apapa",
     verdict: "Denim wants to be casual. The flowers refuse to let it.",
     image: "/media/home/bloom.jpg",
-    detail: "/media/home/bloom-detail.jpg",
     to: "/presence/denim-in-bloom"
   },
   {
@@ -57,7 +51,6 @@ const selectedWork = [
     tags: "Essay · On the nomination",
     verdict: "Not the camera I wanted, but the camera I had.",
     image: "/media/home/brown.jpg",
-    detail: "/media/home/brown-detail.jpg",
     to: "/thoughts/one-of-two"
   },
   {
@@ -66,7 +59,6 @@ const selectedWork = [
     tags: "Film · Road to Relief",
     verdict: "Let the room speak first.",
     image: "/media/home/doctor.jpg",
-    detail: "/media/home/doctor-detail.jpg",
     to: "/experiments/road-to-relief"
   }
 ];
@@ -226,7 +218,13 @@ export default function Home() {
               <Link to={work.to}>
                 <Parallax offset={idx % 2 === 0 ? 40 : 20}>
                   <div className="aspect-[3/4] overflow-hidden mb-6 md:mb-8 bg-brand-ink/5 relative">
-                    <Develop src={work.image} detail={work.detail} alt={work.title} />
+                    <img
+                      src={work.image}
+                      alt={work.title}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover opacity-95 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-1000 ease-out"
+                    />
                   </div>
                 </Parallax>
                 <p className="text-[10px] uppercase tracking-[0.25em] font-semibold opacity-40 mb-3">{work.tags}</p>
