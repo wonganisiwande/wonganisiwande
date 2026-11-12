@@ -19,8 +19,12 @@
         with a blank page.
     -->
     <style>
-      html { background: #F6F3EE; }
-      html.dark { background: #0A0A0A; color-scheme: dark; }
+      /* Colour goes on body, never on html: when html has its own background,
+         the body stops painting the page canvas and covers the fixed WS
+         watermark (z-index -10) behind it. */
+      body { background: #F6F3EE; }
+      html.dark { color-scheme: dark; }
+      html.dark body { background: #0A0A0A; }
       html.js #root > [data-prerender] { visibility: hidden; }
     </style>
     <script>
