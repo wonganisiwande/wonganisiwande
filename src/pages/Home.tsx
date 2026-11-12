@@ -170,24 +170,35 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Hero Section */}
-      <section className="min-h-[72vh] md:min-h-[80vh] flex flex-col justify-center items-center text-center relative px-4 pt-6 md:pt-0">
-        <Parallax offset={30}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: showSplash ? 2.5 : 0 }}
-            className="max-w-3xl"
-          >
-            <p className="text-[10px] md:text-[11px] uppercase tracking-[0.4em] font-medium opacity-40 mb-8 md:mb-10">
-              {HOME.kicker}
-            </p>
-            <h1 className="text-[2.6rem] md:text-7xl font-serif mb-10 md:mb-14 leading-[1.05] tracking-tight">
-              {HOME.headline}
-            </h1>
-            <DictionaryCard />
-          </motion.div>
-        </Parallax>
+      {/* Hero Section. The headline sits in the middle of the first screen; the
+          dictionary card sits at the bottom of it, clear of the background
+          monogram, and on phones clear of the "Latest" bubble as well. */}
+      <section className="min-h-[calc(100svh-6rem)] md:min-h-[calc(100vh-8rem)] flex flex-col items-center text-center relative px-4">
+        <div className="flex-1 flex items-center justify-center">
+          <Parallax offset={30}>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: showSplash ? 2.5 : 0 }}
+              className="max-w-3xl"
+            >
+              <p className="text-[10px] md:text-[11px] uppercase tracking-[0.4em] font-medium opacity-40 mb-8 md:mb-10">
+                {HOME.kicker}
+              </p>
+              <h1 className="text-[2.6rem] md:text-7xl font-serif leading-[1.05] tracking-tight">
+                {HOME.headline}
+              </h1>
+            </motion.div>
+          </Parallax>
+        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: (showSplash ? 2.5 : 0) + 0.6 }}
+          className="w-full pb-24 md:pb-12"
+        >
+          <DictionaryCard />
+        </motion.div>
 
         {/* Static background wash (was an infinite blur animation; costly on phones) */}
         <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-brand-ink/2 rounded-full blur-[100px]" />
