@@ -195,7 +195,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: (showSplash ? 2.5 : 0) + 0.6 }}
-          className="w-full pb-24 md:pb-12"
+          className="w-full pb-32 md:pb-12"
         >
           <DictionaryCard />
         </motion.div>
