@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'motion/react';
 import SEO from '../components/SEO';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Plus } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Logo from '../components/Logo';
 import Parallax from '../components/Parallax';
@@ -71,21 +71,55 @@ const selectedWork = [
   }
 ];
 
-// The hero definition, set like an entry in a pocket dictionary.
+// The hero definition, set like an entry in a pocket dictionary. Closed, it is
+// just the word, so the hero stays quiet. Tap or click to open the definition.
+// The full entry is always in the prerendered HTML for search engines.
 function DictionaryCard() {
   const e = HOME.entry;
+  const [open, setOpen] = useState(false);
   return (
-    <figure className="mx-auto w-full max-w-[26rem] md:max-w-md text-left border border-brand-ink/10 bg-brand-bg/70 backdrop-blur-sm px-6 py-5 md:px-8 md:py-7">
-      <p className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-        <span className="font-serif text-2xl md:text-3xl font-medium">{e.word}</span>
-        <span className="hidden sm:inline text-sm font-light text-brand-muted">{e.pron}</span>
-        <span className="font-serif italic text-base text-brand-muted">{e.pos}</span>
-      </p>
-      <div className="w-10 border-t border-brand-accent/60 my-3 md:my-4" />
-      <p className="text-[15px] md:text-lg font-light leading-relaxed">
-        {e.def}
-      </p>
-      <p className="mt-2 font-serif italic text-[15px] md:text-base text-brand-muted">{e.eg}</p>
+    <figure className="mx-auto w-full max-w-[26rem] md:max-w-md text-left border border-brand-ink/10 bg-brand-bg/70 backdrop-blur-sm hover:border-brand-ink/25 transition-colors duration-500">
+      <button
+        type="button"
+        onClick={() => setOpen(o => !o)}
+        aria-expanded={open}
+        aria-controls="taste-director-definition"
+        className="w-full flex items-center justify-between gap-4 px-6 py-4 md:px-8 md:py-5 text-left focus-visible:outline focus-visible:outline-1 focus-visible:outline-brand-accent"
+      >
+        <span className="flex flex-wrap items-baseline gap-x-3 gap-y-1 min-w-0">
+          <span className="font-serif text-2xl md:text-3xl font-medium">{e.word}</span>
+          <span className="font-serif italic text-base text-brand-muted">{e.pos}</span>
+        </span>
+        <span className="flex items-center gap-2 shrink-0 text-[10px] uppercase tracking-[0.25em] text-brand-muted">
+          <span className="hidden sm:inline">{open ? 'Close' : 'Define'}</span>
+          <Plus
+            size={16}
+            strokeWidth={1.3}
+            className={`transition-transform duration-500 ${open ? 'rotate-45' : ''}`}
+            aria-hidden="true"
+          />
+        </span>
+      </button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            id="taste-director-definition"
+            key="definition"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="overflow-hidden"
+          >
+            <div className="px-6 pb-5 md:px-8 md:pb-7">
+              <p className="text-sm font-light text-brand-muted mb-3">{e.pron}</p>
+              <div className="w-10 border-t border-brand-accent/60 mb-3 md:mb-4" />
+              <p className="text-[15px] md:text-lg font-light leading-relaxed">{e.def}</p>
+              <p className="mt-2 font-serif italic text-[15px] md:text-base text-brand-muted">{e.eg}</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </figure>
   );
 }
