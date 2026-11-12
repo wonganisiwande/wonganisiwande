@@ -152,11 +152,14 @@ export default function Home() {
               >
                 <Logo size={110} airy className="text-brand-ink" />
               </motion.div>
+              {/* Grows from the centre with a transform, not a width change, so it
+                  never lands on a half pixel and shimmers on phones. */}
               <motion.div
-                initial={{ width: 0 }}
-                animate={{ width: '100%' }}
-                transition={{ duration: 2, delay: 0.5 }}
-                className="h-[1px] bg-brand-accent/50 w-32"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 2, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                className="h-px w-32 bg-brand-accent opacity-50 origin-center"
+                style={{ willChange: 'transform' }}
               />
             </motion.div>
           </motion.div>

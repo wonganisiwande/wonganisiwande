@@ -39,7 +39,7 @@ const paragraphs = (body: string[]) =>
     .join('\n');
 
 const shell = (inner: string, wide = false) =>
-  `<main class="${wide ? 'max-w-5xl' : 'max-w-2xl'} mx-auto px-6 md:px-8 py-24 md:py-28">${inner}</main>`;
+  `<main data-prerender class="${wide ? 'max-w-5xl' : 'max-w-2xl'} mx-auto px-6 md:px-8 py-24 md:py-28">${inner}</main>`;
 
 const crumbs = (items: { name: string; path: string }[]) => ({
   '@context': 'https://schema.org',

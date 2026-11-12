@@ -92,7 +92,7 @@ const notFound = template
   .replace(TITLE_RE, `<title>Not found | ${esc(SITE_NAME)}</title>\n    <meta name="robots" content="noindex" />`)
   .replace(
     ROOT_RE,
-    `<div id="root"><main class="max-w-2xl mx-auto px-6 py-28"><p class="text-[10px] uppercase tracking-[0.4em] font-semibold opacity-40 mb-8">404</p><h1 class="text-4xl md:text-6xl font-serif leading-tight mb-8">That page is not here. The work is.</h1><p class="text-lg font-light opacity-60 mb-10">Either the link was old or the address was a guess. Both happen.</p><p><a href="/">Home</a> · <a href="/presence">Presence</a> · <a href="/experiments">Experiments</a> · <a href="/thoughts">Thoughts</a> · <a href="/contact">Contact</a></p></main></div>`
+    `<div id="root"><main data-prerender class="max-w-2xl mx-auto px-6 py-28"><p class="text-[10px] uppercase tracking-[0.4em] font-semibold opacity-40 mb-8">404</p><h1 class="text-4xl md:text-6xl font-serif leading-tight mb-8">That page is not here. The work is.</h1><p class="text-lg font-light opacity-60 mb-10">Either the link was old or the address was a guess. Both happen.</p><p><a href="/">Home</a> · <a href="/presence">Presence</a> · <a href="/experiments">Experiments</a> · <a href="/thoughts">Thoughts</a> · <a href="/contact">Contact</a></p></main></div>`
   );
 writeFileSync(join(DIST, '404.html'), notFound);
 

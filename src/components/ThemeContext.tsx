@@ -12,8 +12,12 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('theme') as Theme;
-      if (saved) return saved;
+      // index.html has already applied the theme before first paint; read it back
+      // so React starts from exactly what is on screen.
+      if (document.documentElement.classList.contains('dark')) return 'dark';
+      let saved: string | null = null;
+      try { saved = localStorage.getItem('theme'); } catch { /* ignore */ }
+      if (saved === 'light' || saved === 'dark') return saved;
       return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
     return 'light';
@@ -26,7 +30,12 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     } else {
       root.classList.remove('dark');
     }
-    localStorage.setItem('theme', theme);
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#0A0A0A' : '#F6F3EE');
+    try {
+      localStorage.setItem('theme', theme);
+    } catch {
+      // Private browsing; the theme just won't be remembered.
+    }
   }, [theme]);
 
   const toggleTheme = () => {

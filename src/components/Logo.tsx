@@ -35,8 +35,10 @@ export default function Logo({ className = "", size = 36, airy = false }: LogoPr
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      initial={airy ? { opacity: 0, scale: 0.88, filter: 'blur(6px)' } : { opacity: 0 }}
-      animate={airy ? { opacity: 1, scale: 1, filter: 'blur(0px)' } : { opacity: 1 }}
+      // No blur filter here: animating filter on a scaling SVG draws stray
+      // coloured hairlines on some phone GPUs. Opacity and scale only.
+      initial={airy ? { opacity: 0, scale: 0.92 } : { opacity: 0 }}
+      animate={airy ? { opacity: 1, scale: 1 } : { opacity: 1 }}
       whileHover={{ opacity: 0.7, scale: 1.04 }}
       transition={{ duration: airy ? 1.8 : 0.6, ease }}
     >

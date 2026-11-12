@@ -8,6 +8,35 @@
     <link rel="preload" href="/fonts/Jost-Light.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/Cormorant-Regular.woff2" as="font" type="font/woff2" crossorigin />
     <title>Wongani Siwande | Creative Director</title>
+    <meta name="theme-color" content="#F6F3EE" />
+    <!--
+      Runs before the first paint, so a phone never shows the wrong theme or the
+      plain crawler copy of the page while the app downloads.
+      - Applies the saved (or system) theme straight away.
+      - Hides the prerendered copy (main[data-prerender]) from people. Crawlers
+        and link previews still read it in the HTML. If the app has not taken
+        over within six seconds, the copy is shown again, so nobody is ever left
+        with a blank page.
+    -->
+    <style>
+      html { background: #F6F3EE; }
+      html.dark { background: #0A0A0A; color-scheme: dark; }
+      html.js #root > [data-prerender] { visibility: hidden; }
+    </style>
+    <script>
+      (function () {
+        var d = document.documentElement, dark = false;
+        try {
+          var t = localStorage.getItem('theme');
+          dark = t ? t === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        } catch (e) {}
+        if (dark) d.classList.add('dark');
+        var m = document.querySelector('meta[name="theme-color"]');
+        if (m) m.setAttribute('content', dark ? '#0A0A0A' : '#F6F3EE');
+        d.classList.add('js');
+        setTimeout(function () { d.classList.remove('js'); }, 6000);
+      })();
+    </script>
   </head>
   <body>
     <!--
