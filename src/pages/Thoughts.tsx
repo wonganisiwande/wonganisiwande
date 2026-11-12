@@ -5,7 +5,8 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Pen, X, ArrowRight } from 'lucide-react';
 import Parallax from '../components/Parallax';
 import { useScrollLock } from '../lib/useScrollLock';
-import { type Credit, type Media, type Thought, thoughtItems } from '../data/thoughts';
+import { type Thought, thoughtItems, issueNo, issueMonth } from '../data/thoughts';
+import Seal from '../components/Seal';
 
 const categories = [
   {
@@ -28,13 +29,20 @@ const categories = [
 
 
 // Editorial scatter positions, desktop only. Mobile stacks in flow.
-const desktopPositions = [
+const scatter = [
   { left: '6%', top: 0 },
-  { left: '54%', top: 120 },
-  { left: '12%', top: 340 },
-  { left: '58%', top: 520 },
-  { left: '28%', top: 720 }
+  { left: '54%', top: 170 },
+  { left: '12%', top: 440 },
+  { left: '58%', top: 610 },
+  { left: '28%', top: 880 }
 ];
+// The pattern repeats further down the page, so a sixth piece never lands on
+// top of the first.
+const PERIOD = 1120;
+const desktopPositions = (idx: number) => {
+  const p = scatter[idx % scatter.length];
+  return { left: p.left, top: p.top + Math.floor(idx / scatter.length) * PERIOD };
+};
 
 function ArticleReader({ article, onClose }: { article: Thought; onClose: () => void }) {
   const [zoom, setZoom] = useState<string | null>(null);
@@ -94,11 +102,12 @@ function ArticleReader({ article, onClose }: { article: Thought; onClose: () => 
           </button>
 
           <p className="text-[10px] uppercase tracking-[0.3em] font-semibold opacity-40 mb-6">
-            {article.category}
+            {issueNo(article.slug)} · {issueMonth(article.published)} · {article.category}
           </p>
           <h1 className="text-4xl md:text-5xl font-serif leading-tight mb-4">
             {article.title}
           </h1>
+          <p className="font-serif italic text-xl md:text-2xl leading-snug opacity-75 mb-6">{article.verdict}</p>
           {article.credit && (
             <p className="text-[10px] uppercase tracking-[0.2em] text-brand-accent mb-10">
               {article.credit}
@@ -207,8 +216,9 @@ function ArticleReader({ article, onClose }: { article: Thought; onClose: () => 
             </div>
           )}
 
-          <div className="mt-14 pt-8 border-t border-brand-ink/5 text-[10px] uppercase tracking-[0.3em] opacity-30">
-            Wongani Siwande
+          <div className="mt-14 pt-8 border-t border-brand-ink/5 flex items-center justify-between gap-6">
+            <span className="text-[10px] uppercase tracking-[0.3em] opacity-30">Wongani Siwande · {issueNo(article.slug)}</span>
+            <Seal size={40} className="opacity-60" />
           </div>
         </motion.article>
       </div>
@@ -249,7 +259,7 @@ export default function Thoughts() {
       <SEO
         title={openArticle ? openArticle.title : 'Thoughts'}
         description={openArticle?.description}
-        image={openArticle?.cover}
+        image={openArticle ? `/media/share/thoughts-${openArticle.slug}.jpg` : undefined}
       />
 
       <header className="mb-20 lg:mb-60 max-w-2xl relative">
@@ -302,10 +312,15 @@ export default function Thoughts() {
             {currentExplainer}
           </motion.p>
         </AnimatePresence>
+        <Link to="/contents" className="inline-flex items-center gap-3 mt-6 text-[10px] uppercase tracking-[0.25em] opacity-50 hover:opacity-100 transition-opacity">
+          <span>Every piece, in one list</span>
+          <ArrowRight size={14} />
+        </Link>
       </header>
 
       {/* Mobile: clean stack. Desktop: editorial scatter. */}
-      <div className="relative w-full space-y-8 lg:space-y-0 pb-20 lg:pb-0 lg:min-h-[1050px]">
+      <div className="relative w-full space-y-8 lg:space-y-0 pb-20 lg:pb-0 lg:min-h-[var(--scatter-h)]"
+        style={{ ['--scatter-h' as string]: `${desktopPositions(Math.max(0, filteredItems.length - 1)).top + 560}px` }}>
         <AnimatePresence mode="popLayout">
           {filteredItems.map((item, idx) => (
             <motion.div
@@ -317,19 +332,19 @@ export default function Thoughts() {
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               className="lg:absolute group cursor-pointer max-w-full lg:max-w-sm"
               style={{
-                left: desktopPositions[idx % desktopPositions.length].left,
-                top: desktopPositions[idx % desktopPositions.length].top
+                ...desktopPositions(idx)
               }}
               onClick={() => navigate(`/thoughts/${item.slug}`)}
             >
               <Parallax offset={idx % 2 === 0 ? 15 : -15}>
                 <div className="p-8 md:p-12 border border-brand-ink/5 bg-brand-bg/50 backdrop-blur-sm hover:bg-brand-ink/[0.02] hover:border-brand-ink/10 transition-all duration-700">
                   <p className="text-[9px] uppercase tracking-[0.3em] font-semibold mb-6 opacity-30 group-hover:opacity-60 transition-opacity">
-                    {item.category}
+                    {issueNo(item.slug)} · {item.category}
                   </p>
-                  <h3 className="text-2xl font-serif mb-4 group-hover:italic transition-all duration-500">
+                  <h3 className="text-2xl font-serif mb-3 group-hover:italic transition-all duration-500">
                     {item.title}
                   </h3>
+                  <p className="font-serif italic text-lg leading-snug opacity-70 mb-4">{item.verdict}</p>
                   <p className="text-sm font-light leading-relaxed opacity-40 group-hover:opacity-70 transition-opacity mb-6">
                     {item.description}
                   </p>

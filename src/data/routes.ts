@@ -3,7 +3,8 @@
 // scripts/prerender.ts at build time. Pure data in, strings out: no React, no
 // DOM, so it runs under tsx in Node.
 
-import { thoughtItems } from './thoughts';
+import { thoughtItems, issueNo, issueMonth } from './thoughts';
+import { contents } from './contents';
 import { archiveItems } from './experiments';
 import { works } from './presence';
 import { SITE, SITE_NAME, DEFAULT_TITLE, DEFAULT_DESCRIPTION, DEFAULT_IMAGE, PERSON } from './site';
@@ -126,7 +127,7 @@ export function buildRoutes(): Route[] {
       path: '/thoughts',
       name: 'Thoughts',
       desc: 'Essays, concept notes and reflections on creative direction, fashion, taste and the work behind the work.',
-      list: thoughtItems.map(t => `<li><a class="font-serif text-xl" href="/thoughts/${t.slug}">${esc(t.title)}</a><span class="block text-[10px] uppercase tracking-[0.2em] opacity-40">${esc(t.category)}</span></li>`).join(''),
+      list: thoughtItems.map(t => `<li><a class="font-serif text-xl" href="/thoughts/${t.slug}">${esc(t.title)}</a><span class="block font-serif italic opacity-60">${esc(t.verdict)}</span><span class="block text-[10px] uppercase tracking-[0.2em] opacity-40">${esc(issueNo(t.slug))} · ${esc(t.category)}</span></li>`).join(''),
       dates: thoughtItems.map(t => t.published)
     }
   ];
@@ -175,6 +176,25 @@ export function buildRoutes(): Route[] {
     jsonLd: [crumbs([{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }])]
   });
 
+  routes.push({
+    path: '/contents',
+    title: titled('Index'),
+    description: 'Every essay, case study, film and gallery by Wongani Siwande, newest first, one line each.',
+    image: abs(DEFAULT_IMAGE),
+    lastmod: newest(contents.map(e => e.published)),
+    priority: '0.6',
+    html: shell(
+      [
+        h1('Index'),
+        `<p class="text-lg font-light leading-relaxed opacity-70 mb-10">Every piece on the site, newest first. One line each, so you can find the one you came for.</p>`,
+        `<ul class="space-y-5">${contents
+          .map(e => `<li><a class="font-serif text-xl" href="${e.href}">${esc(e.title)}</a><span class="block font-serif italic opacity-60">${esc(e.verdict)}</span><span class="block text-[10px] uppercase tracking-[0.2em] opacity-40">${esc(e.no ? `${e.no} · ${e.kind}` : e.kind)} · ${esc(e.month)}</span></li>`)
+          .join('')}</ul>`
+      ].join('\n')
+    ),
+    jsonLd: [crumbs([{ name: 'Home', path: '/' }, { name: 'Index', path: '/contents' }])]
+  });
+
   // ---------- Thoughts ----------
   for (const t of thoughtItems) {
     const path = `/thoughts/${t.slug}`;
@@ -183,14 +203,15 @@ export function buildRoutes(): Route[] {
       path,
       title: titled(t.title),
       description: t.description,
-      image: abs(t.cover),
+      image: abs(`/media/share/thoughts-${t.slug}.jpg`),
       lastmod: t.published,
       priority: '0.8',
       html: shell(
         [
           img(t.cover, t.title, 'w-auto max-h-[78vh] mx-auto mb-10'),
-          sectionLabel(t.category),
+          sectionLabel(`${issueNo(t.slug)} · ${issueMonth(t.published)} · ${t.category}`),
           h1(t.title),
+          `<p class="font-serif italic text-xl opacity-75 mb-6">${esc(t.verdict)}</p>`,
           t.credit ? `<p class="text-[10px] uppercase tracking-[0.2em] text-brand-accent mb-10">${esc(t.credit)}</p>` : '',
           `<div class="space-y-7">${paragraphs(t.body)}</div>`,
           media.length
@@ -231,14 +252,15 @@ export function buildRoutes(): Route[] {
       path,
       title: titled(w.title),
       description: w.description,
-      image: abs(w.hero),
+      image: abs(`/media/share/presence-${w.slug}.jpg`),
       lastmod: w.published,
       priority: '0.8',
       html: shell(
         [
           sectionLabel(w.category),
           h1(w.title),
-          `<p class="text-[10px] uppercase tracking-[0.2em] text-brand-accent mb-8">${esc(w.roles)}</p>`,
+          `<p class="text-[10px] uppercase tracking-[0.2em] text-brand-accent mb-6">${esc(w.roles)}</p>`,
+          `<p class="font-serif italic text-xl opacity-75 mb-6">${esc(w.verdict)}</p>`,
           `<p class="text-lg font-light leading-relaxed opacity-80 max-w-2xl mb-10">${esc(w.description)}</p>`,
           w.kind === 'film' && w.video
             ? `<video src="${esc(w.video)}" poster="${esc(w.poster ?? w.hero)}" controls playsinline preload="none" class="w-full max-w-md mx-auto"></video>`
@@ -272,14 +294,18 @@ export function buildRoutes(): Route[] {
       path,
       title: titled(a.title),
       description: a.description,
-      image: abs(DEFAULT_IMAGE),
+      image: abs(`/media/share/experiments-${a.slug}.jpg`),
       lastmod: a.published,
       priority: '0.7',
       html: shell(
         [
           sectionLabel(a.category),
           h1(a.title),
+          `<p class="font-serif italic text-xl opacity-75 mb-6">${esc(a.verdict)}</p>`,
           `<div class="space-y-7">${paragraphs(a.body)}</div>`,
+          a.three
+            ? `<dl class="mt-14"><dt>The call</dt><dd>${esc(a.three.call)}</dd><dt>The detail</dt><dd>${esc(a.three.detail)}</dd><dt>The result</dt><dd>${esc(a.three.result)}</dd></dl>`
+            : '',
           a.link ? `<p class="mt-10"><a href="${esc(a.link.to)}">${esc(a.link.label)}</a></p>` : ''
         ].join('\n')
       ),

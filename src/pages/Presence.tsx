@@ -64,7 +64,8 @@ function WorkModal({ work, onClose }: { work: Work; onClose: () => void }) {
         >
           <p className="text-[10px] uppercase tracking-[0.3em] font-semibold opacity-40 mb-5">{work.category}</p>
           <h1 className="text-4xl md:text-5xl font-serif leading-tight mb-3">{work.title}</h1>
-          <p className="text-[10px] uppercase tracking-[0.2em] text-brand-accent mb-8">{work.roles}</p>
+          <p className="text-[10px] uppercase tracking-[0.2em] text-brand-accent mb-6">{work.roles}</p>
+          <p className="font-serif italic text-xl md:text-2xl leading-snug opacity-75 mb-6">{work.verdict}</p>
           <p className="text-lg font-light leading-relaxed opacity-80 max-w-2xl mb-10">{work.description}</p>
           <div className="w-16 border-t border-brand-accent/40 mb-12" />
 
@@ -138,7 +139,7 @@ export default function Presence() {
       <SEO
         title={openWork ? openWork.title : 'Presence'}
         description={openWork?.description}
-        image={openWork?.hero}
+        image={openWork ? `/media/share/presence-${openWork.slug}.jpg` : undefined}
       />
 
       <header className="mb-20 md:mb-40 max-w-2xl relative">
@@ -239,6 +240,7 @@ export default function Presence() {
                 <h3 className="text-2xl md:text-3xl font-serif group-hover:italic transition-all duration-500">{work.title}</h3>
                 <p className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] opacity-40 font-medium">{work.roles}</p>
               </div>
+              <p className="font-serif italic text-lg md:text-xl leading-snug opacity-70 mt-3">{work.verdict}</p>
             </motion.div>
           ))}
         </AnimatePresence>

@@ -11,6 +11,8 @@ export type Work = {
   kind: 'gallery' | 'film';
   hero: string;
   roles: string;
+  // One line, his opinion. See thoughts.ts.
+  verdict: string;
   description: string;
   size: 'large' | 'medium';
   gallery?: string[];
@@ -75,6 +77,7 @@ export const works: Work[] = [
     slug: 'the-amaryllis-residences',
     published: '2026-07-04',
     title: 'The Amaryllis Residences',
+    verdict: "An address, turned into a person.",
     category: 'Sightlines',
     kind: 'gallery',
     hero: '/media/amaryllis/gallery/01-taupe.jpg',
@@ -88,6 +91,7 @@ export const works: Work[] = [
     slug: 'denim-in-bloom',
     published: '2026-07-04',
     title: 'Denim in Bloom',
+    verdict: "Everything that stayed was intended.",
     category: 'Sightlines',
     kind: 'gallery',
     hero: '/media/denim/gallery/6491.jpg',
@@ -101,6 +105,7 @@ export const works: Work[] = [
     slug: 'the-resident',
     published: '2026-07-04',
     title: 'The Resident',
+    verdict: "It sells a feeling, not a floor plan.",
     category: 'Stories in Motion',
     kind: 'film',
     hero: '/media/amaryllis/poster-the-resident.jpg',
@@ -115,6 +120,7 @@ export const works: Work[] = [
     slug: 'denim-in-bloom-the-film',
     published: '2026-07-04',
     title: 'Denim in Bloom, the Film',
+    verdict: "Softness earning its place.",
     category: 'Stories in Motion',
     kind: 'film',
     hero: '/media/denim/poster-denim-in-bloom.jpg',
@@ -129,6 +135,7 @@ export const works: Work[] = [
     slug: 'sambas-three-ways',
     published: '2026-07-04',
     title: 'Sambas, Three Ways',
+    verdict: "One shoe, three moods.",
     category: 'Stories in Motion',
     kind: 'film',
     hero: '/media/amaryllis/poster-sambas.jpg',
@@ -143,6 +150,7 @@ export const works: Work[] = [
     slug: 'jean-drive',
     published: '2026-07-04',
     title: 'Jean Drive',
+    verdict: "The fun cut.",
     category: 'Stories in Motion',
     kind: 'film',
     hero: '/media/denim/poster-jean-drive.jpg',
@@ -157,11 +165,12 @@ export const works: Work[] = [
     slug: 'mlky-bar-three-rounds',
     published: '2026-11-11',
     title: 'MLKY Bar, Three Rounds',
+    verdict: "Hands first, then the drinks, then the reveal.",
     category: 'Sightlines',
     kind: 'gallery',
-    hero: '/media/mlky/0443.jpg',
+    hero: '/media/home/mlky.jpg',
     roles: 'Series, Episode 01 · with MLKY Bar · Co-host Tyra Sabadia',
-    description: "Three rounds behind the bar with Tyra Sabadia. It came out in three drops, hands first, then the drinks, then the reveal. This is the reveal.",
+    description: "A mimosa, an Aperol spritz and a coffee martini, behind the bar with Tyra Sabadia. It came out in three drops, hands first, then the drinks, then the reveal. This is the reveal.",
     size: 'medium',
     gallery: mlkyGallery
   },
@@ -170,6 +179,7 @@ export const works: Work[] = [
     slug: 'memona-pharmacist-documentary',
     published: '2026-11-11',
     title: 'Memona Pharmacy, The Pharmacist',
+    verdict: "Remember who told you the fact.",
     category: 'Stories in Motion',
     kind: 'film',
     hero: '/media/memona/poster-pharmacist-documentary.jpg',

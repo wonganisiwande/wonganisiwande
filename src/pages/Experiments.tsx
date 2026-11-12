@@ -6,6 +6,7 @@ import { Lightbulb, X, ArrowRight } from 'lucide-react';
 import Parallax from '../components/Parallax';
 import { useScrollLock } from '../lib/useScrollLock';
 import { type Archive, archiveItems } from '../data/experiments';
+import Seal from '../components/Seal';
 
 const categories = [
   {
@@ -28,13 +29,20 @@ const categories = [
 
 
 // Editorial scatter positions, desktop only. Mobile and tablet stack in flow.
-const desktopPositions = [
-  { left: '8%', top: 0 },
-  { left: '52%', top: 140 },
-  { left: '14%', top: 360 },
-  { left: '58%', top: 560 },
-  { left: '30%', top: 760 }
+const scatter = [
+  { left: '6%', top: 0 },
+  { left: '54%', top: 170 },
+  { left: '12%', top: 440 },
+  { left: '58%', top: 610 },
+  { left: '28%', top: 880 }
 ];
+// The pattern repeats further down the page, so a sixth piece never lands on
+// top of the first.
+const PERIOD = 1120;
+const desktopPositions = (idx: number) => {
+  const p = scatter[idx % scatter.length];
+  return { left: p.left, top: p.top + Math.floor(idx / scatter.length) * PERIOD };
+};
 
 function ExperimentModal({ item, onClose }: { item: Archive; onClose: () => void }) {
   useScrollLock(true);
@@ -70,12 +78,23 @@ function ExperimentModal({ item, onClose }: { item: Archive; onClose: () => void
         >
           <p className="text-[10px] uppercase tracking-[0.3em] font-semibold opacity-40 mb-6">{item.category}</p>
           <h1 className="text-4xl md:text-5xl font-serif leading-tight mb-4">{item.title}</h1>
+          <p className="font-serif italic text-xl md:text-2xl leading-snug opacity-75 mb-6">{item.verdict}</p>
           <div className="w-16 border-t border-brand-accent/40 mb-10" />
           <div className="space-y-7">
             {item.body.map((p, i) => (
               <p key={i} className="text-lg font-light leading-relaxed opacity-80">{p}</p>
             ))}
           </div>
+          {item.three && (
+            <dl className="mt-14 pt-8 border-t border-brand-accent/40 grid grid-cols-1 sm:grid-cols-[8rem_1fr] gap-x-8 gap-y-4">
+              <dt className="text-[10px] uppercase tracking-[0.3em] font-semibold opacity-40 pt-1">The call</dt>
+              <dd className="text-base font-light leading-relaxed mb-2 sm:mb-0">{item.three.call}</dd>
+              <dt className="text-[10px] uppercase tracking-[0.3em] font-semibold opacity-40 pt-1">The detail</dt>
+              <dd className="text-base font-light leading-relaxed mb-2 sm:mb-0">{item.three.detail}</dd>
+              <dt className="text-[10px] uppercase tracking-[0.3em] font-semibold opacity-40 pt-1">The result</dt>
+              <dd className="text-base font-light leading-relaxed">{item.three.result}</dd>
+            </dl>
+          )}
           {item.link && (
             <Link
               to={item.link.to}
@@ -85,8 +104,9 @@ function ExperimentModal({ item, onClose }: { item: Archive; onClose: () => void
               <ArrowRight size={14} />
             </Link>
           )}
-          <div className="mt-14 pt-8 border-t border-brand-ink/5 text-[10px] uppercase tracking-[0.3em] opacity-30">
-            Wongani Siwande
+          <div className="mt-14 pt-8 border-t border-brand-ink/5 flex items-center justify-between gap-6">
+            <span className="text-[10px] uppercase tracking-[0.3em] opacity-30">Wongani Siwande</span>
+            <Seal size={40} className="opacity-60" />
           </div>
         </motion.article>
       </div>
@@ -114,6 +134,7 @@ export default function Experiments() {
       <SEO
         title={openItem ? openItem.title : 'Experiments'}
         description={openItem?.description}
+        image={openItem ? `/media/share/experiments-${openItem.slug}.jpg` : undefined}
       />
 
       <header className="mb-20 lg:mb-60 max-w-2xl relative">
@@ -169,7 +190,8 @@ export default function Experiments() {
       </header>
 
       {/* Mobile & tablet: clean stack. Desktop: editorial scatter. */}
-      <div className="relative w-full space-y-8 lg:space-y-0 pb-20 lg:pb-0 lg:min-h-[1100px]">
+      <div className="relative w-full space-y-8 lg:space-y-0 pb-20 lg:pb-0 lg:min-h-[var(--scatter-h)]"
+        style={{ ['--scatter-h' as string]: `${desktopPositions(Math.max(0, filteredItems.length - 1)).top + 560}px` }}>
         <AnimatePresence mode="popLayout">
           {filteredItems.map((item, idx) => (
             <motion.div
@@ -182,8 +204,7 @@ export default function Experiments() {
               onClick={() => navigate(`/experiments/${item.slug}`)}
               className="lg:absolute group cursor-pointer max-w-full lg:max-w-sm"
               style={{
-                left: desktopPositions[idx % desktopPositions.length].left,
-                top: desktopPositions[idx % desktopPositions.length].top
+                ...desktopPositions(idx)
               }}
             >
               <Parallax offset={idx % 2 === 0 ? 20 : -20}>
@@ -191,9 +212,10 @@ export default function Experiments() {
                   <p className="text-[9px] uppercase tracking-[0.3em] font-semibold mb-6 opacity-30 group-hover:opacity-60 transition-opacity">
                     {item.category}
                   </p>
-                  <h3 className="text-2xl font-serif mb-4 group-hover:italic transition-all duration-500">
+                  <h3 className="text-2xl font-serif mb-3 group-hover:italic transition-all duration-500">
                     {item.title}
                   </h3>
+                  <p className="font-serif italic text-lg leading-snug opacity-70 mb-4">{item.verdict}</p>
                   <p className="text-sm font-light leading-relaxed opacity-40 group-hover:opacity-70 transition-opacity mb-6">
                     {item.description}
                   </p>

@@ -1,7 +1,7 @@
 import { ReactNode, useState, useEffect } from 'react';
 import Navigation from './Navigation';
 import { motion, AnimatePresence, useScroll } from 'motion/react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Instagram, Linkedin, Music2, Copyright } from 'lucide-react';
 import FrontCover from './FrontCover';
 
@@ -68,6 +68,7 @@ export default function Layout({ children }: LayoutProps) {
           }}
           className="flex flex-wrap items-center justify-center gap-8 md:gap-10 order-1 md:order-2"
         >
+          <Link to="/contents" className="hover:opacity-100 transition-opacity">Index</Link>
           <a href="https://www.instagram.com/wonganisiwande/" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 transition-opacity flex items-center gap-2">
             {isNearBottom ? <Instagram size={16} strokeWidth={1.2} /> : 'Instagram'}
           </a>

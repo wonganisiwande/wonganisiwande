@@ -13,6 +13,9 @@ export type Thought = {
   title: string;
   category: string;
   description: string;
+  // One line, his opinion, shown in italics on cards, at the top of the piece
+  // and on the share card. Lifted from the body, never invented.
+  verdict: string;
   credit?: string;
   credits?: Credit[];
   cover: string;
@@ -47,16 +50,17 @@ export const thoughtItems: Thought[] = [
     published: '2026-07-05',
     shootIn: 'the-amaryllis-residences',
     title: "The Amaryllis Editorial, Directed",
+    verdict: "A shoot is one idea, wearing five outfits.",
     category: "Essays",
     description: "Five looks, one morning, one idea. Notes on directing a shoot inside a serviced residence.",
     credit: "Photography by Keong Kadango",
     cover: '/media/covers/cover-tastemaker.jpg',
     coverKind: 'magazine',
     body: [
-      "Five looks, one morning, no stylist. The brief I wrote for myself was one line: make an apartment feel like a person.",
-      "We shot in phases and every phase had a single job. The robe opens the story, because every honest morning starts slowly (the coffee was real, and it was my second). Taupe carries the middle. One warm grade, nothing shouting. The white shirt and silk scarf take the story outside, where the light is generous and the palms do half the work. The beanie closes it, because every series needs somewhere soft to land.",
-      "Keong Kadango shot all of it. He works quietly and refuses to rush a frame, which is exactly why the light looks patient. I handled direction: the order of looks, the pace, where the story breathes. He handled seeing. The set owes him everything.",
-      "If you keep one thing from this: a shoot is not forty good photos. It is one idea, wearing five outfits.",
+      "This shoot started with one line I wrote for myself: make an apartment feel like a person. Five looks, one morning and no stylist (which meant the stylist was also me).",
+      "We shot it in phases, and I gave every phase one job. The robe opens the story, because every honest morning starts slowly (the coffee was real, and it was my second). Taupe carries the middle, one warm grade with nothing shouting. The white shirt and silk scarf take it outside, where the light is generous and the palms do half the work for you. The beanie closes it, because every series needs somewhere soft to land.",
+      "Keong Kadango shot all of it. He works quietly and he refuses to rush a frame, which is exactly why the light looks so patient. I handled the direction, the order of the looks, the pace and where the story gets to breathe, and he handled the seeing. The set owes him everything.",
+      "If there is one thing I would want you to take from this, it is that a shoot is not forty good photos. It is one idea, wearing five outfits.",
       "P.s, the robe stayed at the residence. Reluctantly."
     ],
     media: [
@@ -73,6 +77,7 @@ export const thoughtItems: Thought[] = [
     published: '2026-07-05',
     shootIn: 'denim-in-bloom',
     title: "The Bloom Before the Chill, All in Denim",
+    verdict: "When you bring on the right people, you don’t need more people.",
     category: "Essays",
     description: "I have always thought flowers were a bit misrepresented. On bringing jeans and flowers together for a show that gives back.",
     credit: "Photography by Keong Kadango",
@@ -91,14 +96,15 @@ export const thoughtItems: Thought[] = [
       { role: 'Special Thanks', name: "Joe’s Café" }
     ],
     body: [
-      "I’ve always thought flowers were a bit misrepresented. Actually, grossly misrepresented. Every time you see flowers, they are attached to a wedding, a funeral or a proposal. Functional, set-in-stone occasions. These fine works of art have never existed, at least in mainstream culture, as the versatile beauties that they are. The same can be said for denim jeans, but that is allowed. This piece of clothing was always intended for a certain casual market.",
-      "As the creative director and model for the Denim in Bloom photoshoot that went ahead of the Denim Chill fashion show hosted by Tikonze Apapa, an organisation supporting and empowering the deaf and hearing-impaired, I had a task to bring jeans and flowers together in a way no one in my circle had seen or attempted. It would be more accurate to say that I brought this idea to their attention (you miss 100% of the shots you do not take, ladies and gentlemen), and so they agreed.",
-      "Having an idea is one thing; executing that idea to the closest possible rendition is another. And so began the talent scouting, which was fairly easy because I have been around enough people I know can rock a look and pose. It was also great to have help from the staff at TKA who volunteered some selected models from the fashion show to do the shoot with us. As someone who’s constantly questioned or held in scepticism when they present a creative idea in my working circles, I understood that not many people would line up for this photoshoot, and people sometimes just need a nudge.",
-      "As I said, I have had the pleasure of working with a lot of brilliant people in the industry who have always been open to my somewhat unconventional ideas and actually let me direct start to finish. A big, warm thank you to those. With this said, I reached out to Ruva, a flowerhouse based in Michiru, Blantyre. It was my goal to reduce logistical costs as much as possible, even though TKA was helping with those costs. After all, it was meant to be a project that gives back, and that doesn’t really work when you take too much. Tasleema, the brain behind the flowerhouse, gladly agreed because we had been putting off a collaboration together for the longest time. That was half the puzzle done. For the visual element, we had two things to consider: a photographer who understands the vision and a partner fashion house that could offer some more pieces to bring volume to the photoshoot. The problem was that we couldn’t showcase everything meant for the show, as that would defeat the purpose. A glimpse was what people were meant to get. That’s it.",
-      "Enter Keong Kadango. I don’t think I’ve ever clicked with a man behind a camera the way I do with him, which is funny because I never saw us working together in the beginning, but after a few random shoots and ideation together, we both saw something only we could make happen, so we started working closely from 2025, and the rest is history. What I had done was make use of Pinterest to its fullest with a moodboard of my vision; then we also did a short BTS film to cover all our bases. Then came Grace & Hustle Thrift Shop, which really helped in dressing the ladies. Three quarters of the way there.",
-      "The location was right here in Blantyre, the wardrobe was done, the talent was ready and on time for the most part. The one thing you can’t teach past aesthetic is taste. Taste is what helps you cut out what doesn’t work, from flowers that didn’t blend with the pose, look or person to the smallest details such as who gets to do the bench scene and who does the Barber Pole. Everything was intended. I think we did this for most of this shoot, and it really kept us on schedule to the point that we could experiment with different sets at Joe’s Café (a big shoutout to them) and brought on some ladders, which we were sceptical about but ended up working in a chrome kind of way.",
-      "The takeaway from all this is that when you bring on the right people, you don’t need more people. All you need is to share in taste or at least let the people following you have a taste of what you mean, and this can come through moodboards, movie references, a poem, a hairstyle or even a shared ice cream cone. Inspiration is everywhere.",
-      "After we released this shoot, we had a great turnout at the show, and even though no official stats prove it, I am sure a portion of that attendance was thanks to what we did outside the scope. And another metric we don’t talk about is talent morale. Having done something like that with such a limited logistical capacity showed the talent that all they needed was themselves and some confidence which, if you ask me, is the best thing you can ask for when it comes to fashion. No one does it like you do."
+      "I’ve always thought flowers were a bit misrepresented. Grossly misrepresented, actually. Every time you see them they are attached to a wedding, a funeral or a proposal, those set-in-stone occasions, and they never really get to exist as the versatile things they are. You could say the same about denim, but denim is allowed. Jeans were always meant for a certain casual market.",
+      "Ahead of the Denim Chill fashion show, hosted by Tikonze Apapa, an organisation that supports and empowers the deaf and hearing-impaired community, I was the creative director and one of the models for a shoot called Denim in Bloom. The task was to bring jeans and flowers together in a way nobody in my circle had tried. To be fair, I brought the idea to them first (you miss 100% of the shots you don’t take), and they said yes.",
+      "Having an idea is one thing. Getting it as close as possible to what is in your head is another. Finding the talent was the easy part, because I have been around enough people who can wear a look and hold a pose, and the TKA team kindly volunteered some of the models from the show. I’m often met with a bit of scepticism when I bring a creative idea into my working circles, so I knew not many people would line up for this one. Sometimes people just need a nudge.",
+      "I have been lucky to work with a lot of brilliant people who are open to my slightly unconventional ideas and actually let me direct from start to finish, and I’m grateful to every one of them. For the flowers I went to Ruva, a flowerhouse in Michiru, Blantyre. I wanted to keep costs as low as I could, even with TKA helping, because a project that is meant to give back doesn’t really work when it takes too much. Tasleema, the brain behind Ruva, said yes straight away, mostly because we had been putting off a collaboration for the longest time. That was half the puzzle.",
+      "The other half was the look of it. I needed a photographer who understood the vision, and a partner who could lend us more pieces for volume, without showing everything meant for the runway. People were only meant to get a glimpse. That’s it.",
+      "Enter Keong Kadango. I don’t think I have ever clicked with someone behind a camera the way I do with him, which is funny, because I never saw us working together at the start. A few random shoots and a lot of ideas later, we both saw something only we could make, and we have worked closely since 2025. I built a Pinterest moodboard of the whole vision, we shot a short BTS film to cover our bases, and Grace & Hustle Thrift Shop came in to help dress the ladies. Three quarters of the way there.",
+      "The location was here in Blantyre, the wardrobe was done and the talent showed up, on time for the most part. The one thing you can’t teach past aesthetic is taste. Taste is what lets you cut what doesn’t work, from flowers that didn’t sit right with a pose or a person, down to who gets the bench scene and who gets the barber pole. Everything was intended. Working that way kept us so far ahead of schedule that we could play with different sets at Joe’s Café (a big shoutout to them), and even bring out some ladders we were unsure about, which ended up working in a chrome kind of way.",
+      "The takeaway is that when you bring on the right people, you don’t need more people. You just need to share a taste, or at least give the people following you a taste of what you mean, and that can come through a moodboard, a film reference, a poem, a hairstyle or a shared ice cream cone. Inspiration is everywhere.",
+      "We had a great turnout at the show. There are no official numbers to prove it, but I’m sure some of those people came because of what we made outside the brief. The other thing nobody measures is morale. Pulling this off with so little showed the talent that all they really needed was themselves and some confidence, which, if you ask me, is the best thing you can bring to fashion. No one does it like you do."
     ],
     media: [
       { type: 'image', src: D('6469') },
@@ -114,15 +120,16 @@ export const thoughtItems: Thought[] = [
     published: '2026-07-05',
     shootIn: 'the-amaryllis-residences',
     title: "Dressing for an Address",
+    verdict: "A look that needs props is a costume.",
     category: "Concept Notes",
     description: "Every wardrobe decision on the Amaryllis shoot answered one question: what would this address wear?",
     cover: '/media/covers/cover-place-to-be.jpg',
     coverKind: 'magazine',
     body: [
-      "The apartment came first. Every wardrobe decision on the Amaryllis shoot answered one question: what would this address wear?",
-      "A white robe, because luxury at home is texture, not logos. Taupe on taupe, because the walls were warm and I refuse to fight a wall. An oversized white shirt with a scarf at the neck, because outside those gates a scarf is the cheapest way to look like you own the garden. And the beanie with glasses I actually wear, because a look that needs props is a costume.",
-      "One rule held the whole set together: one finishing detail per look. The scarf knot. The watch. The white cup. Taste is choosing, not adding.",
-      "P.s, the espresso in the garden frames was finished by frame three. Some things you cannot art direct."
+      "On the Amaryllis shoot the apartment came first, and every wardrobe decision answered the same question: what would this address wear?",
+      "A white robe, because luxury at home is about texture, not logos. Taupe on taupe, because the walls were warm and I refuse to fight a wall. An oversized white shirt with a scarf at the neck for the garden, because a scarf is the cheapest way to look like you own the place. And a beanie with the glasses I actually wear, because a look that needs props is a costume.",
+      "One rule held the whole set together, and it was one finishing detail per look. The scarf knot, the watch, the white cup. Taste is mostly choosing, not adding.",
+      "P.s, the espresso in the garden frames was finished by frame three. Some things you just can’t art direct."
     ],
     media: [
       { type: 'image', src: A('01-taupe') },
@@ -136,17 +143,18 @@ export const thoughtItems: Thought[] = [
     published: '2026-07-05',
     shootIn: 'denim-in-bloom',
     title: "Loafers, White Socks, Flowers",
+    verdict: "The contrast is the point.",
     category: "Concept Notes",
     description: "Styling notes from the Denim Chill shoot, for anyone who wants the recipe.",
     credit: "Photography by Keong Kadango",
     cover: D('6468'),
     coverKind: 'photo',
     body: [
-      "Styling notes from the Denim Chill shoot, for anyone who wants the recipe.",
-      "Start with light wash denim, cut at the knee. It reads relaxed before you do anything else. Keep the shirt white and one size generous, sleeves pushed, collar open. Then the part people argue about: white crew socks pulled straight, black loafers, no compromise. The contrast is the point. It says I know the rules and I am comfortable anyway.",
-      "The flowers are the thesis. Tucked at the collar like a pocket square that grew ambitions, they turn an off duty fit into an editorial one. Keep the palette to three colours and let one of them be a flower.",
-      "Keong Kadango shot it patient and close. The detail frames (socks, loafers, the seam at the knee) matter as much as the portraits. Details are where a look either holds or lets go.",
-      "P.s, loafers with white socks divides rooms. I stand where I stand."
+      "A few people asked how the Denim Chill look came together, so here is the recipe.",
+      "Start with light wash denim cut at the knee. It reads relaxed before you have done anything else. Keep the shirt white and a size generous, with the sleeves pushed up and the collar open. Then comes the part people argue about: white crew socks pulled straight and black loafers, no compromise. The contrast is the point. It says I know the rules and I’m comfortable anyway.",
+      "The flowers are the whole idea. Tucked at the collar like a pocket square with ambitions, they turn an off duty fit into an editorial one. Keep the palette to three colours, and let one of them be a flower.",
+      "Keong Kadango shot it patiently and up close, and the detail frames (the socks, the loafers, the seam at the knee) matter as much as the portraits. Details are where a look either holds together or lets go.",
+      "P.s, loafers with white socks divide a room. I know where I stand."
     ],
     media: [
       { type: 'image', src: D('6467') },
@@ -160,15 +168,16 @@ export const thoughtItems: Thought[] = [
     published: '2026-07-05',
     shootIn: 'the-amaryllis-residences',
     title: "Checked In: a Night at the Bachelor Pad",
+    verdict: "The point of a beautiful room isn’t really the room.",
     category: "Reflections",
     description: "A serviced apartment as a rehearsal for the life you are building. Notes from a night at Amaryllis Residences.",
     cover: '/media/covers/cover-checked-in.jpg',
     coverKind: 'magazine',
     body: [
-      "A house is just a house... until it’s yours. I spent a night at the Amaryllis Residences in Mount Pleasant to test a theory: that a serviced apartment can feel less like a hotel and more like a rehearsal for the life you are building.",
-      "The loft makes its case in small ways. Morning light on the mezzanine rail. A kitchen that expects you to actually cook. Stairs that ask you to slow down on the way up (I did, partly for the view, partly for the knees). The kind of quiet that lets you hear your own taste.",
-      "I made coffee, wore the robe longer than the schedule allowed, and watched the hills do their slow show through the window. Nobody knocked. That detail alone is worth the address.",
-      "What I took home was a note about aspiration. The point of a beautiful room is not the room. It is who you get to practice being while you are in it.",
+      "A house is just a house... until it’s yours. I spent a night at the Amaryllis Residences in Mount Pleasant to test a theory, that a serviced apartment can feel less like a hotel and more like a rehearsal for the life you are building.",
+      "The loft makes its case in small ways. Morning light on the mezzanine rail. A kitchen that expects you to actually cook. Stairs that ask you to slow down on the way up (I did, partly for the view and partly for my knees). The kind of quiet that lets you hear your own taste.",
+      "I made coffee, wore the robe for longer than the schedule allowed, and watched the hills put on their slow show through the window. Nobody knocked. That alone is worth the address.",
+      "What I took home was a thought about aspiration. The point of a beautiful room isn’t really the room. It is who you get to practise being while you’re in it.",
       "P.s, ask for the loft with the hills view. Trust me on this one."
     ],
     media: [
@@ -183,6 +192,7 @@ export const thoughtItems: Thought[] = [
     slug: 'glove-of-the-town',
     published: '2026-08-05',
     title: "Glove of the Town",
+    verdict: "People will only see as far as you let them.",
     category: "Essays",
     description: "A crocheted, rhinestoned glove split the internet in June. Four moves later it was in a gallery, on a runway and on stage. Notes on owning your narrative.",
     cover: G('cover'),
@@ -196,21 +206,21 @@ export const thoughtItems: Thought[] = [
       { role: 'Words & Direction', name: 'Wongani Siwande' }
     ],
     body: [
-      "It was the first week of June that I had to assemble the one man PR team against a slew of insults and abuse on the internet. I have been in the public eye long enough to know that most of it is best left alone, and usually I do.",
-      "The Sunday Soiree Vinoir festival had one of the boldest and most experimental colour palettes ever. If you saw the same design in black or white, you’d immediately say “nice”, but there is a fine line between “nice” and “exceptional” and that is what this palette asked of everyone. I obviously am a big fan of texture and layers. The palette and inspiration boards did not mean “wear only these in this way”, it meant “here is an idea of how far you could take your personal style”.",
-      "Iceman had just come out and the cover art was the iconic bedazzled glove made famous by Michael Jackson. This gave me an idea to take my “nice” outfit into something exceptional, especially to me and my style. So I took it to Zizi Kalua, who owns HookedByZie. She crocheted the glove by hand and set it with rhinestones, and what came back was better than the thing I had described to her. Another reason I never address things is that I am always the first person I try to impress, and that is all that should matter. You.",
-      "Opinions are one thing, hate is a totally different ball game. After the glove made its debut on social media, people called it a bathing glove, among other comments that quickly turned hateful and started touching on me as a person.",
-      "The only thing I had actually been careful about was standing out in the wrong way. I thought I had got that right, and then it got taken out of my hands by people I could do nothing about.",
-      "A lot of people reached out. More than I expected, and quietly, which is its own kind of loyalty.",
-      "I took it all, but I also had a plan.",
-      "First, I posted the actual HD photos of me in the entire outfit, both during the day and at night. What those frames caught that a phone never could was the texture, the layers, the way the palette actually sat in daylight and then again under lights. The tone online that weekend started to look, to me, like something a lot of creators had quietly been dealing with. Discourse started around the outfits.",
-      "I want to be clear about one thing here. I was not the only person who took it that weekend. Other creators got the same treatment and did not have my platform, my contacts, or a run of events already lined up to answer it with. That is the part of this I do not find funny.",
-      "There was a phenomenon of hiding behind “this is what showbiz is, deal with it or stop being in the public eye”. Understandable, but also very narrow in thought, because the people trolling were not tabloids or getting paid; they just genuinely wanted to humble other people, which is something I can never stand for. So I decided to integrate my GLOVE into my everyday. A few days after that was my birthday, so I made a video celebrating it, holding a glass of wine and wearing the glove. It was about refusing to hide something I liked, and showing that taste is subjective in the everyday. The well wishes came in.",
-      "That same week I was doing creative direction and content for an art gallery called the Glasshouse gallery. I pitched putting the glove into the show as a piece, the team liked how it sat with the theme, and on one of the exhibit days I hung it and made a video about it. Light, no argument in it.",
-      "Then another event was on the lineup. I had a fashion show in which I was modelling: the Denim Chill fashion show that showcased upcycled clothes through thrifted denim, organised by the Tikonze Apapa Foundation. I worked with Collins Chisenge, one of the designers there, on a custom denim version. He took the same shape and rebuilt it in offcuts, bedazzled, so it read as denim first and glove second. I never fully vlogged this because I let the third party media do all the talking. After the show, I posted a picture with the glove captioned “new set just dropped”. At this point, people started asking me to create a custom fashion line with the glove as the centrepiece.",
-      "What am I trying to say here? The human mind will only see as far as you let it. This whole situation caused such a major discourse that I couldn’t let other people frame my narrative for me. Had I left it that way, it would have been pitiful: as someone in marketing, I would have let a chance to control my own narrative and market myself slip away. But more importantly, I would have been silently admitting that I made a bad fashion choice I myself never believed in.",
-      "“Keep quiet and let your work do the talking.” Damson Idris. I really live by this, and I think a lot of creatives could learn from knowing that their work is not defined by people or what they think you should be. A great way to stand by what you do is to believe in what you do.",
-      "Last weekend, one of the biggest artists in the country had one made for a performance. I keep seeing recreations at shows and across different sectors. Fashion houses putting their spin on it, artists wearing it on stage, people reaching out for collabs. All I did was keep wearing it. The rest of it is just what happens when you stop apologising for something you actually believe in."
+      "In the first week of June I had to put together a one man PR team against a wave of insults on the internet. I have been in the public eye long enough to know that most of it is best left alone, and usually I do leave it.",
+      "The Sunday Soirée Vinoir festival had one of the boldest, most experimental colour palettes we have ever been given. In black or white the same design would get a “nice”, but there is a fine line between nice and exceptional, and this palette asked everyone to cross it. I’m a big fan of texture and layers, and I read the inspiration boards the way they were meant: not “wear only this, this way”, but “here is how far you could take your own style”.",
+      "Iceman had just come out, and the cover art was the bedazzled glove Michael Jackson made famous. That gave me the idea for how to take my nice outfit somewhere exceptional, at least to me. I took it to Zizi Kalua, who owns HookedByZie. She crocheted the glove by hand and set it with rhinestones, and what came back was better than what I had described. The other reason I rarely respond to things is that I am always the first person I try to impress, and that is all that should matter.",
+      "Opinions are one thing. Hate is a different ball game. After the glove went up on social media, people called it a bathing glove, and the comments quickly turned hateful and started going after me as a person.",
+      "The only thing I had actually been careful about was not standing out in the wrong way. I thought I had got that right, and then it was taken out of my hands by people I could do nothing about.",
+      "A lot of people reached out, more than I expected, and quietly, which is its own kind of loyalty.",
+      "I took it all in. But I also had a plan.",
+      "First, I posted the proper HD photos of the whole outfit, by day and by night. Those frames caught what a phone never could: the texture, the layers, the way the palette sat in daylight and then again under the lights. That weekend it started to look, to me, like something a lot of creators had quietly been dealing with, and the conversation moved on to the outfits themselves.",
+      "I want to be clear about one thing. I was not the only person who took it that weekend. Other creators got the same treatment without my platform, my contacts or a run of events already lined up to answer it with. That is the part of this I don’t find funny.",
+      "A lot of people hid behind “this is showbiz, deal with it or get out of the public eye”. I understand it, but it is a narrow way to think, because the people trolling weren’t tabloids and nobody was paying them. They just wanted to humble someone, and that is something I can never stand for. So I decided to make the glove part of my everyday. My birthday was a few days later, so I made a video celebrating it with a glass of wine in my gloved hand. It was about refusing to hide something I liked, and showing that taste is personal, every single day. The well wishes came in.",
+      "That same week I was doing creative direction and content for the Glasshouse gallery. I pitched putting the glove into the show as a piece, the team liked how it sat with the theme, and on one of the exhibit days I hung it up and made a video about it. Light, with no argument in it.",
+      "Then came the Denim Chill fashion show, which I was modelling in, a show of upcycled, thrifted denim organised by the Tikonze Apapa Foundation. I worked with Collins Chisenge, one of the designers, on a custom denim version. He took the same shape and rebuilt it in offcuts, bedazzled, so it read as denim first and glove second. I never fully vlogged it and let the show’s own media team do the talking. Afterwards I posted a photo with the glove, captioned “new set just dropped”, and that is when people started asking me to make a custom line with the glove at the centre.",
+      "So what am I trying to say? People will only see as far as you let them. This started such a big conversation that I couldn’t let other people tell my story for me. If I had, it would have been a shame. As someone in marketing I would have let a chance to tell my own story slip away, and more importantly, I would have been quietly admitting to a bad fashion choice I never believed was one.",
+      "“Keep quiet and let your work do the talking,” as Damson Idris put it. I live by that, and I think a lot of creatives could learn from knowing that their work isn’t defined by what other people think it should be. The best way to stand by what you do is to believe in it.",
+      "Last weekend one of the biggest artists in the country had one made for a performance. I keep seeing recreations at shows and across different industries, fashion houses putting their own spin on it, artists wearing it on stage, people reaching out to collaborate. All I did was keep wearing it. The rest is just what happens when you stop apologising for something you believe in."
     ],
     media: [
       { type: 'image', src: G('01-thinking') },
@@ -226,6 +236,7 @@ export const thoughtItems: Thought[] = [
     slug: 'a-lookbook-is-never-neutral',
     published: '2026-08-28',
     title: "A Lookbook Is Never Neutral",
+    verdict: "Taste is generous.",
     category: "Essays",
     description: "Taste is generous. A culture of inferiority is not. Notes on building a lookbook for a room whose standard keeps rising.",
     cover: S('cover'),
@@ -237,15 +248,15 @@ export const thoughtItems: Thought[] = [
       { role: 'Theme', name: 'Vieille Monnaie' }
     ],
     body: [
-      "My first Sunday Soirée was at Kumbali Castle and I was there as a creator (how far we have come). Said plainly it sounds like a schedule. What it actually describes is a Sunday afternoon that quietly became an institution, and I have had the strange privilege of watching that happen closely enough to catalogue the details, most recently as the person building a lookbook for the next one.",
-      "Sunday Soirée started as something closer to a gathering than an event, live music, local art, food and design in one room, run on what the people behind it call a micro economy. Guests fund the night, the night sells out, artists and vendors get paid from that, the culture grows, and more people come next time because word got round it was worth planning a Sunday around. No traditional sponsorship, no cash changing hands at the door. It worked because everyone in the room actually believed the premise, that culture is the product, not an accessory to one.",
-      "By this year that premise had grown big enough to attract real backing. FDH Bank came in as a partner for the season, which sounds like a business update and is actually something quieter and more important than that. It means the artists and vendors who make the night what it is know they are getting paid, on time, for a full season, instead of hoping the door numbers work out edition to edition. That is the difference between a scene and an economy, and it happened gradually enough that most people simply noticed the lineup getting better and moved on without asking why.",
-      "I was asked to build the lookbook for the next one, and that brief is what finally made me look at the evolution instead of just living inside it as a guest. A lookbook, stripped down to its simplest form, is a document of what a room like this expects from the people walking into it. Which means it is never neutral. It either widens that door or it narrows it, and there is no version of the document that does neither.",
-      "Here is the part of this that does not photograph well. Taste has become sharper here, genuinely, people plan outfits weeks out now, and there is a real pride in getting the details right that only shows up in a community actually paying attention to itself. I love that part without reservation. But when a room’s standard rises, some people experience that rise as a wall instead of an invitation, and I know this one personally. I have stood on the wrong side of that wall myself, made to feel small over what I was wearing, but I had the language and the confidence to understand what taste even was. It is not comfortable to admit that being put on the spot isn’t always a good feeling. It is also the only honest place to start from when you are the one being handed the brief, because the document you make either teaches people to look closer or it just tells them they have not arrived yet.",
-      "Taste is generous. It notices something specific, a fabric, a colour, a combination that should not work and somehow does, and it shares that noticing instead of hoarding it. It invites you closer and makes you want to try something you would not have tried before. A culture of inferiority does the opposite of all of that. It has no interest in specifics, only in the vague sense that you have not quite arrived, kept just fuzzy enough that you can never actually fix it. One builds a person up by teaching them to look closer. The other keeps a person small by making sure they never feel like they looked closely enough.",
-      "What I did was recreate some of the look inspirations posted by the Soirée team and translate them into my own wardrobe, to show that the theme, Vieille Monnaie, isn’t telling you to break the bank, be out of place to fit in, or create a persona you don’t identify with. It’s telling you to take a closer look at what you have and make something tasteful. It’s telling you to be quietly confident enough that it shows in your choice of outfit. That is what style is. More care into the choice of clothes you put on your back.",
-      "The market has shifted toward the aspirational end of all this. Dressing well is more visible now, more photographed, closer to a flex than it used to be, and mostly that is good. But there is a real risk sitting right underneath the shift, which is that a scene can start selling the anxiety instead of the taste, because anxiety is a lot easier to package than genuine style ever was. I did not want the lookbook doing that. I wanted it to read like an invitation from someone who actually wants you to look good, not a test with a pass mark nobody shows you.",
-      "Taste is an artform. An artform is something you practice, get wrong, refine, and get a little better at every time you try it. It is not a bar hovering above your head that you either clear or do not. That is the whole distinction I tried to put into eight editions’ worth of evolution, without saying a single word of it out loud inside the lookbook itself. The clothes were always going to do that talking."
+      "My first Sunday Soirée was at Kumbali Castle, and I was there as a creator (how far we have come). Since then I have watched a Sunday afternoon quietly turn into an institution, close enough to notice the details, and most recently as the person building the lookbook for the next one.",
+      "Sunday Soirée started out closer to a gathering than an event. Live music, local art, food and design in one room, run on what the team calls a micro economy. Guests fund the night, the night sells out, the artists and vendors get paid from that, and more people come next time because word got round that it was worth planning a Sunday around. No traditional sponsorship and no cash at the door. It worked because everyone in the room believed the premise, that culture is the product, not an accessory to one.",
+      "This year that premise grew big enough to attract real backing, and FDH Bank came in as a partner for the season. It sounds like a business update, but it is something quieter and more important than that. It means the artists and vendors who make the night what it is know they will be paid, on time, for a whole season, instead of hoping the door numbers work out each time. That is the difference between a scene and an economy, and it happened slowly enough that most people just noticed the lineup getting better.",
+      "Being asked to build the lookbook is what finally made me look at that evolution instead of just enjoying it as a guest. A lookbook, at its simplest, is a document of what a room expects from the people walking into it. Which means it is never neutral. It either widens the door or narrows it, and there is no version that does neither.",
+      "Here is the part that doesn’t photograph well. Taste has genuinely got sharper here. People plan their outfits weeks out now, and there is a real pride in getting the details right that only happens in a community that is paying attention to itself. I love that part without reservation. But when a room’s standard rises, some people feel it as a wall rather than an invitation, and I know that one personally. I have stood on the wrong side of it, made to feel small over what I was wearing, even though I had the language and the confidence to understand what taste even was. It isn’t comfortable to admit that being put on the spot doesn’t always feel good. It is also the only honest place to start when you are the one handed the brief, because what you make will either teach people to look closer or tell them they haven’t arrived yet.",
+      "Taste is generous. It notices something specific, a fabric, a colour, a combination that shouldn’t work and somehow does, and it shares that instead of hoarding it. It invites you closer and makes you want to try something new. A culture of inferiority does the opposite. It has no interest in specifics, only in a vague sense that you haven’t quite arrived, kept just fuzzy enough that you can never fix it. One builds you up by teaching you to look closer. The other keeps you small by making sure you never feel you looked closely enough.",
+      "So I took some of the look inspirations the Soirée team had posted and translated them into my own wardrobe, to show that the theme, Vieille Monnaie, isn’t asking you to break the bank, feel out of place or become someone you don’t recognise. It is asking you to look closely at what you already have and make something tasteful out of it, and to be quietly confident enough that it shows. That is what style is. A bit more care in what you put on your back.",
+      "Dressing well is more visible now, more photographed and closer to a flex than it used to be, and mostly that is a good thing. The risk sitting underneath it is that a scene can start selling the anxiety instead of the taste, because anxiety is much easier to package. I didn’t want the lookbook doing that. I wanted it to read like an invitation from someone who wants you to look good, not a test with a pass mark nobody shows you.",
+      "Taste is an artform. It is something you practise, get wrong, refine and get a little better at each time, not a bar above your head that you either clear or don’t. That is the whole idea I tried to put into eight editions’ worth of evolution, without saying a word of it out loud in the lookbook itself. The clothes were always going to do that talking."
     ],
     media: [
       { type: 'image', src: S('01-look01') },
@@ -270,6 +281,7 @@ export const thoughtItems: Thought[] = [
     slug: 'sun-set-matcha',
     published: '2026-10-21',
     title: "Sun, Set, Matcha",
+    verdict: "You don’t need a new outfit for every colour on the invite.",
     category: "Essays",
     description: "My first matcha was at a Soirée tasting, and the colour stuck. Five looks from the Blantyre Open edition of the Sunday Soirée, starting with the green one.",
     credit: "Photography by Keong Kadango",
@@ -284,12 +296,12 @@ export const thoughtItems: Thought[] = [
     ],
     body: [
       "The first time I tried matcha was at a Sunday Soirée tasting. I went in for the drink and came out with a colour. That soft green stayed in my head long after the cup, so when the Blantyre Open edition handed us four colours and one of them was matcha, I knew which look I was building first.",
-      "The Blantyre Open gave us four colours and a tennis court but the weather decided the rest for me. When an event starts at 1:30 in full sun to a somewhat warm evening, you have to take into account comfort which is a big part of looking good.",
-      "Summer in 2026 looks very different for me, and not only because I do fashion lookbooks for events like the Sunday Soirée now. It’s hotter, it’s more erratic and, most of all, it is very hard to find a good in-between outfit that actually looks good.",
-      "For this edition of the Sunday Soirée, I was inspired by the weather, hence the large, light and breathable fabrics, the old and modern country club aesthetic, and some of my favourite sports fashionistas, like Lewis Hamilton on and off the track (how does he do that?) and Naomi Osaka, and the way she shows up in her clothes on and off the court.",
-      "I wanted to create a player and spectator contrast, but my focus was more spectator, and I collaborated with The Stitchroom to bring these breathable pieces to life. I had a mix of shorts and trousers, and I mostly used white to set up my looks, which, ironically, made the other colours stand out more.",
-      "This edition gave us four colour inspirations: matcha, rosé pink, muted blue and white. Consider this your reminder that inspiration does not mean a strict dress code. Fashion is about expression, and you can bring your own palette and aesthetic into the officially released one. Most people think this isn’t the case, and that is okay, but listen to me if you want to wear something you can be comfortable in while you have a good time.",
-      "Let’s break down the outfit combinations.",
+      "The Blantyre Open gave us four colours and a tennis court, and the weather decided the rest. When an event starts at 1:30 in full sun and runs into a warm evening, you have to think about comfort, which is a big part of looking good anyway.",
+      "Summer looks different for me this year, and not only because I now build lookbooks for events like the Sunday Soirée. It is hotter, it is less predictable and, most of all, it is hard to find a good in-between outfit that actually looks good.",
+      "So for this edition I took my cue from the weather: big, light, breathable fabrics, a country club look that is part old and part modern, and some of my favourite sports dressers, like Lewis Hamilton on and off the track (how does he do that?) and Naomi Osaka, and the way she shows up in her clothes on and off the court.",
+      "I wanted a contrast between player and spectator, though I leaned more spectator, and I worked with The Stitchroom to make these breathable pieces. I mixed shorts and trousers and used mostly white to set up each look, which, funnily enough, made the other colours stand out more.",
+      "The four colours this edition were matcha, rosé pink, muted blue and white. Consider this your reminder that inspiration isn’t a strict dress code. Fashion is expression, and you can bring your own palette into the official one. A lot of people think you can’t, and that’s okay, but listen to me if you want to wear something you’re comfortable in while you have a good time.",
+      "Here is how each look came together.",
       "## Look 01 · Rosé Pink",
       "I started with the spectator. A blush pink satin shirt with a band collar, worn loose over white wide leg trousers, because if it’s going to be this hot I want air moving. The cow print Sambas were my bit of fun at the bottom, and the black and gold frames with the lilac lens kept the pink from getting too sweet (pink tips over fast if you let it).",
       "## Look 02 · Matcha",
@@ -329,6 +341,7 @@ export const thoughtItems: Thought[] = [
     slug: 'one-of-two',
     published: '2026-11-11',
     title: "One of Two",
+    verdict: "Not the camera I wanted, but the camera I had.",
     category: "Reflections",
     description: "A year of firsts, one nomination, and the camera I actually had. On finally knowing what the work is worth.",
     credit: "Nominated for Content Creator of the Year by the Institute of Marketing in Malawi (IMM), 2026",
@@ -338,8 +351,18 @@ export const thoughtItems: Thought[] = [
       "Being a creative has handed me a lot of wins (and a lot of headaches). There is never a set rule or standard way of doing things, which for me looks like devising a formula for every single concept.",
       "When I received this nomination for Content Creator of the Year from the Institute of Marketing in Malawi, I looked back at every single challenge that led me here. It has been a year of a lot of firsts. First solo campaign. First solo trip to go and shoot content. And now, first marketing-related nomination.",
       "The most important first for me has been finally knowing what I do is worth (if I charge what I am worth, not even I can afford me). I know that a lot of the mechanics in the background will rarely be seen, but the output always speaks for itself.",
-      "I was lucky to work on my personal brand alongside a lot of big brands like Enkosi, FDH and Kwithu Kitchen. I was so proud of this work that it easily landed me as one of two contenders, and I am forever grateful that I took the camera on my then iPhone X seriously. Not the camera I wanted. The camera I had.",
+      "I was lucky to work on my personal brand alongside a lot of big brands like Enkosi, FDH and Kwithu Kitchen. I was so proud of this work that it easily landed me as one of two contenders, and I am forever grateful that I took the camera on my then iPhone X seriously. Not the camera I wanted, but the camera I had.",
       "This nomination in itself has opened doors for me, and you can expect a lot more greatness going forward."
     ]
   }
 ];
+
+// Every piece carries an issue number, in the order it went live. Shown on the
+// cards, at the top of the piece and on the Index.
+const byDate = [...thoughtItems].sort((a, b) => (a.published === b.published ? a.id - b.id : a.published < b.published ? -1 : 1));
+export const issueNo = (slug: string) => {
+  const n = byDate.findIndex(t => t.slug === slug) + 1;
+  return `No. ${String(n).padStart(2, '0')}`;
+};
+export const issueMonth = (iso: string) =>
+  new Date(iso + 'T12:00:00Z').toLocaleDateString('en-GB', { month: 'short', year: 'numeric', timeZone: 'UTC' });

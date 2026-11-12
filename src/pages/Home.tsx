@@ -6,52 +6,67 @@ import { useState, useEffect } from 'react';
 import Logo from '../components/Logo';
 import Parallax from '../components/Parallax';
 import BrandLoop from '../components/BrandLoop';
+import Develop from '../components/Develop';
+import TheEdit from '../components/TheEdit';
 import { HOME } from '../data/copy';
 
-// Six frames across the range: direction, styling, film, campaign, writing,
-// documentary. Each tile opens the full piece. No employer work here.
+// Six frames across the range: direction, a series, styling, campaign, writing,
+// documentary. Each opens on a detail and develops into the full frame (see
+// components/Develop.tsx). The verdict under each is his own line from the piece.
+// No employer work here.
 const selectedWork = [
   {
     id: 1,
     title: "The Tastemaker at Home",
-    tags: "Amaryllis Residences · Creative direction and presence",
-    image: "/media/amaryllis/gallery/08-scarf.jpg",
+    tags: "Lookbook · Amaryllis Residences",
+    verdict: "A shoot is one idea, wearing five outfits.",
+    image: "/media/home/scarf.jpg",
+    detail: "/media/home/scarf-detail.jpg",
     to: "/presence/the-amaryllis-residences"
   },
   {
     id: 2,
     title: "MLKY Bar, Three Rounds",
-    tags: "With Tyra Sabadia · Series and release strategy",
-    image: "/media/mlky/0624.jpg",
-    position: "28% 50%",
+    tags: "Series · with Tyra Sabadia",
+    verdict: "The audience learns one thing at a time.",
+    image: "/media/home/mlky.jpg",
+    detail: "/media/home/mlky-detail.jpg",
     to: "/presence/mlky-bar-three-rounds"
   },
   {
     id: 3,
     title: "Sun, Set, Matcha",
-    tags: "Sunday Soirée · Lookbook and styling",
-    image: "/media/tennis/05-matcha-full.jpg",
+    tags: "Lookbook · Sunday Soirée",
+    verdict: "You don’t need a new outfit for every colour on the invite.",
+    image: "/media/home/matcha.jpg",
+    detail: "/media/home/matcha-detail.jpg",
     to: "/thoughts/sun-set-matcha"
   },
   {
     id: 4,
     title: "Denim in Bloom",
-    tags: "Tikonze Apapa · Campaign and modelling",
-    image: "/media/denim/bloom-portrait.jpg",
+    tags: "Campaign · Tikonze Apapa",
+    verdict: "Denim wants to be casual. The flowers refuse to let it.",
+    image: "/media/home/bloom.jpg",
+    detail: "/media/home/bloom-detail.jpg",
     to: "/presence/denim-in-bloom"
   },
   {
     id: 5,
     title: "One of Two",
     tags: "Essay · On the nomination",
-    image: "/media/amaryllis/gallery/9418.jpg",
+    verdict: "Not the camera I wanted, but the camera I had.",
+    image: "/media/home/brown.jpg",
+    detail: "/media/home/brown-detail.jpg",
     to: "/thoughts/one-of-two"
   },
   {
     id: 6,
     title: "Twenty Beds",
-    tags: "Road to Relief · Documentary direction",
-    image: "/media/rtr/cover.jpg",
+    tags: "Film · Road to Relief",
+    verdict: "Let the room speak first.",
+    image: "/media/home/doctor.jpg",
+    detail: "/media/home/doctor-detail.jpg",
     to: "/experiments/road-to-relief"
   }
 ];
@@ -158,23 +173,20 @@ export default function Home() {
               <Link to={work.to}>
                 <Parallax offset={idx % 2 === 0 ? 40 : 20}>
                   <div className="aspect-[3/4] overflow-hidden mb-6 md:mb-8 bg-brand-ink/5 relative">
-                    <img
-                      src={work.image}
-                      alt={work.title}
-                      loading="lazy"
-                      decoding="async"
-                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 ease-out"
-                      style={work.position ? { objectPosition: work.position } : undefined}
-                    />
+                    <Develop src={work.image} detail={work.detail} alt={work.title} />
                   </div>
                 </Parallax>
+                <p className="text-[9px] md:text-[10px] uppercase tracking-[0.25em] font-semibold opacity-40 mb-3">{work.tags}</p>
                 <h3 className="text-xl md:text-2xl font-serif mb-2 group-hover:italic transition-all duration-500">{work.title}</h3>
-                <p className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] opacity-40">{work.tags}</p>
+                <p className="font-serif italic text-lg leading-snug opacity-70">{work.verdict}</p>
               </Link>
             </motion.div>
           ))}
         </div>
       </section>
+
+      {/* The Edit: five things he rates right now */}
+      <TheEdit />
 
       {/* Brands, logos only */}
       <div className="border-t border-brand-ink/5">
