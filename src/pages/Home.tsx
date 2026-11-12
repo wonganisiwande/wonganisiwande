@@ -78,22 +78,22 @@ function DictionaryCard() {
   const e = HOME.entry;
   const [open, setOpen] = useState(false);
   return (
-    <figure className="mx-auto w-full max-w-[26rem] md:max-w-md text-left border border-brand-ink/10 bg-brand-bg/70 backdrop-blur-sm hover:border-brand-ink/25 transition-colors duration-500">
+    <figure className="mx-auto w-full max-w-[16.5rem] sm:max-w-sm md:max-w-md text-left border border-brand-ink/10 bg-brand-bg/70 backdrop-blur-sm hover:border-brand-ink/25 transition-colors duration-500">
       <button
         type="button"
         onClick={() => setOpen(o => !o)}
         aria-expanded={open}
         aria-controls="taste-director-definition"
-        className="w-full flex items-center justify-between gap-4 px-6 py-4 md:px-8 md:py-5 text-left focus-visible:outline focus-visible:outline-1 focus-visible:outline-brand-accent"
+        className="w-full flex items-center justify-between gap-3 px-4 py-2.5 sm:px-6 sm:py-4 md:px-8 md:py-5 text-left focus-visible:outline focus-visible:outline-1 focus-visible:outline-brand-accent"
       >
         <span className="flex flex-wrap items-baseline gap-x-3 gap-y-1 min-w-0">
-          <span className="font-serif text-2xl md:text-3xl font-medium">{e.word}</span>
-          <span className="font-serif italic text-base text-brand-muted">{e.pos}</span>
+          <span className="font-serif text-lg sm:text-2xl md:text-3xl font-medium">{e.word}</span>
+          <span className="font-serif italic text-sm sm:text-base text-brand-muted">{e.pos}</span>
         </span>
         <span className="flex items-center gap-2 shrink-0 text-[10px] uppercase tracking-[0.25em] text-brand-muted">
           <span className="hidden sm:inline">{open ? 'Close' : 'Define'}</span>
           <Plus
-            size={16}
+            size={14}
             strokeWidth={1.3}
             className={`transition-transform duration-500 ${open ? 'rotate-45' : ''}`}
             aria-hidden="true"
@@ -111,11 +111,11 @@ function DictionaryCard() {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
-            <div className="px-6 pb-5 md:px-8 md:pb-7">
-              <p className="text-sm font-light text-brand-muted mb-3">{e.pron}</p>
-              <div className="w-10 border-t border-brand-accent/60 mb-3 md:mb-4" />
-              <p className="text-[15px] md:text-lg font-light leading-relaxed">{e.def}</p>
-              <p className="mt-2 font-serif italic text-[15px] md:text-base text-brand-muted">{e.eg}</p>
+            <div className="px-4 pb-4 sm:px-6 sm:pb-5 md:px-8 md:pb-7">
+              <p className="text-xs sm:text-sm font-light text-brand-muted mb-2 sm:mb-3">{e.pron}</p>
+              <div className="w-8 sm:w-10 border-t border-brand-accent/60 mb-2.5 sm:mb-3 md:mb-4" />
+              <p className="text-sm sm:text-[15px] md:text-lg font-light leading-relaxed">{e.def}</p>
+              <p className="mt-1.5 sm:mt-2 font-serif italic text-sm sm:text-[15px] md:text-base text-brand-muted">{e.eg}</p>
             </div>
           </motion.div>
         )}
