@@ -31,14 +31,13 @@ const categories = [
 // Editorial scatter positions, desktop only. Mobile stacks in flow.
 const scatter = [
   { left: '6%', top: 0 },
-  { left: '54%', top: 170 },
-  { left: '12%', top: 440 },
-  { left: '58%', top: 610 },
-  { left: '28%', top: 880 }
+  { left: '54%', top: 220 },
+  { left: '14%', top: 500 },
+  { left: '58%', top: 720 }
 ];
-// The pattern repeats further down the page, so a sixth piece never lands on
-// top of the first.
-const PERIOD = 1120;
+// Two loose columns that zigzag. The pattern repeats further down the page, so
+// no card ever lands on another, however many pieces there are.
+const PERIOD = 1000;
 const desktopPositions = (idx: number) => {
   const p = scatter[idx % scatter.length];
   return { left: p.left, top: p.top + Math.floor(idx / scatter.length) * PERIOD };
